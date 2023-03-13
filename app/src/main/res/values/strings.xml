@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Touristo</string>
+    <string name="logoName">Touristo</string>
+    <string name="logoTheme">Travel Without Limits</string>
+    <string name="registerAccount">Doesn\'t Have Any Account? <b>Register Here</b></string>
+    <string name="copyRight">© 2023 Touristo. All rights reserved.</string>
+    <string name="sign_in_btn">SIGN IN</string>
+    <string name="etEmailLabel">Enter Your Email Address</string>
+    <string name="etEmailField">emaple22@gmail.com</string>
+    <string name="etPasswordField">************</string>
+    <string name="forgot_password"><b>Forgot Password?</b></string>
+    <string name="enter_your_password">Enter Your Password</string>
+    <string name="sign_up_btn">SIGN UP</string>
+    <string name="sign_in_text">Already Have A Account? <b>Sign In Here</b></string>
+    <string name="rePasswrdLabel">Re-Enter Your Password</string>
+    <string name="telNumberLabel">Enter Your Telephone Number</string>
+    <string name="telHint">0772312456</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

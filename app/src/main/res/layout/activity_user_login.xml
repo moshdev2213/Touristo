@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".UserLogin">
+
+    <ImageView
+        android:id="@+id/imgBack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-60dp"
+        android:scaleType="fitStart"
+        app:srcCompat="@drawable/sign_in_back" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-20dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imgLogo"
+            android:layout_width="90dp"
+            android:layout_height="75dp"
+            android:layout_marginStart="-20dp"
+            app:srcCompat="@drawable/logo" />
+
+        <TextView
+            android:id="@+id/tvLogoTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="75dp"
+            android:baselineAligned="false"
+            android:fontFamily="@font/montserrat_semibold"
+            android:gravity="center"
+            android:text="@string/logoName"
+            android:textColor="@color/splashBackground"
+            android:textSize="34sp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvTheme"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-5dp"
+        android:fontFamily="@font/montserrat"
+        android:gravity="center_horizontal"
+        android:text="@string/logoTheme"
+        android:textColor="@color/splashBackground"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvEmailLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/montserrat"
+        android:text="@string/etEmailLabel"
+        android:textColor="@color/splashBackground"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/etEmail"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="16dp"
+        android:background="@drawable/editfeld"
+        android:ems="10"
+        android:hint="@string/etEmailField"
+        android:inputType="textEmailAddress"
+        android:padding="10dp"
+        android:textColorHint="@color/editField" />
+
+    <TextView
+        android:id="@+id/tvPasswordLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/montserrat"
+        android:text="@string/enter_your_password"
+        android:textColor="@color/splashBackground"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/etPassword"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="16dp"
+        android:background="@drawable/editfeld"
+        android:ems="10"
+        android:hint="@string/etPasswordField"
+        android:inputType="textPassword"
+        android:padding="10dp"
+        android:textColorHint="@color/editField" />
+
+    <TextView
+        android:id="@+id/tvForgotPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="20dp"
+        android:fontFamily="@font/montserrat"
+        android:gravity="end"
+        android:text="@string/forgot_password"
+        android:textColor="@color/splashBackground"
+        android:textSize="13sp" />
+    <Button
+        android:id="@+id/btnSignIn"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="60dp"
+        android:backgroundTint="@color/btnGreen"
+        android:fontFamily="@font/montserrat_semibold"
+        android:padding="6dp"
+        android:text="@string/sign_in_btn"
+        android:textColor="@color/splashBackground"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tvRegister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat"
+        android:text="@string/registerAccount"
+        android:textSize="16sp"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:id="@+id/tvCopyright"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat"
+        android:text="@string/copyRight"
+        android:textSize="12sp"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="20dp"/>
+
+</LinearLayout>
