@@ -32,8 +32,26 @@ class UserIndex : AppCompatActivity() {
         replaceFragment(UserHomeFrag())
         btnNav.setOnItemSelectedListener{
             when(it.itemId){
-                R.id.home ->replaceFragment(UserHomeFrag())
-                R.id.cart ->replaceFragment(CartFrag())
+                R.id.home ->{
+                    //the if block is executed so that the notification pannel color changes and the Icon of them changes
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                        window.statusBarColor = ContextCompat.getColor(this, R.color.bgBackground)
+
+                        val flags = window.decorView.systemUiVisibility
+                        window.decorView.systemUiVisibility = flags or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+                    }
+                    replaceFragment(UserHomeFrag())
+                }
+                R.id.cart ->{
+                    //the if block is executed so that the notification pannel color changes and the Icon of them changes
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                        window.statusBarColor = ContextCompat.getColor(this, R.color.splashBackground)
+
+                        val flags = window.decorView.systemUiVisibility
+                        window.decorView.systemUiVisibility = flags and View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR.inv()
+                    }
+                    replaceFragment(CartFrag())
+                }
                 R.id.booked ->replaceFragment(BookingFrag())
                 R.id.profile ->replaceFragment(ProfileFrag())
 
