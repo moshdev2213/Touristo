@@ -61,7 +61,15 @@ class UserIndex : AppCompatActivity() {
                     }
                     replaceFragment(BookingFrag())
                 }
-                R.id.profile ->replaceFragment(ProfileFrag())
+                R.id.profile ->{
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                        window.statusBarColor = ContextCompat.getColor(this, R.color.splashBackground)
+
+                        val flags = window.decorView.systemUiVisibility
+                        window.decorView.systemUiVisibility = flags and View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR.inv()
+                    }
+                    replaceFragment(ProfileFrag())
+                }
 
                 else->{
 
