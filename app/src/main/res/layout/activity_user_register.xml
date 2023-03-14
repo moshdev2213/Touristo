@@ -165,11 +165,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="55dp"
         android:layout_marginTop="40dp"
-        android:backgroundTint="@color/btnGreen"
+        android:backgroundTint="@color/btnSplash"
         android:fontFamily="@font/montserrat_semibold"
         android:padding="6dp"
         android:text="@string/sign_up_btn"
-        android:textColor="@color/splashBackground"
+        android:textColor="@color/white"
         android:textSize="20sp" />
 
     <TextView

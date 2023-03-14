@@ -11,6 +11,7 @@
     <color name="splashBackground">#101A30</color>
     <color name="splashCard">#F5F7F9</color>
     <color name="btnGreen">#A7FC84</color>
+    <color name="btnSplash">#101A30</color>
     <color name="editField">#DDDDDD</color>
     <color name="bgBackground">#EFEFEF</color>
 </resources>
