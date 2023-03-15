@@ -243,7 +243,7 @@
                     android:elevation="30dp"
                     android:fontFamily="@font/montserrat_semibold"
                     android:text="Delete Account"
-                    android:textColor="#F53838"
+                    android:textColor="@color/dltbtncolor"
                     android:textSize="25sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"

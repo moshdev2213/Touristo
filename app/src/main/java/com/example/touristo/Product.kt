@@ -13,7 +13,7 @@ class Product : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_product)
 
-        // In Activity's onCreate() for instance
+        // In Activity's onCreate() for instance this transparents the background
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             val w: Window = window
             w.setFlags(

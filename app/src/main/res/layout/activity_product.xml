@@ -336,20 +336,38 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <Button
-                android:id="@+id/button5"
+            <TextView
+                android:id="@+id/textView33"
                 android:layout_width="wrap_content"
-                android:layout_height="60dp"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="-10dp"
-                android:backgroundTint="@color/btnSplash"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="121dp"
+                android:elevation="20dp"
                 android:fontFamily="@font/montserrat_semibold"
-                android:padding="10dp"
-                android:text="Add To Favourites"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:text="Rs 15000.00"
+                android:textColor="@color/btnSplash"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toStartOf="@+id/button6"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.38" />
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView35"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="115dp"
+                android:layout_marginBottom="31dp"
+                android:fontFamily="@font/montserrat"
+                android:text="Ultra Deluxe Room"
+                android:textColor="@color/btnSplash"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/button6"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView33" />
 
             <Button
                 android:id="@+id/button6"
@@ -365,6 +383,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.38" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 

@@ -10,11 +10,12 @@
         android:id="@+id/textView24"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:elevation="20dp"
+        android:layout_marginTop="24dp"
+        android:alpha="0.5"
+        android:elevation="10dp"
         android:fontFamily="@font/montserrat_semibold"
-        android:text="PAYMENT"
-        android:textColor="@color/btnSplash"
+        android:text="To Pay"
+        android:textColor="@color/white"
         android:textSize="48sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -22,19 +23,86 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/textView56"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="188dp"
+        android:alpha="0.5"
+        android:elevation="10dp"
+        android:fontFamily="@font/montserrat_semibold"
+        android:text="Card Payments"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
         android:id="@+id/textView25"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:elevation="10dp"
+        android:fontFamily="@font/montserrat_semibold"
+        android:text="Rs 35000"
+        android:textColor="@color/white"
+        android:textSize="55sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView24" />
+
+    <ImageView
+        android:id="@+id/imageView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-150dp"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/spashrectangle" />
+
+    <TextView
+        android:id="@+id/textView25"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
         android:alpha="0.7"
         android:fontFamily="@font/montserrat_semibold"
         android:text="CardHolder Name"
         android:textColor="@color/btnSplash"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.056"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView55" />
+
+    <TextView
+        android:id="@+id/textView55"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:alpha="0.7"
+        android:fontFamily="@font/montserrat_semibold"
+        android:text="Add Payment Details"
+        android:textColor="@color/btnSplash"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/imageView23"
         app:layout_constraintHorizontal_bias="0.069"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView14" />
+
+    <ImageView
+        android:id="@+id/imageView23"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="16dp"
+        android:alpha="0.7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView14"
+        app:srcCompat="@drawable/outline_credit_card_24" />
 
     <TextView
         android:id="@+id/textView30"
@@ -81,17 +149,6 @@
         app:layout_constraintStart_toEndOf="@+id/textView31"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
 
-    <ImageView
-        android:id="@+id/imageView14"
-        android:layout_width="385dp"
-        android:layout_height="238dp"
-        android:layout_marginTop="20dp"
-        android:elevation="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView24"
-        app:srcCompat="@drawable/debitcard" />
-
     <EditText
         android:id="@+id/editTextTextPersonName"
         android:layout_width="379dp"
@@ -103,22 +160,6 @@
         android:inputType="textPersonName"
         android:padding="10dp"
         android:textSize="25sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.406"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView30" />
-
-    <EditText
-        android:id="@+id/editTextTextPersonName3"
-        android:layout_width="379dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="12dp"
-        android:background="@drawable/editfeld"
-        android:ems="10"
-        android:hint="xxxx-xxxx-xxxx-xxxx"
-        android:inputType="number"
-        android:padding="10dp"
-        android:textSize="23sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.406"
         app:layout_constraintStart_toStartOf="parent"
@@ -187,18 +228,52 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView25" />
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="24dp"
-        android:backgroundTint="@color/btnSplash"
-        android:fontFamily="@font/montserrat_semibold"
-        android:text="PAY NOW"
-        android:textSize="20sp"
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName5" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName5"
+        app:layout_constraintVertical_bias="1.0">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/button5"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:backgroundTint="@color/btnSplash"
+                android:fontFamily="@font/montserrat_semibold"
+                android:padding="10dp"
+                android:text="Pay Now"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/dltbtncolor"
+                android:fontFamily="@font/montserrat_semibold"
+                android:padding="10dp"
+                android:text="Decline"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/button5"
+                app:layout_constraintHorizontal_bias="0.567"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
