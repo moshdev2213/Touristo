@@ -17,4 +17,7 @@
     <string name="telHint">0772312456</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="openSideNav">open</string>
+    <string name="closeSideNav">close</string>
 </resources>
