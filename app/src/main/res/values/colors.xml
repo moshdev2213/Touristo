@@ -15,4 +15,19 @@
     <color name="editField">#DDDDDD</color>
     <color name="bgBackground">#EFEFEF</color>
     <color name="dltbtncolor">#F53838</color>
+
+    <!--admin dashboard colors starts-->
+    <color name="adminbtn">#6458DF</color>
+
+    <color name="salesbg">#EFEDFD</color>
+    <color name="sales">#6458DF</color>
+
+    <color name="bookingsbg">#FDEBEB</color>
+    <color name="bookings">#EA5455</color>
+
+    <color name="cuscountbg">#E1F9FC</color>
+    <color name="cuscount">#39D9ED</color>
+
+    <color name="admincountbg">#E6F8EE</color>
+    <color name="admincount">#28C76F</color>
 </resources>
