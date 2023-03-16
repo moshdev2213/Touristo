@@ -353,7 +353,7 @@
                         android:id="@+id/button21"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
+                        android:layout_marginStart="14dp"
                         android:layout_marginBottom="16dp"
                         android:backgroundTint="@color/adminbtn"
                         android:fontFamily="@font/montserrat"

@@ -30,4 +30,6 @@
 
     <color name="admincountbg">#E6F8EE</color>
     <color name="admincount">#28C76F</color>
+
+    <color name="touristMcard">#9E97A6</color>
 </resources>
