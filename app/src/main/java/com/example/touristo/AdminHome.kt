@@ -11,6 +11,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
+import com.example.touristo.Fragments.AdminHomeFrag
 import com.example.touristo.Fragments.AdminManagement
 import com.example.touristo.Fragments.TouristManagement
 import com.example.touristo.Fragments.VillaManagement
@@ -48,10 +49,11 @@ lateinit var drawerLayout : DrawerLayout
         toggle.syncState()
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
+        replaceFrags(AdminHomeFrag())
         navView.setNavigationItemSelectedListener {
             it.isChecked = true
             when(it.itemId){
+                R.id.nav_home->replaceFrags(AdminHomeFrag())
                 R.id.nav_customerManagement->replaceFrags(TouristManagement())
                 R.id.nav_adminManagement->replaceFrags(AdminManagement())
                 R.id.nav_villaManagement->replaceFrags(VillaManagement())
