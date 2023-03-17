@@ -12,20 +12,17 @@
         android:theme="@style/Theme.Touristo"
         tools:targetApi="31">
         <activity
+            android:name=".VillaSingleView"
+            android:exported="true"/>
+        <activity
             android:name=".VillaEditProfile"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="true"/>
         <activity
             android:name=".TouristManagementRegistration"
             android:exported="true" />
         <activity
             android:name=".AdminUpdateProfile"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".VillaProfileHandling"
             android:exported="true" />

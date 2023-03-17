@@ -38,4 +38,6 @@
     <color name="adminManagement">#670ED8</color>
     <color name="adminManagementBtn">#40D1CC</color>
     <color name="villaManagementCArdcolor">#6CA0B6</color>
+    <color name="villaManagementBookingsCArdcolor">#0096E2</color>
+    <color name="villaManagementBookingscolor">#FEDC41</color>
 </resources>
