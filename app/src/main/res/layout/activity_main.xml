@@ -95,17 +95,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="55dp"
+        android:backgroundTint="@color/btnSplash"
         android:fontFamily="@font/montserrat_semibold"
+        android:padding="10dp"
         android:text="Get Started For Free"
-        android:textColor="@color/splashBackground"
+        android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
-        app:layout_constraintVertical_bias="0.0"
-        android:backgroundTint="@color/btnGreen"
-        android:padding="10dp"/>
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
