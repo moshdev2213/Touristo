@@ -34,4 +34,7 @@
     <color name="touristMcard">#9E97A6</color>
     <color name="btnGold">#f69110</color>
     <color name="pigPink">#E68A9B</color>
+    <color name="villaProfile">#C9C7E3</color>
+    <color name="adminManagement">#670ED8</color>
+    <color name="adminManagementBtn">#40D1CC</color>
 </resources>
