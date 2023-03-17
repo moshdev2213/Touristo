@@ -7,12 +7,11 @@
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/baseline_home_24"
-            android:title="Home"
-            android:checked="true"/>
+            android:title="Home"/>
         <item
             android:id="@+id/nav_customerManagement"
             android:icon="@drawable/outline_people_outline_24"
-            android:title="Customer Management"/>
+            android:title="Tourist Management"/>
         <item
             android:id="@+id/nav_villaManagement"
             android:icon="@drawable/outline_location_on_24"
