@@ -23,7 +23,7 @@
       <androidx.cardview.widget.CardView
           android:id="@+id/cardView13"
           android:layout_width="380dp"
-          android:layout_height="650dp"
+          android:layout_height="wrap_content"
           android:layout_marginStart="16dp"
           android:layout_marginTop="16dp"
           android:layout_marginEnd="16dp"
@@ -54,12 +54,23 @@
               app:layout_constraintStart_toStartOf="parent"
               app:layout_constraintTop_toTopOf="parent" />
 
+          <ImageView
+              android:id="@+id/imageView47"
+              android:layout_width="150dp"
+              android:layout_height="150dp"
+              android:layout_marginTop="20dp"
+              app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintHorizontal_bias="0.5"
+              app:layout_constraintStart_toStartOf="parent"
+              app:layout_constraintTop_toBottomOf="@+id/textView72"
+              app:srcCompat="@drawable/vill_profile_handling" />
+
           <TextView
               android:id="@+id/textView65"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:layout_marginStart="16dp"
-              android:layout_marginTop="20dp"
+              android:layout_marginTop="16dp"
               android:fontFamily="@font/montserrat_semibold"
               android:text="Email Address"
               android:textColor="@color/btnSplash"
@@ -67,7 +78,7 @@
               app:layout_constraintEnd_toEndOf="parent"
               app:layout_constraintHorizontal_bias="0.0"
               app:layout_constraintStart_toStartOf="parent"
-              app:layout_constraintTop_toBottomOf="@+id/textView72" />
+              app:layout_constraintTop_toBottomOf="@+id/imageView47" />
 
           <TextView
               android:id="@+id/textView66"

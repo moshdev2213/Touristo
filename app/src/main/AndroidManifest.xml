@@ -12,6 +12,15 @@
         android:theme="@style/Theme.Touristo"
         tools:targetApi="31">
         <activity
+            android:name=".TouristManagementRegistration"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".AdminUpdateProfile"
             android:exported="true">
             <intent-filter>
@@ -22,19 +31,19 @@
         </activity>
         <activity
             android:name=".VillaProfileHandling"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".AdminProfileHandling"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".RegisterAdmin"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".TouristEditProfile"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".TouristsProfileHandling"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".AdminHome"
             android:exported="true">
@@ -46,31 +55,31 @@
         </activity>
         <activity
             android:name=".EditProfile"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".Thanku"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".Checkout"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".Product"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".Payment"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".UserIndex"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".UserRegister"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".UserLogin"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
 
         <meta-data
             android:name="preloaded_fonts"
