@@ -8,7 +8,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/bgBackground">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView8"
@@ -16,7 +17,7 @@
             android:layout_height="200dp"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
-            app:cardBackgroundColor="@color/white"
+            app:cardBackgroundColor="#6CA0B6"
             app:cardCornerRadius="10dp"
             app:cardElevation="10dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -36,7 +37,7 @@
                     android:layout_marginTop="16dp"
                     android:fontFamily="@font/montserrat_semibold"
                     android:text="Villa Management"
-                    android:textColor="@color/btnSplash"
+                    android:textColor="@color/white"
                     android:textSize="24sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.056"
@@ -50,7 +51,7 @@
                     android:layout_marginStart="8dp"
                     android:alpha="0.5"
                     android:fontFamily="@font/montserrat"
-                    android:text="Customers are\nOur Key Success"
+                    android:text="The Best Way to\ngain FeedBacks..."
                     android:textColor="@color/btnSplash"
                     android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -62,13 +63,11 @@
                     android:id="@+id/button10"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
                     android:layout_marginTop="14dp"
-                    android:layout_marginEnd="76dp"
-                    android:backgroundTint="@color/sales"
+                    android:backgroundTint="@color/touristMcard"
                     android:clickable="false"
                     android:fontFamily="@font/montserrat_semibold"
-                    android:text="235"
+                    android:text="Add Villa"
                     android:textSize="20sp"
                     app:layout_constraintEnd_toStartOf="@+id/imageView28"
                     app:layout_constraintStart_toStartOf="parent"
@@ -81,21 +80,21 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginBottom="16dp"
                     android:fontFamily="@font/montserrat"
-                    android:text=" Total Users Active"
-                    android:textColor="@color/sales"
+                    android:text="Add  New  villa "
+                    android:textColor="@color/white"
                     android:textSize="16sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.017"
+                    app:layout_constraintHorizontal_bias="0.031"
                     app:layout_constraintStart_toStartOf="parent" />
 
                 <ImageView
                     android:id="@+id/imageView28"
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="50dp"
-                    android:scaleType="centerInside"
-                    android:src="@drawable/touristm"
+                    android:layout_marginTop="20dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/villa_list_view_r"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -107,7 +106,7 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView9"
             android:layout_width="380dp"
-            android:layout_height="160dp"
+            android:layout_height="250dp"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             app:cardCornerRadius="10dp"
@@ -123,6 +122,22 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
+                <Button
+                    android:id="@+id/button12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="110dp"
+                    android:backgroundTint="@color/touristMcard"
+                    android:clickable="false"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:text="23"
+                    android:textSize="20sp"
+                    app:layout_constraintEnd_toStartOf="@+id/shapeableImageView"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView82" />
+
                 <TextView
                     android:id="@+id/textView79"
                     android:layout_width="wrap_content"
@@ -131,7 +146,7 @@
                     android:layout_marginEnd="16dp"
                     android:alpha="0.5"
                     android:fontFamily="@font/montserrat"
-                    android:text="Updated 2023.09.09"
+                    android:text="2023.09.09"
                     android:textColor="@color/splashBackground"
                     android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -140,35 +155,35 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/textView81"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
-                    android:alpha="0.5"
-                    android:fontFamily="@font/montserrat"
-                    android:text="Active"
-                    android:textColor="@color/splashBackground"
-                    android:textSize="16sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toEndOf="@+id/floatingActionButton7"
-                    app:layout_constraintTop_toBottomOf="@+id/textView87" />
-
-                <TextView
                     android:id="@+id/textView82"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginBottom="34dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="140dp"
+                    android:fontFamily="@font/montserrat"
+                    android:text="Roman"
+                    android:textColor="@color/splashBackground"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toStartOf="@+id/shapeableImageView"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView86" />
+
+                <TextView
+                    android:id="@+id/textView112"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="82dp"
+                    android:layout_marginBottom="28dp"
                     android:alpha="0.5"
                     android:fontFamily="@font/montserrat"
-                    android:text="Inactive"
+                    android:text="Total Bookings"
                     android:textColor="@color/splashBackground"
                     android:textSize="16sp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/floatingActionButton8"
-                    app:layout_constraintTop_toBottomOf="@+id/textView86"
-                    app:layout_constraintVertical_bias="0.0" />
+                    app:layout_constraintEnd_toStartOf="@+id/shapeableImageView"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/button12" />
 
                 <TextView
                     android:id="@+id/textView78"
@@ -177,7 +192,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
                     android:fontFamily="@font/montserrat_semibold"
-                    android:text="Usages ⏳"
+                    android:text="Most Popular 🔥"
                     android:textColor="@color/btnSplash"
                     android:textSize="24sp"
                     app:layout_constraintStart_toStartOf="parent"
@@ -187,66 +202,33 @@
                     android:id="@+id/textView86"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginTop="24dp"
-                    android:layout_marginEnd="69dp"
-                    android:fontFamily="@font/montserrat_semibold"
-                    android:text="234"
-                    android:textColor="@color/btnSplash"
-                    android:textSize="20sp"
-                    app:layout_constraintEnd_toStartOf="@+id/floatingActionButton7"
-                    app:layout_constraintHorizontal_bias="0.153"
-                    app:layout_constraintStart_toEndOf="@+id/floatingActionButton8"
-                    app:layout_constraintTop_toBottomOf="@+id/textView78" />
-
-                <TextView
-                    android:id="@+id/textView87"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginTop="28dp"
-                    android:fontFamily="@font/montserrat_semibold"
-                    android:text="121"
-                    android:textColor="@color/btnSplash"
-                    android:textSize="20sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toEndOf="@+id/floatingActionButton7"
-                    app:layout_constraintTop_toBottomOf="@+id/textView79" />
-
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/floatingActionButton7"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="33dp"
-                    android:layout_marginTop="32dp"
-                    android:layout_marginBottom="34dp"
-                    android:clickable="false"
-                    app:backgroundTint="@color/admincountbg"
-                    app:elevation="0dp"
-                    app:fabSize="normal"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/textView82"
-                    app:layout_constraintTop_toBottomOf="@+id/textView79"
-                    app:maxImageSize="24dp"
-                    app:srcCompat="@drawable/outline_people_outline_24" />
-
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/floatingActionButton8"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="24dp"
-                    android:layout_marginBottom="36dp"
-                    android:clickable="false"
-                    app:backgroundTint="@color/bookingsbg"
-                    app:elevation="0dp"
-                    app:fabSize="normal"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginEnd="33dp"
+                    android:fontFamily="@font/montserrat"
+                    android:text="Vativcana Romia"
+                    android:textColor="@color/btnSplash"
+                    android:textSize="20sp"
+                    app:layout_constraintEnd_toStartOf="@+id/shapeableImageView"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView78"
-                    app:maxImageSize="24dp"
-                    app:srcCompat="@drawable/baseline_delete_24" />
+                    app:layout_constraintTop_toBottomOf="@+id/textView78" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/shapeableImageView"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_marginTop="22dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="30dp"
+                    android:adjustViewBounds="true"
+                    android:elevation="30dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/interiordemo"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView79"
+                    app:shapeAppearanceOverlay="@style/roundedImageView" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 
@@ -255,9 +237,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="16dp"
             android:fontFamily="@font/montserrat_semibold"
-            android:text="List Of Users"
+            android:text="List Of Villas"
             android:textColor="@color/btnSplash"
             android:textSize="24sp"
             app:layout_constraintEnd_toStartOf="@+id/imageView29"
@@ -269,20 +251,21 @@
             android:id="@+id/imageView29"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
-            android:src="@drawable/outline_people_outline_24"
+            android:src="@drawable/baseline_home_24"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cardView9" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="409dp"
-            android:layout_height="279dp"
+            android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView99"
-            tools:listitem="@layout/users_list" />
+            tools:listitem="@layout/villa_list_item" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
