@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/bgBackground"
     tools:context=".RegisterAdmin">
+
   <ScrollView
       android:layout_width="match_parent"
       android:layout_height="0dp"
+      android:fillViewport="true"
       app:layout_constraintBottom_toTopOf="@+id/cardView9"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
-      android:fillViewport="true"
       app:layout_constraintTop_toBottomOf="@+id/sticky_view">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -248,7 +249,7 @@
               android:background="@drawable/editfeld"
               android:ems="10"
               android:fontFamily="@font/montserrat"
-              android:hint="0771234567"
+              android:hint="mosh"
               android:inputType="number"
               android:padding="10dp"
               android:textSize="16sp"
@@ -280,7 +281,7 @@
               android:background="@drawable/editfeld"
               android:ems="10"
               android:fontFamily="@font/montserrat"
-              android:hint="male"
+              android:hint="gale"
               android:inputType="number"
               android:padding="10dp"
               android:textSize="16sp"
@@ -522,6 +523,7 @@
           android:backgroundTint="@color/bookings"
           android:fontFamily="@font/montserrat"
           android:text="Cancel"
+          android:textSize="20sp"
           android:textStyle="bold"
           app:layout_constraintBottom_toBottomOf="parent"
           app:layout_constraintEnd_toStartOf="@+id/button21"
@@ -533,11 +535,12 @@
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:layout_marginTop="16dp"
-          android:layout_marginEnd="44dp"
+          android:layout_marginEnd="34dp"
           android:layout_marginBottom="16dp"
-          android:backgroundTint="@color/adminbtn"
+          android:backgroundTint="@color/admincount"
           android:fontFamily="@font/montserrat"
           android:text="Add Admin"
+          android:textSize="20sp"
           android:textStyle="bold"
           app:layout_constraintBottom_toBottomOf="parent"
           app:layout_constraintEnd_toEndOf="parent"
@@ -546,4 +549,4 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
   </androidx.cardview.widget.CardView>
-  </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
