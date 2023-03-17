@@ -12,6 +12,15 @@
         android:theme="@style/Theme.Touristo"
         tools:targetApi="31">
         <activity
+            android:name=".TouristEditProfile"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".TouristsProfileHandling"
             android:exported="true">
             <intent-filter>
