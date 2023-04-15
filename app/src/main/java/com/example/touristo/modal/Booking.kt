@@ -1,3 +1,15 @@
 package com.example.touristo.modal
 
-data class Booking()
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+@Entity(tableName = "booking")
+data class Booking(
+    @PrimaryKey(autoGenerate = true)
+    var id:Int,
+    var uemail:String,
+    var villaId:Int,
+    var paymentId:Int,
+    var added:Long,
+    var modified:Long
+
+)
