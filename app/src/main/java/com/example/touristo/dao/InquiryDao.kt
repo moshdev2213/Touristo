@@ -22,7 +22,7 @@ interface InquiryDao {
     @Delete
     suspend fun deleteUser(userInquery: UserInquery)
 
-    @Query("SELECT * FROM admin")
+    @Query("SELECT * FROM inquiryReply")
     fun getAllUsers(): LiveData<List<UserInquery>>
 
     //the InquiryReply starts here

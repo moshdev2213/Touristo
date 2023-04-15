@@ -16,6 +16,6 @@ interface PaymentDao {
     @Delete
     suspend fun deleteUser(payment: Payment)
 
-    @Query("SELECT * FROM admin")
+    @Query("SELECT * FROM payment")
     fun getAllUsers(): LiveData<List<Payment>>
 }

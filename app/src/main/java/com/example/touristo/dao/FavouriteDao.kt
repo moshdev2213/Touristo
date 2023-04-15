@@ -15,6 +15,6 @@ interface FavouriteDao {
     @Delete
     suspend fun deleteUser(favourite: Favourite)
 
-    @Query("SELECT * FROM admin")
+    @Query("SELECT * FROM favourite")
     fun getAllUsers(): LiveData<List<Favourite>>
 }

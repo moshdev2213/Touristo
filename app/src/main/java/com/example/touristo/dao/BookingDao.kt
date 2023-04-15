@@ -16,6 +16,6 @@ interface BookingDao {
     @Delete
     suspend fun deleteUser(booking: Booking)
 
-    @Query("SELECT * FROM admin")
+    @Query("SELECT * FROM booking")
     fun getAllUsers(): LiveData<List<Booking>>
 }
