@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
         userViewModal = ViewModelProvider(this,userFactory)[UserViewModal::class.java]
 
 //        userViewModal.insertUser(User(0,"Supun","supun@gmail.com","S!das223","supun.jpg","07133232223",56,"male","srilanka",32424242,78678678))
-        showCustomDialogWithAutoLayoutHeight(this@MainActivity)
+//        showCustomDialogWithAutoLayoutHeight(this@MainActivity)
 
 
 
