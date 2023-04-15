@@ -22,8 +22,7 @@
             android:exported="true" />
         <activity
             android:name=".AdminUpdateProfile"
-            android:exported="true" >
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".VillaProfileHandling"
             android:exported="true" />
@@ -62,19 +61,19 @@
             android:exported="true" />
         <activity
             android:name=".UserRegister"
-            android:exported="true"/>
-        <activity
-            android:name=".UserLogin"
-            android:exported="true" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".UserLogin"
+            android:exported="true" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true" />
 
         <meta-data
             android:name="preloaded_fonts"

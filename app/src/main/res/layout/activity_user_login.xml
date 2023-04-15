@@ -117,7 +117,7 @@
         android:gravity="end"
         android:text="@string/forgot_password"
         android:textColor="@color/splashBackground"
-        android:textSize="13sp" />
+        android:textSize="14sp" />
     <Button
         android:id="@+id/btnSignIn"
         android:layout_width="300dp"
@@ -145,10 +145,10 @@
         android:id="@+id/tvCopyright"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/montserrat"
-        android:text="@string/copyRight"
-        android:textSize="12sp"
         android:gravity="center_horizontal"
-        android:layout_marginTop="20dp"/>
+        android:text="Are You An Admin ?  Click Here"
+        android:textSize="14sp" />
 
 </LinearLayout>
