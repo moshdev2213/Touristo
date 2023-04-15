@@ -40,4 +40,10 @@
     <color name="villaManagementCArdcolor">#6CA0B6</color>
     <color name="villaManagementBookingsCArdcolor">#0096E2</color>
     <color name="villaManagementBookingscolor">#FEDC41</color>
+
+    <!--the colors related to the dialog boxes starts here    -->
+    <color name="bgDialogInfo">#FDEF50</color>
+    <color name="bgDialogSuccess">#44E450</color>
+    <color name="bgDialogError">#FF585F</color>
+    <!--the colors related to the dialog boxes ends here    -->
 </resources>
