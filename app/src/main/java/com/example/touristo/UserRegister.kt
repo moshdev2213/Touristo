@@ -13,6 +13,7 @@ import android.view.WindowManager
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.example.touristo.dbCon.TouristoDB
 import com.example.touristo.formData.UserRegisterForm
@@ -167,10 +168,20 @@ class UserRegister : AppCompatActivity() {
 
             // Get the UserDao from the database
             val userDao = db.userDao()
-            val userFactory = UserViewModalFactory(userDao)
+            val userFactory = UserViewModalFactory(userDao,dbEmail)
             userViewModal = ViewModelProvider(this@UserRegister,userFactory)[UserViewModal::class.java]
-//            val exists = userViewModal.getUserExist(dbEmail)
-//            print(exists)
+
+
+
+            userViewModal.userExist.observe(this@UserRegister,{
+                if(!it.isEmpty()){
+
+                    Toast.makeText(this@UserRegister,"Exist",Toast.LENGTH_SHORT).show()
+                }else{
+                    Toast.makeText(this@UserRegister,"Not Exist",Toast.LENGTH_SHORT).show()
+                }
+            })
+
             userViewModal.insertUser(User(0,dbName,dbEmail,dbPassword,null,dbTel,null,null,null,currentDateTime.toString(),))
 
             showCustomDialogWithAutoLayoutHeight(this@UserRegister,"Success","You have successfully registered")

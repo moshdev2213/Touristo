@@ -1,19 +1,15 @@
 package com.example.touristo.viewModal
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.liveData
 import androidx.lifecycle.viewModelScope
 import com.example.touristo.dao.UserDao
 import com.example.touristo.modal.User
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
-class UserViewModal(private val dao:UserDao):ViewModel() {
+class UserViewModal(private val dao: UserDao, email: String):ViewModel() {
     val users = dao.getAllUsers()
 
+    val userExist = dao.getUserExist(email)
     fun insertUser(user:User)=viewModelScope.launch {
         dao.insertUser(user)
     }
@@ -26,7 +22,5 @@ class UserViewModal(private val dao:UserDao):ViewModel() {
         dao.deleteUser(user)
     }
 
-//    fun getUserExist(email: String)=viewModelScope.launch  {
-//        val user = dao.getUserExist(email)
-//    }
+
 }

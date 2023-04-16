@@ -7,7 +7,6 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.view.Window
 import android.widget.Button
 import androidx.lifecycle.ViewModelProvider
@@ -32,17 +31,7 @@ class MainActivity : AppCompatActivity() {
            startActivity(intent)
            finish()
         }
-        // Get an instance of the TouristoDB database
-        val db = TouristoDB.getInstance(application)
 
-        // Get the UserDao from the database
-        val userDao = db.userDao()
-        val userFactory = UserViewModalFactory(userDao)
-        userViewModal = ViewModelProvider(this,userFactory)[UserViewModal::class.java]
-
-//        userViewModal.insertUser(User(0,"Supun","supun@gmail.com","S!das223","supun.jpg","07133232223",56,"male","srilanka",32424242,78678678))
-
-//        showCustomDialogWithAutoLayoutHeight(this@MainActivity)
 
     }
     fun showCustomDialogWithAutoLayoutHeight(context: Context) {
