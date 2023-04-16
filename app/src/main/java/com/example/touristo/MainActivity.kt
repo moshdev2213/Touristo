@@ -1,8 +1,13 @@
 package com.example.touristo
 
+import android.app.Dialog
+import android.content.Context
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.view.Window
 import androidx.lifecycle.ViewModelProvider
 import com.example.touristo.dbCon.TouristoDB
 import com.example.touristo.modal.User
@@ -29,8 +34,19 @@ class MainActivity : AppCompatActivity() {
 
 //        userViewModal.insertUser(User(0,"Supun","supun@gmail.com","S!das223","supun.jpg","07133232223",56,"male","srilanka",32424242,78678678))
 
+//        showCustomDialogWithAutoLayoutHeight(this@MainActivity)
 
 
 
+
+    }
+    fun showCustomDialogWithAutoLayoutHeight(context: Context) {
+        val dialog = Dialog(context)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setCancelable(false)
+        dialog.setContentView(R.layout.dialog_box_info)
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+        dialog.show()
     }
 }
