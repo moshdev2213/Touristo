@@ -17,4 +17,9 @@ interface UserDao {
 
     @Query("SELECT * FROM user")
     fun getAllUsers():LiveData<List<User>>
+
+    @Query("SELECT COUNT(uid) FROM user WHERE uemail=:email")
+    fun getUserExist(email: String):Int
+
+
 }

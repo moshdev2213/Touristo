@@ -13,7 +13,7 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/imageView49"
+            android:id="@+id/imgDg"
             android:layout_width="120dp"
             android:layout_height="120dp"
             android:layout_marginTop="-5dp"
@@ -25,7 +25,7 @@
             app:srcCompat="@drawable/success" />
 
         <TextView
-            android:id="@+id/textView116"
+            android:id="@+id/tvDgTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat_semibold"
@@ -33,10 +33,10 @@
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView49" />
+            app:layout_constraintTop_toBottomOf="@+id/imgDg" />
 
         <TextView
-            android:id="@+id/textView117"
+            android:id="@+id/tvDgDecsrition"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat"
@@ -45,10 +45,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView116" />
+            app:layout_constraintTop_toBottomOf="@+id/tvDgTitle" />
 
         <Button
-            android:id="@+id/button13"
+            android:id="@+id/btnDgOk"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -62,6 +62,6 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView117" />
+            app:layout_constraintTop_toBottomOf="@+id/tvDgDecsrition" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

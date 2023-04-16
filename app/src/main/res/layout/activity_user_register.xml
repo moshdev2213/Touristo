@@ -85,7 +85,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/montserrat"
         android:text="@string/enter_your_password"
         android:textColor="@color/splashBackground"
@@ -111,7 +111,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/montserrat"
         android:text="@string/rePasswrdLabel"
         android:textColor="@color/splashBackground"
@@ -133,16 +133,43 @@
         android:textColorHint="@color/editField" />
 
     <TextView
+        android:id="@+id/tvURegNamelabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/montserrat"
+        android:text="Enter Your UserName"
+        android:textColor="@color/splashBackground"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/etURegName"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="16dp"
+        android:background="@drawable/editfeld"
+        android:ems="10"
+        android:hint="edirimuni23"
+        android:inputType="text"
+        android:padding="10dp"
+        android:textColorHint="@color/editField" />
+
+    <TextView
         android:id="@+id/tvURegTellabel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/montserrat"
         android:text="@string/telNumberLabel"
         android:textColor="@color/splashBackground"
         android:textSize="15sp"
         android:textStyle="bold" />
+
 
     <EditText
         android:id="@+id/etURegTel"
@@ -158,13 +185,12 @@
         android:padding="10dp"
         android:textColorHint="@color/editField" />
 
-
     <Button
         android:id="@+id/btnURegSignUp"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="55dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:backgroundTint="@color/btnSplash"
         android:fontFamily="@font/montserrat_semibold"
         android:padding="6dp"
@@ -181,15 +207,5 @@
         android:textSize="16sp"
         android:gravity="center_horizontal"
         android:layout_marginTop="20dp"/>
-
-    <TextView
-        android:id="@+id/tvURegCpy"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/montserrat"
-        android:text="@string/copyRight"
-        android:textSize="12sp"
-        android:gravity="center_horizontal"
-        android:layout_marginTop="10dp"/>
 
 </LinearLayout>
