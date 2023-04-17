@@ -1,8 +1,10 @@
 package com.example.touristo
 
+import android.annotation.SuppressLint
 import android.app.Dialog
 import android.content.Context
 import android.content.Intent
+import android.content.res.ColorStateList
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Build
@@ -12,9 +14,10 @@ import android.view.Window
 import android.view.WindowManager
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
-import androidx.lifecycle.ViewModelProvider
+import androidx.core.content.ContextCompat
 import com.example.touristo.dbCon.TouristoDB
 import com.example.touristo.formData.UserRegisterForm
 import com.example.touristo.modal.User
@@ -39,7 +42,6 @@ class UserRegister : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_register)
-
         // In Activity's onCreate() for instance this transparents the background
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             val w: Window = window
@@ -48,7 +50,6 @@ class UserRegister : AppCompatActivity() {
                 WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
             )
         }
-
         //code starts here
         etURegName = findViewById(R.id.etURegName)
         etURegTel = findViewById(R.id.etURegTel)
@@ -68,28 +69,46 @@ class UserRegister : AppCompatActivity() {
             startActivity(Intent(this@UserRegister,UserLogin::class.java))
             finish()
         }
-
     }
-
     //function for the custom Alert
-    fun showCustomDialogWithAutoLayoutHeight(context: Context , title :String , description:String) {
+    @SuppressLint("DiscouragedApi")
+    fun showCustomDialogWithAutoLayoutHeight(context: Context, title :String, description:String) {
         dialog = Dialog(context)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog.setCancelable(false)
         dialog.setContentView(R.layout.dialog_box_success)
         dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
-        val dgTitle = dialog.findViewById<TextView>(R.id.tvDgTitle)
+
         val dgDescription = dialog.findViewById<TextView>(R.id.tvDgDecsrition)
         val dgOkBtn = dialog.findViewById<TextView>(R.id.btnDgOk)
+        val imgDg = dialog.findViewById<ImageView>(R.id.imgDg)
 
-        dgTitle.text = title
+
+        // Get resource ID of image based on title
+        val resourceId = context.resources.getIdentifier(title, "drawable", context.packageName)
+        // Set image using resource ID
+        imgDg.setImageResource(resourceId)
         dgDescription.text = description
 
-        dgOkBtn.setOnClickListener {
-            startActivity(Intent(this@UserRegister,UserLogin::class.java))
-            finish()
+        val color:Int
+        if(title.equals("infocoloredred", ignoreCase = true)){
+            color = ContextCompat.getColor(this, R.color.bgDialogError)
+            dgOkBtn.backgroundTintList = ColorStateList.valueOf(color)
+
+            dgOkBtn.setOnClickListener {
+                dialog.dismiss()
+            }
+        }else if(title.equals("success", ignoreCase = true)){
+            color = ContextCompat.getColor(this, R.color.bgDialogSuccess)
+            dgOkBtn.backgroundTintList = ColorStateList.valueOf(color)
+
+            dgOkBtn.setOnClickListener {
+                startActivity(Intent(this@UserRegister,UserLogin::class.java))
+                finish()
+            }
         }
+
 
         dialog.show()
     }
@@ -172,23 +191,22 @@ class UserRegister : AppCompatActivity() {
             // Get the UserDao from the database
             val userDao = db.userDao()
             val userRepo =UserRepository(userDao, Dispatchers.IO)
-            
+
             if(userRepo.userExist(dbEmail)>0){
                 GlobalScope.launch(Dispatchers.Main) {
-                    Toast.makeText(this@UserRegister,"Exist Yoo",Toast.LENGTH_SHORT).show()
+
+                    showCustomDialogWithAutoLayoutHeight(this@UserRegister,"infocoloredred","Account Already Exists")
                 }
             }else{
                 GlobalScope.launch(Dispatchers.Main) {
                     userRepo.insertUser(User(0,dbName,dbEmail,dbPassword,null,dbTel,null,null,null,currentDateTime.toString(),))
-                    showCustomDialogWithAutoLayoutHeight(this@UserRegister,"Success","You have successfully registered")
+                    showCustomDialogWithAutoLayoutHeight(this@UserRegister,"success","You have successfully registered")
                 }
             }
-
             count=0;
         }
         count=0;
     }
-
     override fun onDestroy() {
         super.onDestroy()
         dialog.dismiss() // Dismiss the dialog if it's still showing
