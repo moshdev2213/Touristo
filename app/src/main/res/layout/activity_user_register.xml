@@ -8,7 +8,7 @@
     tools:context=".UserRegister">
 
     <ImageView
-        android:id="@+id/imgBack"
+        android:id="@+id/imgURegBack"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="-200dp"
@@ -23,14 +23,14 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:id="@+id/imgLogo"
+            android:id="@+id/imgURegLogo"
             android:layout_width="90dp"
             android:layout_height="75dp"
             android:layout_marginStart="-20dp"
             app:srcCompat="@drawable/logo" />
 
         <TextView
-            android:id="@+id/tvLogoTxt"
+            android:id="@+id/tvURegLoginLogoTxt"
             android:layout_width="wrap_content"
             android:layout_height="75dp"
             android:baselineAligned="false"
@@ -43,7 +43,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/tvTheme"
+        android:id="@+id/tvURegQuote"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="-5dp"
@@ -55,7 +55,7 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/tvEmailLabel"
+        android:id="@+id/tvURegElabel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -67,7 +67,7 @@
         android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/etEmail"
+        android:id="@+id/etURegEmail"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginLeft="16dp"
@@ -81,11 +81,11 @@
         android:textColorHint="@color/editField" />
 
     <TextView
-        android:id="@+id/tvPasswordLabel"
+        android:id="@+id/tvURegPlabel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/montserrat"
         android:text="@string/enter_your_password"
         android:textColor="@color/splashBackground"
@@ -93,7 +93,7 @@
         android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/etPassword"
+        android:id="@+id/etURegPass"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginLeft="16dp"
@@ -107,11 +107,11 @@
         android:textColorHint="@color/editField" />
 
     <TextView
-        android:id="@+id/tvRePasswordLabel"
+        android:id="@+id/tvURegRPlabel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/montserrat"
         android:text="@string/rePasswrdLabel"
         android:textColor="@color/splashBackground"
@@ -119,7 +119,7 @@
         android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/etRePassword"
+        android:id="@+id/etURegRePass"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginLeft="16dp"
@@ -133,19 +133,46 @@
         android:textColorHint="@color/editField" />
 
     <TextView
-        android:id="@+id/tvTelephoneLabel"
+        android:id="@+id/tvURegNamelabel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/montserrat"
+        android:text="Enter Your UserName"
+        android:textColor="@color/splashBackground"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/etURegName"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="16dp"
+        android:background="@drawable/editfeld"
+        android:ems="10"
+        android:hint="edirimuni23"
+        android:inputType="text"
+        android:padding="10dp"
+        android:textColorHint="@color/editField" />
+
+    <TextView
+        android:id="@+id/tvURegTellabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/montserrat"
         android:text="@string/telNumberLabel"
         android:textColor="@color/splashBackground"
         android:textSize="15sp"
         android:textStyle="bold" />
 
+
     <EditText
-        android:id="@+id/etTelphone"
+        android:id="@+id/etURegTel"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginLeft="16dp"
@@ -158,13 +185,12 @@
         android:padding="10dp"
         android:textColorHint="@color/editField" />
 
-
     <Button
-        android:id="@+id/btnSignIn"
+        android:id="@+id/btnURegSignUp"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="55dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:backgroundTint="@color/btnSplash"
         android:fontFamily="@font/montserrat_semibold"
         android:padding="6dp"
@@ -173,7 +199,7 @@
         android:textSize="20sp" />
 
     <TextView
-        android:id="@+id/tvRegister"
+        android:id="@+id/tvURegSignIn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/montserrat"
@@ -181,15 +207,5 @@
         android:textSize="16sp"
         android:gravity="center_horizontal"
         android:layout_marginTop="20dp"/>
-
-    <TextView
-        android:id="@+id/tvCopyright"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/montserrat"
-        android:text="@string/copyRight"
-        android:textSize="12sp"
-        android:gravity="center_horizontal"
-        android:layout_marginTop="10dp"/>
 
 </LinearLayout>

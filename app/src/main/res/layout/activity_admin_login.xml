@@ -48,7 +48,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView120"
+                android:id="@+id/tvAloginFP"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
@@ -60,7 +60,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.94"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress11" />
+                app:layout_constraintTop_toBottomOf="@+id/etAloginPass" />
 
             <TextView
                 android:id="@+id/textView119"
@@ -78,7 +78,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView118" />
 
             <TextView
-                android:id="@+id/textView121"
+                android:id="@+id/tvAloginUlogin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -90,10 +90,10 @@
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/button15" />
+                app:layout_constraintTop_toBottomOf="@+id/btnAlogin" />
 
             <EditText
-                android:id="@+id/editTextTextEmailAddress8"
+                android:id="@+id/etAloginEmail"
                 android:layout_width="380dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
@@ -109,7 +109,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView119" />
 
             <EditText
-                android:id="@+id/editTextTextEmailAddress11"
+                android:id="@+id/etAloginPass"
                 android:layout_width="380dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
@@ -123,10 +123,10 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.516"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress8" />
+                app:layout_constraintTop_toBottomOf="@+id/etAloginEmail" />
 
             <Button
-                android:id="@+id/button15"
+                android:id="@+id/btnAlogin"
                 android:layout_width="380dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
@@ -137,7 +137,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView120" />
+                app:layout_constraintTop_toBottomOf="@+id/tvAloginFP" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,11 +10,11 @@ data class User(
     var uname:String,
     var uemail:String,
     var password:String,
-    var propic:String,
+    var propic: String?,
     var tel:String,
-    var age:Int,
-    var gender:String,
-    var country:String,
-    var added:Long,
-    var modified:Long
+    var age: Int?,
+    var gender: String?,
+    var country: String?,
+    var added: String,
+    var modified:String? = null
 )

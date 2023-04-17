@@ -6,9 +6,10 @@ import com.example.touristo.dao.UserDao
 import com.example.touristo.modal.User
 import kotlinx.coroutines.launch
 
-class UserViewModal(private val dao:UserDao):ViewModel() {
+class UserViewModal(private val dao: UserDao, email: String):ViewModel() {
     val users = dao.getAllUsers()
 
+    val userExist = dao.getUserExist(email)
     fun insertUser(user:User)=viewModelScope.launch {
         dao.insertUser(user)
     }
@@ -20,4 +21,6 @@ class UserViewModal(private val dao:UserDao):ViewModel() {
     fun deleteUser(user:User)=viewModelScope.launch {
         dao.deleteUser(user)
     }
+
+
 }

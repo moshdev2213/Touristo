@@ -2,12 +2,13 @@ package com.example.touristo
 
 import android.app.Dialog
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.view.Window
+import android.widget.Button
 import androidx.lifecycle.ViewModelProvider
 import com.example.touristo.dbCon.TouristoDB
 import com.example.touristo.modal.User
@@ -15,6 +16,7 @@ import com.example.touristo.viewModal.UserViewModal
 import com.example.touristo.viewModalProvider.UserViewModalFactory
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var btnMainGo:Button
     private lateinit var userViewModal:UserViewModal
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,18 +25,12 @@ class MainActivity : AppCompatActivity() {
 //        window.decorView.apply {
 //            systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_FULLSCREEN or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
 //        }
-
-        // Get an instance of the TouristoDB database
-        val db = TouristoDB.getInstance(application)
-
-        // Get the UserDao from the database
-        val userDao = db.userDao()
-        val userFactory = UserViewModalFactory(userDao)
-        userViewModal = ViewModelProvider(this,userFactory)[UserViewModal::class.java]
-
-//        userViewModal.insertUser(User(0,"Supun","supun@gmail.com","S!das223","supun.jpg","07133232223",56,"male","srilanka",32424242,78678678))
-//        showCustomDialogWithAutoLayoutHeight(this@MainActivity)
-
+        btnMainGo=findViewById(R.id.btnMainLaunch)
+        btnMainGo.setOnClickListener {
+           val intent = Intent(this@MainActivity, UserLogin::class.java)
+           startActivity(intent)
+           finish()
+        }
 
 
     }

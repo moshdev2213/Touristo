@@ -20,4 +20,5 @@
 
     <string name="openSideNav">open</string>
     <string name="closeSideNav">close</string>
+    <string name="admin_log_tv">Are You An Admin ? <b>Click Here</b></string>
 </resources>
