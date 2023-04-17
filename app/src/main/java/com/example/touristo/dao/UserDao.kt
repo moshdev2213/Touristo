@@ -23,5 +23,5 @@ interface UserDao {
     fun getUserExist(email: String):Int
 
     @Query("SELECT COUNT(uid) FROM user WHERE uemail=:email AND password=:password")
-    fun getuserLogin( email: String, password:String):Int
+    fun getUserLogin( email: String, password:String):Int
 }

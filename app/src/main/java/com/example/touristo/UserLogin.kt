@@ -47,9 +47,6 @@ class UserLogin : AppCompatActivity() {
         etUloginEmail = findViewById(R.id.etUloginEmail)
         etUloginPassword = findViewById(R.id.etUloginPassword)
 
-        val email = etUloginEmail.toString()
-        val password = etUloginPassword.toString()
-
         tvUloginRegister = findViewById(R.id.tvUloginSignup)
         tvUloginRegister.setOnClickListener {
             startActivity(Intent(this@UserLogin,UserRegister::class.java))
@@ -63,8 +60,9 @@ class UserLogin : AppCompatActivity() {
         }
         btnUloginSignIn = findViewById(R.id.btnUloginSignIn)
         btnUloginSignIn.setOnClickListener {
+            val email = etUloginEmail.text.toString()
+            val password = etUloginPassword.text.toString()
             GlobalScope.launch(Dispatchers.IO) {
-                println("showing "+email+" "+password)
                userLogins(email,password)
             }
         }
@@ -95,11 +93,14 @@ class UserLogin : AppCompatActivity() {
 
             dgOkBtn.setOnClickListener {
                 dialog.dismiss()
+                etUloginPassword.setText("")
+                etUloginEmail.setText("")
             }
         }
         dialog.show()
     }
     suspend fun userLogins(email:String,password:String){
+
         if(email.isNotEmpty() && password.isNotEmpty()){
             GlobalScope.launch(Dispatchers.IO) {
                 // Get an instance of the TouristoDB database
@@ -115,18 +116,20 @@ class UserLogin : AppCompatActivity() {
                         startActivity(Intent(this@UserLogin,UserIndex::class.java))
                         finish()
                     }
-
                 }else{
                     GlobalScope.launch(Dispatchers.Main) {
                         showCustomDialogWithAutoLayoutHeight(this@UserLogin,"error","Invalid Credentials")
                     }
-
                 }
             }
-        }else if(password.isEmpty()){
-            etUloginPassword.error="Enter Password"
         }else if(email.isEmpty()){
-            etUloginEmail.error="Enter Email"
+            GlobalScope.launch(Dispatchers.Main){
+                etUloginEmail.error="Enter Email"
+            }
+        }else if(password.isEmpty()){
+            GlobalScope.launch(Dispatchers.Main){
+                etUloginPassword.error="Enter Password"
+            }
         }
     }
 }

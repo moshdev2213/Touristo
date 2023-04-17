@@ -207,8 +207,12 @@ class UserRegister : AppCompatActivity() {
         }
         count=0;
     }
-//    override fun onDestroy() {
-//        super.onDestroy()
-//        dialog.dismiss() // Dismiss the dialog if it's still showing
-//    }
+    override fun onDestroy() {
+        super.onDestroy()
+        GlobalScope.launch(Dispatchers.Main) {
+            dialog = Dialog(this@UserRegister)
+            dialog.dismiss() // Dismiss the dialog if it's still showing
+        }
+
+    }
 }

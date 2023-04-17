@@ -37,7 +37,7 @@ class UserRepository(private val dao: UserDao,private val ioDispatcher: Coroutin
     suspend fun getuserLogin(email:String,password:String):Int{
         var userExists = -1
         withContext(ioDispatcher) {
-            userExists=dao.getuserLogin(email,password)
+            userExists=dao.getUserLogin(email,password)
         }
         println("In getuserrepo: $userExists")
         return userExists
