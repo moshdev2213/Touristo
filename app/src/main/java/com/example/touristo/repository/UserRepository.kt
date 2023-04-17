@@ -1,6 +1,5 @@
 package com.example.touristo.repository
 
-import androidx.lifecycle.LiveData
 import com.example.touristo.dao.UserDao
 import com.example.touristo.modal.User
 import kotlinx.coroutines.*
@@ -9,8 +8,7 @@ class UserRepository(private val dao: UserDao,private val ioDispatcher: Coroutin
     private val userRepositoryScope = CoroutineScope(ioDispatcher)
 
     fun getAllUsers(): List<User> {
-        val users = dao.getAllUsers()
-        return users
+        return dao.getAllUsers()
     }
     suspend fun userExist(email: String): Int {
         var userExists = -1
@@ -35,4 +33,14 @@ class UserRepository(private val dao: UserDao,private val ioDispatcher: Coroutin
             dao.deleteUser(user)
         }
     }
+
+    suspend fun getuserLogin(email:String,password:String):Int{
+        var userExists = -1
+        withContext(ioDispatcher) {
+            userExists=dao.getuserLogin(email,password)
+        }
+        println("In getuserrepo: $userExists")
+        return userExists
+    }
+
 }

@@ -71,7 +71,7 @@ class UserRegister : AppCompatActivity() {
         }
     }
     //function for the custom Alert
-    @SuppressLint("DiscouragedApi")
+
     fun showCustomDialogWithAutoLayoutHeight(context: Context, title :String, description:String) {
         dialog = Dialog(context)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
@@ -207,8 +207,8 @@ class UserRegister : AppCompatActivity() {
         }
         count=0;
     }
-    override fun onDestroy() {
-        super.onDestroy()
-        dialog.dismiss() // Dismiss the dialog if it's still showing
-    }
+//    override fun onDestroy() {
+//        super.onDestroy()
+//        dialog.dismiss() // Dismiss the dialog if it's still showing
+//    }
 }

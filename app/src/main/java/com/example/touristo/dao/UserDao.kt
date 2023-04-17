@@ -3,6 +3,7 @@ package com.example.touristo.dao
 import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.example.touristo.modal.User
+import org.jetbrains.annotations.NotNull
 
 @Dao
 interface UserDao {
@@ -21,5 +22,6 @@ interface UserDao {
     @Query("SELECT COUNT(uid) FROM user WHERE uemail=:email")
     fun getUserExist(email: String):Int
 
-
+    @Query("SELECT COUNT(uid) FROM user WHERE uemail=:email AND password=:password")
+    fun getuserLogin( email: String, password:String):Int
 }
