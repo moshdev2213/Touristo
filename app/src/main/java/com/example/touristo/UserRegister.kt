@@ -18,9 +18,11 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.touristo.dbCon.TouristoDB
 import com.example.touristo.formData.UserRegisterForm
 import com.example.touristo.modal.User
+import com.example.touristo.repository.UserRepository
 import com.example.touristo.validations.ValidationResult
-import com.example.touristo.viewModal.UserViewModal
-import com.example.touristo.viewModalProvider.UserViewModalFactory
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import java.sql.Timestamp
 
 class UserRegister : AppCompatActivity() {
@@ -32,7 +34,6 @@ class UserRegister : AppCompatActivity() {
     private lateinit var tvURegSignIn: TextView
     private lateinit var tvURegNamelabel: TextView
     private lateinit var btnURegSignUp: Button
-    private lateinit var userViewModal: UserViewModal
     private lateinit var dialog: Dialog
     private var count = 0;
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -59,7 +60,9 @@ class UserRegister : AppCompatActivity() {
         tvURegSignIn = findViewById(R.id.tvURegSignIn)
 
         btnURegSignUp.setOnClickListener {
-            userRegSubmit()
+            GlobalScope.launch(Dispatchers.IO) {
+                userRegSubmit()
+            }
         }
         tvURegSignIn.setOnClickListener {
             startActivity(Intent(this@UserRegister,UserLogin::class.java))
@@ -91,7 +94,7 @@ class UserRegister : AppCompatActivity() {
         dialog.show()
     }
     //function for the userForm Submission
-    fun userRegSubmit(){
+    suspend fun userRegSubmit(){
         val dbName = etURegName.text.toString()
         val dbEmail = etURegEmail.text.toString()
         val dbPassword =  etURegPass.text.toString()
@@ -168,23 +171,19 @@ class UserRegister : AppCompatActivity() {
 
             // Get the UserDao from the database
             val userDao = db.userDao()
-            val userFactory = UserViewModalFactory(userDao,dbEmail)
-            userViewModal = ViewModelProvider(this@UserRegister,userFactory)[UserViewModal::class.java]
-
-
-
-            userViewModal.userExist.observe(this@UserRegister,{
-                if(!it.isEmpty()){
-
-                    Toast.makeText(this@UserRegister,"Exist",Toast.LENGTH_SHORT).show()
-                }else{
-                    Toast.makeText(this@UserRegister,"Not Exist",Toast.LENGTH_SHORT).show()
+            val userRepo =UserRepository(userDao, Dispatchers.IO)
+            
+            if(userRepo.userExist(dbEmail)>0){
+                GlobalScope.launch(Dispatchers.Main) {
+                    Toast.makeText(this@UserRegister,"Exist Yoo",Toast.LENGTH_SHORT).show()
                 }
-            })
+            }else{
+                GlobalScope.launch(Dispatchers.Main) {
+                    userRepo.insertUser(User(0,dbName,dbEmail,dbPassword,null,dbTel,null,null,null,currentDateTime.toString(),))
+                    showCustomDialogWithAutoLayoutHeight(this@UserRegister,"Success","You have successfully registered")
+                }
+            }
 
-            userViewModal.insertUser(User(0,dbName,dbEmail,dbPassword,null,dbTel,null,null,null,currentDateTime.toString(),))
-
-            showCustomDialogWithAutoLayoutHeight(this@UserRegister,"Success","You have successfully registered")
             count=0;
         }
         count=0;
