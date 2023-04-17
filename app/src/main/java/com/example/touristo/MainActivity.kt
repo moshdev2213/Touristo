@@ -12,12 +12,9 @@ import android.widget.Button
 import androidx.lifecycle.ViewModelProvider
 import com.example.touristo.dbCon.TouristoDB
 import com.example.touristo.modal.User
-import com.example.touristo.viewModal.UserViewModal
-import com.example.touristo.viewModalProvider.UserViewModalFactory
 
 class MainActivity : AppCompatActivity() {
     private lateinit var btnMainGo:Button
-    private lateinit var userViewModal:UserViewModal
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
