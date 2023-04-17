@@ -17,10 +17,12 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import com.example.touristo.dbCon.TouristoDB
+import com.example.touristo.modal.LogTime
 import com.example.touristo.repository.UserRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import java.sql.Timestamp
 
 class UserLogin : AppCompatActivity() {
     private lateinit var etUloginEmail:EditText
@@ -100,7 +102,7 @@ class UserLogin : AppCompatActivity() {
         dialog.show()
     }
     suspend fun userLogins(email:String,password:String){
-
+        val currentDateTime = Timestamp(System.currentTimeMillis())
         if(email.isNotEmpty() && password.isNotEmpty()){
             GlobalScope.launch(Dispatchers.IO) {
                 // Get an instance of the TouristoDB database
@@ -113,6 +115,7 @@ class UserLogin : AppCompatActivity() {
 
                 if(existChecker==1){
                     GlobalScope.launch(Dispatchers.Main) {
+                        userRepo.insertLoggedTime(LogTime(0,email,"user",currentDateTime.toString()))
                         startActivity(Intent(this@UserLogin,UserIndex::class.java))
                         finish()
                     }

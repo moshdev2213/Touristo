@@ -19,6 +19,7 @@ import com.example.touristo.typeConverters.TimestampConverter
     Salary::class,
     UserInquery::class,
     Villa::class,
+    LogTime::class,
 ], version = 1, exportSchema = false)
 @TypeConverters(TimestampConverter::class)
 abstract class TouristoDB :RoomDatabase(){

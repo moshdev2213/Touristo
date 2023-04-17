@@ -1,6 +1,7 @@
 package com.example.touristo.repository
 
 import com.example.touristo.dao.UserDao
+import com.example.touristo.modal.LogTime
 import com.example.touristo.modal.User
 import kotlinx.coroutines.*
 
@@ -41,6 +42,12 @@ class UserRepository(private val dao: UserDao,private val ioDispatcher: Coroutin
         }
         println("In getuserrepo: $userExists")
         return userExists
+    }
+
+    suspend fun insertLoggedTime(logTime: LogTime){
+        withContext(ioDispatcher) {
+            dao.insertLoggedTime(logTime)
+        }
     }
 
 }
