@@ -2,6 +2,7 @@ package com.example.touristo.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
+import com.example.touristo.modal.LogTime
 import com.example.touristo.modal.User
 import org.jetbrains.annotations.NotNull
 
@@ -24,4 +25,7 @@ interface UserDao {
 
     @Query("SELECT COUNT(uid) FROM user WHERE uemail=:email AND password=:password")
     fun getUserLogin( email: String, password:String):Int
+
+   @Insert
+   suspend fun insertLoggedTime(logTime: LogTime)
 }

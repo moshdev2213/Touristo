@@ -1,24 +1,35 @@
 package com.example.touristo
 
-import android.graphics.drawable.ColorDrawable
+import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.ImageView
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.example.touristo.Fragments.BookingFrag
 import com.example.touristo.Fragments.CartFrag
 import com.example.touristo.Fragments.ProfileFrag
 import com.example.touristo.Fragments.UserHomeFrag
-import com.google.android.material.bottomnavigation.BottomNavigationMenuView
+import com.example.touristo.fragmentListeners.FragmentListenerUserIndex
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
-class UserIndex : AppCompatActivity() {
+class UserIndex : AppCompatActivity(), FragmentListenerUserIndex {
+    private lateinit var imgUIndexPropic:ImageView
     private lateinit var btnNav : BottomNavigationView
+
+    // Implement the methods from the interface
+    override fun onFragmentButtonClick() {
+        startActivity(Intent(this@UserIndex,EditProfile::class.java))
+
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_index)
+
 
         //the if block is executed so that the notification pannel color changes and the Icon of them changes
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
