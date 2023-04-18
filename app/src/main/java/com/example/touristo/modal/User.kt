@@ -2,6 +2,7 @@ package com.example.touristo.modal
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.io.Serializable
 
 @Entity(tableName = "user")
 data class User(
@@ -17,4 +18,4 @@ data class User(
     var country: String?,
     var added: String,
     var modified:String? = null
-)
+): Serializable

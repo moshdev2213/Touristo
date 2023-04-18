@@ -28,4 +28,7 @@ interface UserDao {
 
    @Insert
    suspend fun insertLoggedTime(logTime: LogTime)
+
+    @Query("SELECT * FROM user WHERE uemail=:email LIMIT 1")
+    fun getUserObject( email: String):User
 }

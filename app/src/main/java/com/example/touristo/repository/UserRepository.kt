@@ -50,4 +50,12 @@ class UserRepository(private val dao: UserDao,private val ioDispatcher: Coroutin
         }
     }
 
+    suspend fun getUserObject(email:String): User {
+        var userObj:User
+        withContext(ioDispatcher){
+             userObj = dao.getUserObject(email)
+        }
+        return userObj
+    }
+
 }

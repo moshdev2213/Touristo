@@ -13,23 +13,26 @@ import com.example.touristo.Fragments.BookingFrag
 import com.example.touristo.Fragments.CartFrag
 import com.example.touristo.Fragments.ProfileFrag
 import com.example.touristo.Fragments.UserHomeFrag
+import com.example.touristo.dbCon.TouristoDB
 import com.example.touristo.fragmentListeners.FragmentListenerUserIndex
+import com.example.touristo.modal.User
+import com.example.touristo.repository.UserRepository
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class UserIndex : AppCompatActivity(), FragmentListenerUserIndex {
     private lateinit var imgUIndexPropic:ImageView
     private lateinit var btnNav : BottomNavigationView
+    private lateinit var globalEmail:String
 
-    // Implement the methods from the interface
-    override fun onFragmentButtonClick() {
-        startActivity(Intent(this@UserIndex,EditProfile::class.java))
-
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_index)
 
+        globalEmail = intent.getStringExtra("useremail").toString()
 
         //the if block is executed so that the notification pannel color changes and the Icon of them changes
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -87,6 +90,36 @@ class UserIndex : AppCompatActivity(), FragmentListenerUserIndex {
                 }
             }
             true
+        }
+
+    }
+    //the dbQuery fetches the UserObject
+    suspend fun getDbUserObject(email:String): User {
+        val userObj : User
+        // Get an instance of the TouristoDB database
+        val db = TouristoDB.getInstance(application)
+
+        // Get the UserDao from the database
+        val userDao = db.userDao()
+        val userRepo = UserRepository(userDao, Dispatchers.IO)
+
+        userObj = userRepo.getUserObject(email)
+        return userObj
+    }
+
+    // Implement the methods from the fragmentListener interface
+    override fun onFragmentButtonClick() {
+        var userObj : User
+        GlobalScope.launch(Dispatchers.Main){
+            userObj = getDbUserObject(globalEmail)
+
+            val bundle = Bundle().apply {
+                putSerializable("user", userObj)
+            }
+            val intent = Intent(this@UserIndex,EditProfile::class.java)
+            intent.putExtras( bundle)
+            startActivity(intent)
+
         }
 
     }
