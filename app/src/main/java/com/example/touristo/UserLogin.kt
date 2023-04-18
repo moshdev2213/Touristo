@@ -116,7 +116,9 @@ class UserLogin : AppCompatActivity() {
                 if(existChecker==1){
                     GlobalScope.launch(Dispatchers.Main) {
                         userRepo.insertLoggedTime(LogTime(0,email,"user",currentDateTime.toString()))
-                        startActivity(Intent(this@UserLogin,UserIndex::class.java))
+                        val intent = Intent(this@UserLogin,UserIndex::class.java)
+                        intent.putExtra("useremail", email)
+                        startActivity(intent)
                         finish()
                     }
                 }else{
