@@ -144,40 +144,64 @@ class UserRegister : AppCompatActivity() {
         when(emailValidation){
             is ValidationResult.Valid ->{ count ++ }
             is ValidationResult.Invalid ->{
-                etURegEmail.error =emailValidation.errorMessage
+                GlobalScope.launch(Dispatchers.Main) {
+                    etURegEmail.error =emailValidation.errorMessage
+                }
+
             }
             is ValidationResult.Empty ->{
-                etURegEmail.error =emailValidation.errorMessage
+                GlobalScope.launch(Dispatchers.Main) {
+                    etURegEmail.error =emailValidation.errorMessage
+                }
+
             }
         }
 
         when(nameValidation){
             is ValidationResult.Valid ->{ count ++ }
             is ValidationResult.Invalid ->{
-                etURegName.error =nameValidation.errorMessage
+                GlobalScope.launch(Dispatchers.Main) {
+                    etURegName.error =nameValidation.errorMessage
+                }
+
             }
             is ValidationResult.Empty ->{
-                etURegName.error =nameValidation.errorMessage
+                GlobalScope.launch(Dispatchers.Main) {
+                    etURegName.error =nameValidation.errorMessage
+                }
+
             }
         }
 
         when(passwordValidation){
             is ValidationResult.Valid ->{ count ++ }
             is ValidationResult.Invalid ->{
-                etURegPass.error =passwordValidation.errorMessage
+                GlobalScope.launch(Dispatchers.Main) {
+                    etURegPass.error =passwordValidation.errorMessage
+                }
+
             }
             is ValidationResult.Empty ->{
-                etURegPass.error =passwordValidation.errorMessage
+                GlobalScope.launch(Dispatchers.Main) {
+                    etURegPass.error =passwordValidation.errorMessage
+                }
+
             }
         }
 
         when(telValidation){
             is ValidationResult.Valid ->{ count ++ }
             is ValidationResult.Invalid ->{
-                etURegTel.error =telValidation.errorMessage
+                GlobalScope.launch(Dispatchers.Main) {
+                    etURegTel.error =telValidation.errorMessage
+                }
+
             }
             is ValidationResult.Empty ->{
-                etURegTel.error =telValidation.errorMessage
+                GlobalScope.launch(Dispatchers.Main) {
+                    etURegTel.error =telValidation.errorMessage
+                }
+
             }
         }
         if(count==4) {

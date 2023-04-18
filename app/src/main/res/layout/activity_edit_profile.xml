@@ -8,10 +8,10 @@
     tools:context=".EditProfile">
 
     <ImageView
-        android:id="@+id/imageView27"
+        android:id="@+id/imgEditProfileBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="-150dp"
+        android:layout_marginTop="-120dp"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,9 +22,10 @@
         app:srcCompat="@drawable/splachrect" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton"
+        android:id="@+id/fbEditProfileBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
         android:clickable="true"
         app:backgroundTint="@color/bgBackground"
         app:fabSize="mini"
@@ -38,51 +39,51 @@
         app:srcCompat="@drawable/baseline_arrow_back_ios_24" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton2"
+        android:id="@+id/fbEditProfileBtnPencil"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="-35dp"
+        android:layout_marginBottom="-10dp"
         android:clickable="true"
         app:backgroundTint="@color/bgBackground"
         app:fabSize="mini"
-        app:layout_constraintBottom_toTopOf="@+id/textView63"
+        app:layout_constraintBottom_toTopOf="@+id/tvEditProfileUName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/shapeableImageView"
+        app:layout_constraintHorizontal_bias="0.067"
+        app:layout_constraintStart_toEndOf="@+id/imgShapeEditProfile"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
         app:maxImageSize="20dp"
         app:srcCompat="@drawable/baseline_edit_24" />
 
     <TextView
-        android:id="@+id/textView62"
+        android:id="@+id/tvEditProfileHead"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="54dp"
         android:fontFamily="@font/montserrat_semibold"
         android:text="Edit Profile"
         android:textColor="@color/white"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.349"
-        app:layout_constraintStart_toEndOf="@+id/floatingActionButton"
+        app:layout_constraintStart_toEndOf="@+id/fbEditProfileBtn"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView63"
+        android:id="@+id/tvEditProfileUName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="7dp"
         android:fontFamily="@font/montserrat_semibold"
         android:text="MOSH"
         android:textColor="@color/white"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/shapeableImageView" />
+        app:layout_constraintTop_toBottomOf="@+id/imgShapeEditProfile" />
 
     <TextView
-        android:id="@+id/textView64"
+        android:id="@+id/tvEditProfileEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="-5dp"
@@ -90,15 +91,15 @@
         android:text="Jhon"
         android:textColor="@color/white"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView27"
+        app:layout_constraintBottom_toBottomOf="@+id/imgEditProfileBack"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView63"
+        app:layout_constraintTop_toBottomOf="@+id/tvEditProfileUName"
         app:layout_constraintVertical_bias="0.0" />
 
     <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/shapeableImageView"
+        android:id="@+id/imgShapeEditProfile"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:adjustViewBounds="true"
@@ -109,11 +110,11 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.097"
+        app:layout_constraintVertical_bias="0.141"
         app:shapeAppearanceOverlay="@style/roundedImageView" />
 
     <TextView
-        android:id="@+id/textView65"
+        android:id="@+id/tvEditProfileEmailLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -125,10 +126,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView27" />
+        app:layout_constraintTop_toBottomOf="@+id/imgEditProfileBack" />
 
     <TextView
-        android:id="@+id/textView66"
+        android:id="@+id/tvEditProfilePasswordLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -140,10 +141,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
+        app:layout_constraintTop_toBottomOf="@+id/etEditProfileEmail" />
 
     <TextView
-        android:id="@+id/textView68"
+        android:id="@+id/tvEditProfileTel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -152,13 +153,13 @@
         android:text="Telephone Number"
         android:textColor="@color/btnSplash"
         android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@+id/textView69"
+        app:layout_constraintEnd_toStartOf="@+id/tvEditProfileGender"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress2" />
+        app:layout_constraintTop_toBottomOf="@+id/etEditProfilePassword" />
 
     <TextView
-        android:id="@+id/textView70"
+        android:id="@+id/tvEditProfileCountry"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -167,13 +168,13 @@
         android:text="Country"
         android:textColor="@color/btnSplash"
         android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@+id/textView71"
+        app:layout_constraintEnd_toStartOf="@+id/tvEditProfileAge"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress3" />
+        app:layout_constraintTop_toBottomOf="@+id/etEditProfileTel" />
 
     <TextView
-        android:id="@+id/textView71"
+        android:id="@+id/tvEditProfileAge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -183,10 +184,10 @@
         android:textColor="@color/btnSplash"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress4" />
+        app:layout_constraintTop_toBottomOf="@+id/etEditProfileGender" />
 
     <TextView
-        android:id="@+id/textView69"
+        android:id="@+id/tvEditProfileGender"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -196,10 +197,10 @@
         android:textColor="@color/btnSplash"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress2" />
+        app:layout_constraintTop_toBottomOf="@+id/etEditProfilePassword" />
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress"
+        android:id="@+id/etEditProfileEmail"
         android:layout_width="380dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -215,10 +216,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView65" />
+        app:layout_constraintTop_toBottomOf="@+id/tvEditProfileEmailLabel" />
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress2"
+        android:id="@+id/etEditProfilePassword"
         android:layout_width="380dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -234,10 +235,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView66" />
+        app:layout_constraintTop_toBottomOf="@+id/tvEditProfilePasswordLabel" />
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress3"
+        android:id="@+id/etEditProfileTel"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -250,10 +251,10 @@
         android:padding="10dp"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView68" />
+        app:layout_constraintTop_toBottomOf="@+id/tvEditProfileTel" />
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress4"
+        android:id="@+id/etEditProfileGender"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
@@ -261,15 +262,15 @@
         android:ems="10"
         android:fontFamily="@font/montserrat"
         android:hint="male"
-        android:inputType="number"
+        android:inputType="text"
         android:padding="10dp"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/editTextTextEmailAddress3"
-        app:layout_constraintTop_toBottomOf="@+id/textView69" />
+        app:layout_constraintStart_toEndOf="@+id/etEditProfileTel"
+        app:layout_constraintTop_toBottomOf="@+id/tvEditProfileGender" />
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress6"
+        android:id="@+id/etEditProfileAge"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
@@ -282,10 +283,10 @@
         android:padding="10dp"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView71" />
+        app:layout_constraintTop_toBottomOf="@+id/tvEditProfileAge" />
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress5"
+        android:id="@+id/etEditProfileCountry"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -294,16 +295,16 @@
         android:ems="10"
         android:fontFamily="@font/montserrat"
         android:hint="germany"
-        android:inputType="number"
+        android:inputType="text"
         android:padding="10dp"
         android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/editTextTextEmailAddress6"
+        app:layout_constraintEnd_toStartOf="@+id/etEditProfileAge"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView70" />
+        app:layout_constraintTop_toBottomOf="@+id/tvEditProfileCountry" />
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/btnEditProfileUpdate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -314,6 +315,6 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress5" />
+        app:layout_constraintTop_toBottomOf="@+id/etEditProfileCountry" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

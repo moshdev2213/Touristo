@@ -22,8 +22,12 @@ class UserHomeFrag : Fragment() {
 
         // Access the views in the Fragment's layout
         val button = view.findViewById<ImageView>(R.id.imgUIndexPropic)
+        val imgFavourites = view.findViewById<ImageView>(R.id.imgUIndexFav)
         button.setOnClickListener {
-            fragmentListener?.onFragmentButtonClick()
+            fragmentListener?.onFragmentPropicButtonClick()
+        }
+        imgFavourites.setOnClickListener{
+            fragmentListener?.onFragmentFavouriteButtonClick()
         }
 
         return view

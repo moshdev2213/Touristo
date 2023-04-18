@@ -1,5 +1,7 @@
 package com.example.touristo.fragmentListeners
 
 interface FragmentListenerUserIndex {
-    fun onFragmentButtonClick()
+    fun onFragmentPropicButtonClick()
+
+    fun onFragmentFavouriteButtonClick()
 }

@@ -11,11 +11,11 @@ data class User(
     var uname:String,
     var uemail:String,
     var password:String,
-    var propic: String?,
+    var propic: String?= null,
     var tel:String,
-    var age: Int?,
-    var gender: String?,
-    var country: String?,
+    var age: Int?= null,
+    var gender: String?= null,
+    var country: String?= null,
     var added: String,
     var modified:String? = null
 ): Serializable

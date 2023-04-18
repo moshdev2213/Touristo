@@ -15,6 +15,7 @@ import com.example.touristo.Fragments.ProfileFrag
 import com.example.touristo.Fragments.UserHomeFrag
 import com.example.touristo.dbCon.TouristoDB
 import com.example.touristo.fragmentListeners.FragmentListenerUserIndex
+import com.example.touristo.modal.Favourite
 import com.example.touristo.modal.User
 import com.example.touristo.repository.UserRepository
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -108,7 +109,7 @@ class UserIndex : AppCompatActivity(), FragmentListenerUserIndex {
     }
 
     // Implement the methods from the fragmentListener interface
-    override fun onFragmentButtonClick() {
+    override fun onFragmentPropicButtonClick() {
         var userObj : User
         GlobalScope.launch(Dispatchers.Main){
             userObj = getDbUserObject(globalEmail)
@@ -122,6 +123,16 @@ class UserIndex : AppCompatActivity(), FragmentListenerUserIndex {
 
         }
 
+    }
+
+    override fun onFragmentFavouriteButtonClick() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            window.statusBarColor = ContextCompat.getColor(this, R.color.splashBackground)
+
+            val flags = window.decorView.systemUiVisibility
+            window.decorView.systemUiVisibility = flags and View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR.inv()
+        }
+        replaceFragment(BookingFrag())
     }
     private fun replaceFragment(fragment: Fragment){
         val fragmentManager = supportFragmentManager
