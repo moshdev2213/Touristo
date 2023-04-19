@@ -40,7 +40,7 @@ class UserRepository(private val dao: UserDao,private val ioDispatcher: Coroutin
         withContext(ioDispatcher) {
             userExists=dao.getUserLogin(email,password)
         }
-        println("In getuserrepo: $userExists")
+
         return userExists
     }
 
@@ -56,6 +56,16 @@ class UserRepository(private val dao: UserDao,private val ioDispatcher: Coroutin
              userObj = dao.getUserObject(email)
         }
         return userObj
+    }
+
+    suspend fun updateUserProfile(country:String?, gender:String?, age:Int?, tel:String, propic: String?, password: String,
+        uname:String, email: String):Int{
+        var result = 0
+        withContext(ioDispatcher) {
+            result=dao.updateUserProfile(country,gender,age,tel,propic,password,uname,email)
+        }
+        println(country+""+gender)
+        return result
     }
 
 }
