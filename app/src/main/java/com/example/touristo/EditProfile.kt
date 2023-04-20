@@ -9,6 +9,8 @@ import android.graphics.drawable.ColorDrawable
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.method.HideReturnsTransformationMethod
+import android.text.method.PasswordTransformationMethod
 import android.view.Window
 import android.view.WindowManager
 import android.widget.Button
@@ -40,10 +42,10 @@ class EditProfile : AppCompatActivity() {
     private lateinit var tvEditProfileEmail:TextView
     private lateinit var fbEditProfileBtnPencil:FloatingActionButton
     private lateinit var fbEditProfileBtn:FloatingActionButton
+    // Get a reference to the EditText field and the toggle button
 
+    private lateinit var toggleButton: ImageView
     private lateinit var dialog: Dialog
-
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -66,6 +68,20 @@ class EditProfile : AppCompatActivity() {
 
         tvEditProfileEmail=findViewById(R.id.tvEditProfileEmail)
         tvEditProfileUName=findViewById(R.id.tvEditProfileUName)
+
+        toggleButton = findViewById(R.id.imgEditProfileTogglePwd)
+
+        toggleButton.setOnClickListener {
+            if (etEditProfilePassword.transformationMethod == PasswordTransformationMethod.getInstance()) {
+                // Show the password
+                etEditProfilePassword.transformationMethod = HideReturnsTransformationMethod.getInstance()
+                toggleButton.setImageResource(R.drawable.baseline_key_off_24)
+            } else {
+                // Hide the password
+                etEditProfilePassword.transformationMethod = PasswordTransformationMethod.getInstance()
+                toggleButton.setImageResource(R.drawable.baseline_key_24)
+            }
+        }
 
         btnEditProfileUpdate = findViewById(R.id.btnEditProfileUpdate)
         val bundle = intent.extras
