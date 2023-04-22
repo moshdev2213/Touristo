@@ -9,14 +9,18 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.touristo.Fragments.BookingFrag
 import com.example.touristo.Fragments.CartFrag
 import com.example.touristo.Fragments.ProfileFrag
 import com.example.touristo.Fragments.UserHomeFrag
+import com.example.touristo.adapter.UserHomeRVAdapter
 import com.example.touristo.dbCon.TouristoDB
 import com.example.touristo.fragmentListeners.FragmentListenerUserIndex
 import com.example.touristo.modal.User
 import com.example.touristo.repository.UserRepository
+import com.example.touristo.repository.VillaRepository
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -26,14 +30,10 @@ class UserIndex : AppCompatActivity(), FragmentListenerUserIndex {
     private lateinit var imgUIndexPropic:ImageView
     private lateinit var btnNav : BottomNavigationView
     private lateinit var globalEmail:String
-
-
+    private lateinit var db : TouristoDB
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_index)
-
-        globalEmail = intent.getStringExtra("useremail").toString()
-
         //the if block is executed so that the notification pannel color changes and the Icon of them changes
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             window.statusBarColor = ContextCompat.getColor(this, R.color.bgBackground)
@@ -41,6 +41,8 @@ class UserIndex : AppCompatActivity(), FragmentListenerUserIndex {
             val flags = window.decorView.systemUiVisibility
             window.decorView.systemUiVisibility = flags or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
         }
+
+        globalEmail = intent.getStringExtra("useremail").toString()
 
         btnNav = findViewById(R.id.bottomNavigationView)
         replaceFragment(UserHomeFrag())
@@ -97,8 +99,7 @@ class UserIndex : AppCompatActivity(), FragmentListenerUserIndex {
     suspend fun getDbUserObject(email:String): User {
         val userObj : User
         // Get an instance of the TouristoDB database
-        val db = TouristoDB.getInstance(application)
-
+        db = TouristoDB.getInstance(application)
         // Get the UserDao from the database
         val userDao = db.userDao()
         val userRepo = UserRepository(userDao, Dispatchers.IO)
@@ -106,6 +107,7 @@ class UserIndex : AppCompatActivity(), FragmentListenerUserIndex {
         userObj = userRepo.getUserObject(email)
         return userObj
     }
+
 
     // Implement the methods from the fragmentListener interface
     override fun onFragmentButtonClick() {
@@ -123,12 +125,11 @@ class UserIndex : AppCompatActivity(), FragmentListenerUserIndex {
         }
 
     }
+
     private fun replaceFragment(fragment: Fragment){
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.indexFrameLayout,fragment)
         fragmentTransaction.commit()
-
-        
     }
 }
