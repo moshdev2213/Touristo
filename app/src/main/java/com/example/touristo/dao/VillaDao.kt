@@ -17,5 +17,5 @@ interface VillaDao {
     suspend fun deleteUser(villa: Villa)
 
     @Query("SELECT * FROM villa")
-    fun getAllUsers(): LiveData<List<Villa>>
+    fun getAllVilla(): List<Villa>
 }
