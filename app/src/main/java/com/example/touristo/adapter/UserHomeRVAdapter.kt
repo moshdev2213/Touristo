@@ -38,9 +38,7 @@ class UserHomeRVAdapter():RecyclerView.Adapter<UserHomeViewHolder>() {
 class UserHomeViewHolder(private val view: View):RecyclerView.ViewHolder(view){
     fun bind(villa:Villa){
         val ImgProductCard = view.findViewById<ImageView>(R.id.ImgProductCard)
-        val tvNamePlace = view.findViewById<TextView>(R.id.tvNamePlace)
         val tvCityName = view.findViewById<TextView>(R.id.tvCityName)
-        val tvNamePlace2Location = view.findViewById<TextView>(R.id.tvNamePlace2Location)
         val tvPlaceDate = view.findViewById<TextView>(R.id.tvPlaceDate)
         val tvProductPrice = view.findViewById<TextView>(R.id.tvProductPrice)
         val imgFavouriteProduct = view.findViewById<ImageView>(R.id.imgFavouriteProduct)
