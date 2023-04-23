@@ -157,7 +157,7 @@
         android:background="@drawable/editfeld"
         android:ems="10"
         android:hint="xxxx-xxxx-xxxx-xxxx"
-        android:inputType="textPersonName"
+        android:inputType="number"
         android:padding="10dp"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"

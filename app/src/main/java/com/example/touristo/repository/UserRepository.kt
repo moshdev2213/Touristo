@@ -16,21 +16,20 @@ class UserRepository(private val dao: UserDao,private val ioDispatcher: Coroutin
         withContext(ioDispatcher) {
             userExists = dao.getUserExist(email)
         }
-        println("In repo: $userExists")
         return userExists
     }
     fun insertUser(user:User){
-        GlobalScope.launch(Dispatchers.IO) {
+        userRepositoryScope.launch(Dispatchers.IO) {
             dao.insertUser(user)
         }
     }
     fun updateUser(user:User){
-        GlobalScope.launch(Dispatchers.IO) {
+        userRepositoryScope.launch(Dispatchers.IO) {
             dao.updateUser(user)
         }
     }
     fun deleteUser(user:User){
-        GlobalScope.launch(Dispatchers.IO) {
+        userRepositoryScope.launch(Dispatchers.IO) {
             dao.deleteUser(user)
         }
     }

@@ -21,6 +21,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class UserIndex : AppCompatActivity(), FragmentListenerUserIndex {
     private lateinit var imgUIndexPropic:ImageView
@@ -131,12 +132,20 @@ class UserIndex : AppCompatActivity(), FragmentListenerUserIndex {
     }
 
     override fun onItemClickedHome(villa: Villa) {
-        val bundle = Bundle().apply {
-            putSerializable("villa", villa)
+        var userObj:User
+
+        GlobalScope.launch(Dispatchers.IO){
+            globalEmail = intent.getStringExtra("useremail").toString()
+            userObj = getDbUserObject(globalEmail)
+
+            val bundle = Bundle().apply {
+                putSerializable("villa", villa)
+                putSerializable("user", userObj)
+            }
+            val intent = Intent(this@UserIndex,Product::class.java)
+            intent.putExtras( bundle)
+            startActivity(intent)
         }
-        val intent = Intent(this@UserIndex,Product::class.java)
-        intent.putExtras( bundle)
-        startActivity(intent)
     }
     private fun replaceFragment(fragment: Fragment){
         val fragmentManager = supportFragmentManager

@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.RequiresApi
+import com.example.touristo.modal.User
 import com.example.touristo.modal.Villa
 import java.text.SimpleDateFormat
 import java.time.LocalDate
@@ -34,6 +35,8 @@ class Checkout : AppCompatActivity() {
 
         val bundle = intent.extras
         val villa = bundle?.getSerializable("villa") as? Villa
+        val user = bundle?.getSerializable("user") as? User
+
         if (villa!=null){
             //initializing the views
             tvCheckoutVillaName = findViewById(R.id.tvCheckoutVillaName)
@@ -62,6 +65,7 @@ class Checkout : AppCompatActivity() {
             btnCheckoutOk.setOnClickListener {
                 val bundle = Bundle().apply {
                     putSerializable("villa", villa)
+                    putSerializable("user", user)
                 }
                 val intent = Intent(this@Checkout,Payment::class.java)
                 intent.putExtras( bundle)

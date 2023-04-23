@@ -8,14 +8,14 @@ import com.example.touristo.modal.UserInquery
 @Dao
 interface BookingDao {
     @Insert
-    suspend fun insertUser(booking: Booking)
+    suspend fun insertBooking(booking: Booking)
 
     @Update
-    suspend fun updateUser(booking: Booking)
+    suspend fun updateBooking(booking: Booking)
 
     @Delete
-    suspend fun deleteUser(booking: Booking)
+    suspend fun deleteBooking(booking: Booking)
 
     @Query("SELECT * FROM booking")
-    fun getAllUsers(): LiveData<List<Booking>>
+    fun getAllBooking(): List<Booking>
 }

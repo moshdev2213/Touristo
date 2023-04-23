@@ -48,7 +48,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView116" />
 
         <Button
-            android:id="@+id/button13"
+            android:id="@+id/btnYes"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -65,7 +65,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView117" />
 
         <Button
-            android:id="@+id/button14"
+            android:id="@+id/btnNo"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"

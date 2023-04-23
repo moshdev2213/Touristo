@@ -11,6 +11,6 @@ data class Payment(
     var expireMonth:Int,
     var expireYear:Int,
     var cvc:Int,
-    var added:Long,
-    var modified:Long
+    var added:String,
+    var modified:String?=null
 )

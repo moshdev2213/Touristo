@@ -75,6 +75,8 @@ class Product : AppCompatActivity() {
 
         val bundle = intent.extras
         val villa = bundle?.getSerializable("villa") as? Villa
+        val user = bundle?.getSerializable("user") as? User
+
         if (villa!=null){
             // Get the resource ID of the drawable using the drawable name
             var img01 = villa.img01
@@ -111,6 +113,7 @@ class Product : AppCompatActivity() {
             btnProductVillaBookPlace.setOnClickListener {
                 val bundle = Bundle().apply {
                     putSerializable("villa", villa)
+                    putSerializable("user", user)
                 }
                 val intent = Intent(this@Product,Checkout::class.java)
                 intent.putExtras( bundle)

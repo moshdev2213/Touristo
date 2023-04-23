@@ -45,6 +45,11 @@ class UserHomeViewHolder(private val view: View):RecyclerView.ViewHolder(view){
         val tvProductPrice = view.findViewById<TextView>(R.id.tvProductPrice)
         val rbProductCard = view.findViewById<RatingBar>(R.id.rbProductCard)
 
+        tvCityName.text = villa.district
+        tvPlaceDate.text = villa.added.toString()
+        tvProductPrice.text = villa.price.toString()
+        rbProductCard.rating = villa.rating.toFloat()
+
         view.setOnClickListener {
             clickListner(villa)
         }

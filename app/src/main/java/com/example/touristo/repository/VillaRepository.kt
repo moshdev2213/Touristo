@@ -11,4 +11,8 @@ class VillaRepository(private val dao: VillaDao, private val ioDispatcher: Corou
     fun getAllVilla(): List<Villa> {
         return dao.getAllVilla()
     }
+
+    suspend fun insertListOfVilla(villa:List<Villa>){
+        dao.insertListOfVilla(villa)
+    }
 }

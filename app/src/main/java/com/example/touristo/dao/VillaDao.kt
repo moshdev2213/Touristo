@@ -8,13 +8,16 @@ import com.example.touristo.modal.Villa
 @Dao
 interface VillaDao {
     @Insert
-    suspend fun insertUser(villa: Villa)
+    suspend fun insertVilla(villa: Villa)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertListOfVilla(villa: List<Villa>)
 
     @Update
-    suspend fun updateUser(villa: Villa)
+    suspend fun updateVilla(villa: Villa)
 
     @Delete
-    suspend fun deleteUser(villa: Villa)
+    suspend fun deleteVilla(villa: Villa)
 
     @Query("SELECT * FROM villa")
     fun getAllVilla(): List<Villa>

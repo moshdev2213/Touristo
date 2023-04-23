@@ -9,7 +9,7 @@ data class Booking(
     var uemail:String,
     var villaId:Int,
     var paymentId:Int,
-    var added:Long,
-    var modified:Long
+    var added:String,
+    var modified:String?=null
 
 )
