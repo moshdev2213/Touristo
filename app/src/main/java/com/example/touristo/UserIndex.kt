@@ -6,22 +6,17 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
-import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.touristo.Fragments.BookingFrag
 import com.example.touristo.Fragments.CartFrag
 import com.example.touristo.Fragments.ProfileFrag
 import com.example.touristo.Fragments.UserHomeFrag
-import com.example.touristo.adapter.UserHomeRVAdapter
 import com.example.touristo.dbCon.TouristoDB
 import com.example.touristo.fragmentListeners.FragmentListenerUserIndex
-import com.example.touristo.modal.Favourite
 import com.example.touristo.modal.User
+import com.example.touristo.modal.Villa
 import com.example.touristo.repository.UserRepository
-import com.example.touristo.repository.VillaRepository
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -122,9 +117,7 @@ class UserIndex : AppCompatActivity(), FragmentListenerUserIndex {
             val intent = Intent(this@UserIndex,EditProfile::class.java)
             intent.putExtras( bundle)
             startActivity(intent)
-
         }
-
     }
 
     override fun onFragmentFavouriteButtonClick() {
@@ -135,6 +128,15 @@ class UserIndex : AppCompatActivity(), FragmentListenerUserIndex {
             window.decorView.systemUiVisibility = flags and View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR.inv()
         }
         replaceFragment(BookingFrag())
+    }
+
+    override fun onItemClickedHome(villa: Villa) {
+        val bundle = Bundle().apply {
+            putSerializable("villa", villa)
+        }
+        val intent = Intent(this@UserIndex,Product::class.java)
+        intent.putExtras( bundle)
+        startActivity(intent)
     }
     private fun replaceFragment(fragment: Fragment){
         val fragmentManager = supportFragmentManager

@@ -18,6 +18,7 @@ import com.example.touristo.R
 import com.example.touristo.adapter.UserHomeRVAdapter
 import com.example.touristo.dbCon.TouristoDB
 import com.example.touristo.fragmentListeners.FragmentListenerUserIndex
+import com.example.touristo.modal.Villa
 import com.example.touristo.repository.UserRepository
 import com.example.touristo.repository.VillaRepository
 import kotlinx.coroutines.Dispatchers
@@ -66,15 +67,17 @@ class UserHomeFrag : Fragment() {
             val villaRepo = VillaRepository(villaDao, Dispatchers.IO)
 //            recyclerView.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
             recyclerView.layoutManager= LinearLayoutManager(context)
-            adapter = UserHomeRVAdapter()
+            adapter = UserHomeRVAdapter{
+                selectedItem:Villa->listItemClicked(selectedItem)
+            }
             recyclerView.adapter = adapter
 
             adapter.setList(villaRepo.getAllVilla())
             adapter.notifyDataSetChanged()
         }
-
-
-
+    }
+    private fun listItemClicked(villa: Villa){
+        fragmentListener?.onItemClickedHome(villa)
     }
     // the below method is for communication from parent activity to fragments
     override fun onAttach(context: Context) {
