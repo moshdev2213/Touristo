@@ -3,6 +3,7 @@ package com.example.touristo.repository
 import com.example.touristo.Payment
 import com.example.touristo.dao.BookingDao
 import com.example.touristo.modal.Booking
+import com.example.touristo.modal.Villa
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -15,5 +16,8 @@ class BookingRepository(private val dao: BookingDao,private val ioDispatcher: Co
         bookingRepositoryScope.launch(Dispatchers.IO) {
             dao.insertBooking(booking)
         }
+    }
+    suspend fun getAllBookings(): List<Villa> {
+        return dao.getAllBooking()
     }
 }

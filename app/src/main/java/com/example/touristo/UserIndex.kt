@@ -14,14 +14,13 @@ import com.example.touristo.Fragments.ProfileFrag
 import com.example.touristo.Fragments.UserHomeFrag
 import com.example.touristo.dbCon.TouristoDB
 import com.example.touristo.fragmentListeners.FragmentListenerUserIndex
+import com.example.touristo.modal.Booking
 import com.example.touristo.modal.User
-import com.example.touristo.modal.Villa
 import com.example.touristo.repository.UserRepository
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 class UserIndex : AppCompatActivity(), FragmentListenerUserIndex {
     private lateinit var imgUIndexPropic:ImageView
@@ -131,7 +130,7 @@ class UserIndex : AppCompatActivity(), FragmentListenerUserIndex {
         replaceFragment(BookingFrag())
     }
 
-    override fun onItemClickedHome(villa: Villa) {
+    override fun onItemClickedHome(booking: Booking) {
         var userObj:User
 
         GlobalScope.launch(Dispatchers.IO){
@@ -139,7 +138,7 @@ class UserIndex : AppCompatActivity(), FragmentListenerUserIndex {
             userObj = getDbUserObject(globalEmail)
 
             val bundle = Bundle().apply {
-                putSerializable("villa", villa)
+                putSerializable("villa", booking)
                 putSerializable("user", userObj)
             }
             val intent = Intent(this@UserIndex,Product::class.java)

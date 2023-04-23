@@ -8,8 +8,9 @@ data class Booking(
     var id:Int,
     var uemail:String,
     var villaId:Int,
+    var bookedVilaName:String?=null,
     var paymentId:Int,
     var added:String,
     var modified:String?=null
 
-)
+):java.io.Serializable

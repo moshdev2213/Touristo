@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.example.touristo.modal.Booking
 import com.example.touristo.modal.UserInquery
+import com.example.touristo.modal.Villa
 
 @Dao
 interface BookingDao {
@@ -17,5 +18,5 @@ interface BookingDao {
     suspend fun deleteBooking(booking: Booking)
 
     @Query("SELECT * FROM booking")
-    fun getAllBooking(): List<Booking>
+    fun getAllBooking(): List<Villa>
 }

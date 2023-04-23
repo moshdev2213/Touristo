@@ -1,25 +1,19 @@
 package com.example.touristo.Fragments
 
 import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Adapter
-import android.widget.Button
 import android.widget.ImageView
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.touristo.R
 import com.example.touristo.adapter.UserHomeRVAdapter
 import com.example.touristo.dbCon.TouristoDB
 import com.example.touristo.fragmentListeners.FragmentListenerUserIndex
 import com.example.touristo.modal.Villa
-import com.example.touristo.repository.UserRepository
 import com.example.touristo.repository.VillaRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -31,6 +25,7 @@ class UserHomeFrag : Fragment() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var db : TouristoDB
     private var fragmentListener: FragmentListenerUserIndex? = null
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -52,12 +47,8 @@ class UserHomeFrag : Fragment() {
         return view
     }
 
-    //the below method also can be used to directly access the layout file
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
 
-    }
-    fun initRecycler(){
+    private fun initRecycler(){
         GlobalScope.launch(Dispatchers.IO){
             // Get an instance of the TouristoDB database
             db = TouristoDB.getInstance(requireContext().applicationContext)
