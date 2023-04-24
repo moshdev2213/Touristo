@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.example.touristo.Fragments.BookingFrag
@@ -150,7 +151,11 @@ class UserIndex : AppCompatActivity(), FragmentListenerUserIndex {
     }
 
     override fun onBookingItemClicked(bookingDTO: BookingDTO) {
+        Toast.makeText(this@UserIndex,"dsa",Toast.LENGTH_LONG).show()
+    }
 
+    override fun getTheUserEmail(): String {
+        return intent.getStringExtra("useremail").toString()
     }
 
     private fun replaceFragment(fragment: Fragment){

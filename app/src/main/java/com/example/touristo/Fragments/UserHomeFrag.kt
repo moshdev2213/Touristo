@@ -64,7 +64,10 @@ class UserHomeFrag : Fragment() {
             recyclerView.adapter = adapter
 
             adapter.setList(villaRepo.getAllVilla())
-            adapter.notifyDataSetChanged()
+            GlobalScope.launch (Dispatchers.Main){
+                adapter.notifyDataSetChanged()
+            }
+
         }
     }
     private fun listItemClicked(villa: Villa){

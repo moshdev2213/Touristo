@@ -38,19 +38,26 @@ class BookingFrag : Fragment() {
 
         return view
     }
-    fun initRecycler(){
+    private fun initRecycler(){
         GlobalScope.launch(Dispatchers.IO) {
             // Get an instance of the TouristoDB database
             db = TouristoDB.getInstance(requireContext().applicationContext)
             val bookingDao = db.bookingDao()
             val bookingRepo = BookingRepository(bookingDao,Dispatchers.IO)
 
+            val theEmail = fragmentListener?.getTheUserEmail()
+
             recyclerView.layoutManager = LinearLayoutManager(context)
             adapter = UserHomeBLAdapter {
                 selectedItem: BookingDTO ->listItemClicked(selectedItem)
             }
-            adapter.setList(bookingRepo.getAllBookings())
-            adapter.notifyDataSetChanged()
+            recyclerView.adapter = adapter
+            adapter.setList(bookingRepo.getBookingForListView(theEmail.toString()))
+
+            GlobalScope.launch(Dispatchers.Main){
+                adapter.notifyDataSetChanged()
+            }
+
         }
     }
 

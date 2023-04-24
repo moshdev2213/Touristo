@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.touristo.R
@@ -30,19 +31,19 @@ class UserHomeBLAdapter(
     override fun onBindViewHolder(holder: UserHomeBlViewHolder, position: Int) {
        holder.bind(bookingList[position],clickListner)
     }
-    fun setList(villa: List<BookingDTO>){
+    fun setList(bookingDTO: List<BookingDTO>){
         bookingList.clear()
-        bookingList.addAll(bookingList)
+        bookingList.addAll(bookingDTO)
     }
 
 }
 class UserHomeBlViewHolder(private val view: View):RecyclerView.ViewHolder(view){
     fun bind(bookingDTO: BookingDTO, clickListner:(BookingDTO)->Unit){
         val ImgProductCard = view.findViewById<ImageView>(R.id.smigBookingImage)
-        val tvBookingListName = view.findViewById<ImageView>(R.id.tvBookingListName)
+        val tvBookingListName = view.findViewById<TextView>(R.id.tvBookingListName)
         val btnDltBookingCardView = view.findViewById<CardView>(R.id.btnDltBookingCardView)
-        val tvBookingListPrice = view.findViewById<ImageView>(R.id.tvBookingListPrice)
-        val tvBookingListDate = view.findViewById<ImageView>(R.id.tvBookingListDate)
+        val tvBookingListPrice = view.findViewById<TextView>(R.id.tvBookingListPrice)
+        val tvBookingListDate = view.findViewById<TextView>(R.id.tvBookingListDate)
 
         btnDltBookingCardView.setOnClickListener {
             clickListner(bookingDTO)

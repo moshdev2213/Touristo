@@ -4,10 +4,8 @@ import com.example.touristo.Payment
 import com.example.touristo.dao.BookingDao
 import com.example.touristo.modal.Booking
 import com.example.touristo.modal.Villa
-import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
+import com.example.touristo.modalDTO.BookingDTO
+import kotlinx.coroutines.*
 
 class BookingRepository(private val dao: BookingDao,private val ioDispatcher: CoroutineDispatcher) {
     private val bookingRepositoryScope = CoroutineScope(ioDispatcher)
@@ -17,7 +15,11 @@ class BookingRepository(private val dao: BookingDao,private val ioDispatcher: Co
             dao.insertBooking(booking)
         }
     }
-    suspend fun getBookingForListView(email:String): List<String> {
-        return dao.getBookingForListView(email)
+    suspend fun getBookingForListView(email:String): List<BookingDTO> {
+        var bookingList : List<BookingDTO>
+        withContext(ioDispatcher){
+            bookingList = dao.getBookingForListView(email)
+        }
+       return bookingList
     }
 }

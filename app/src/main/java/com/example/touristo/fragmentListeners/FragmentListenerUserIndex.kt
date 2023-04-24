@@ -10,5 +10,6 @@ interface FragmentListenerUserIndex {
     fun onFragmentFavouriteButtonClick()
     fun onItemClickedHome(villa: Villa)
 
+    fun getTheUserEmail():String
     fun onBookingItemClicked(bookingDTO: BookingDTO)
 }

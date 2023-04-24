@@ -186,7 +186,7 @@ class Payment : AppCompatActivity() {
             //get tHe lastInserteed PaymentId
             val lastPayId = paymentRepo.getPaymentId(dbcname,dbcnum,dbcmonth.toInt(),dbcyear.toInt())
 
-            val bookingObj = Booking(0,user.uemail,villa.id,lastPayId,currentDateTime.toString(),"")
+            val bookingObj = Booking(0,user.uemail,villa.id,villa.villaName,lastPayId,currentDateTime.toString(),"")
             bookingRepo.insertBooking(bookingObj)
 
             GlobalScope.launch(Dispatchers.Main) {
