@@ -12,7 +12,9 @@ import com.example.touristo.R
 import com.example.touristo.adapter.UserHomeBLAdapter
 import com.example.touristo.dbCon.TouristoDB
 import com.example.touristo.fragmentListeners.FragmentListenerUserIndex
+import com.example.touristo.modal.Booking
 import com.example.touristo.modal.Villa
+import com.example.touristo.modalDTO.BookingDTO
 import com.example.touristo.repository.BookingRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -45,15 +47,15 @@ class BookingFrag : Fragment() {
 
             recyclerView.layoutManager = LinearLayoutManager(context)
             adapter = UserHomeBLAdapter {
-                selectedItem: Villa ->listItemClicked(selectedItem)
+                selectedItem: BookingDTO ->listItemClicked(selectedItem)
             }
             adapter.setList(bookingRepo.getAllBookings())
             adapter.notifyDataSetChanged()
         }
     }
 
-    private fun listItemClicked(villa: Villa) {
-        fragmentListener?.onItemClickedHome(villa)
+    private fun listItemClicked(bookingDTO: BookingDTO) {
+        fragmentListener?.onBookingItemClicked(bookingDTO)
     }
 
     // the below method is for communication from parent activity to fragments

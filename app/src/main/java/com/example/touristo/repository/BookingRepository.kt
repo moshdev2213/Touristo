@@ -17,7 +17,7 @@ class BookingRepository(private val dao: BookingDao,private val ioDispatcher: Co
             dao.insertBooking(booking)
         }
     }
-    suspend fun getAllBookings(): List<Villa> {
-        return dao.getAllBooking()
+    suspend fun getBookingForListView(email:String): List<String> {
+        return dao.getBookingForListView(email)
     }
 }

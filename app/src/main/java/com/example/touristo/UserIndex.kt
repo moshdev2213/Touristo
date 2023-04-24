@@ -16,6 +16,8 @@ import com.example.touristo.dbCon.TouristoDB
 import com.example.touristo.fragmentListeners.FragmentListenerUserIndex
 import com.example.touristo.modal.Booking
 import com.example.touristo.modal.User
+import com.example.touristo.modal.Villa
+import com.example.touristo.modalDTO.BookingDTO
 import com.example.touristo.repository.UserRepository
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.coroutines.Dispatchers
@@ -130,7 +132,7 @@ class UserIndex : AppCompatActivity(), FragmentListenerUserIndex {
         replaceFragment(BookingFrag())
     }
 
-    override fun onItemClickedHome(booking: Booking) {
+    override fun onItemClickedHome(villa: Villa) {
         var userObj:User
 
         GlobalScope.launch(Dispatchers.IO){
@@ -138,7 +140,7 @@ class UserIndex : AppCompatActivity(), FragmentListenerUserIndex {
             userObj = getDbUserObject(globalEmail)
 
             val bundle = Bundle().apply {
-                putSerializable("villa", booking)
+                putSerializable("villa", villa)
                 putSerializable("user", userObj)
             }
             val intent = Intent(this@UserIndex,Product::class.java)
@@ -146,6 +148,11 @@ class UserIndex : AppCompatActivity(), FragmentListenerUserIndex {
             startActivity(intent)
         }
     }
+
+    override fun onBookingItemClicked(bookingDTO: BookingDTO) {
+
+    }
+
     private fun replaceFragment(fragment: Fragment){
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()

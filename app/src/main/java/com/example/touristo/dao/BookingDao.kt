@@ -5,6 +5,7 @@ import androidx.room.*
 import com.example.touristo.modal.Booking
 import com.example.touristo.modal.UserInquery
 import com.example.touristo.modal.Villa
+import com.example.touristo.modalDTO.BookingDTO
 
 @Dao
 interface BookingDao {
@@ -18,5 +19,10 @@ interface BookingDao {
     suspend fun deleteBooking(booking: Booking)
 
     @Query("SELECT * FROM booking")
-    fun getAllBooking(): List<Villa>
+    fun getAllBooking(): List<Booking>
+
+    @Query("SELECT strftime('%Y.%m.%d', b.added) as booked,b.paymentId,v.img01,v.price,v.villaName,v.id as villaId ,b.uemail,b.id as bookingId\n" +
+            "FROM booking b, villa v\n" +
+            "WHERE b.villaId = v.id and b.uemail=:email")
+    fun getBookingForListView(uemail:String):List<BookingDTO>
 }
