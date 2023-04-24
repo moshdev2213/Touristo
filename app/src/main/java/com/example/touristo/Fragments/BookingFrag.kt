@@ -51,10 +51,11 @@ class BookingFrag : Fragment() {
             adapter = UserHomeBLAdapter {
                 selectedItem: BookingDTO ->listItemClicked(selectedItem)
             }
-            recyclerView.adapter = adapter
-            adapter.setList(bookingRepo.getBookingForListView(theEmail.toString()))
+
 
             GlobalScope.launch(Dispatchers.Main){
+                recyclerView.adapter = adapter
+                adapter.setList(bookingRepo.getBookingForListView(theEmail.toString()))
                 adapter.notifyDataSetChanged()
             }
 

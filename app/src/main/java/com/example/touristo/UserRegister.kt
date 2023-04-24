@@ -117,7 +117,7 @@ class UserRegister : AppCompatActivity() {
     }
     //function for the custom Alert
 
-    fun showCustomDialogWithAutoLayoutHeight(context: Context, title :String, description:String) {
+    private fun showCustomDialogWithAutoLayoutHeight(context: Context, title :String, description:String) {
         dialog = Dialog(context)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog.setCancelable(false)

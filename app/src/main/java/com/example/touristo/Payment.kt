@@ -243,7 +243,6 @@ class Payment : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
-
         dialog.show()
     }
     override fun onDestroy() {

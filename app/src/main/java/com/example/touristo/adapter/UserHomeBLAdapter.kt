@@ -45,6 +45,10 @@ class UserHomeBlViewHolder(private val view: View):RecyclerView.ViewHolder(view)
         val tvBookingListPrice = view.findViewById<TextView>(R.id.tvBookingListPrice)
         val tvBookingListDate = view.findViewById<TextView>(R.id.tvBookingListDate)
 
+        tvBookingListDate.text = bookingDTO.booked
+        tvBookingListPrice.text =  "Rs " + String.format("%.2f", bookingDTO.price)
+        tvBookingListName.text = bookingDTO.villaName.capitalize()
+
         btnDltBookingCardView.setOnClickListener {
             clickListner(bookingDTO)
         }

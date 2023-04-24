@@ -41,13 +41,11 @@ class UserHomeViewHolder(private val view: View):RecyclerView.ViewHolder(view){
     fun bind(villa:Villa,clickListner:(Villa)->Unit){
         val ImgProductCard = view.findViewById<ImageView>(R.id.ImgProductCard)
         val tvCityName = view.findViewById<TextView>(R.id.tvCityName)
-        val tvPlaceDate = view.findViewById<TextView>(R.id.tvPlaceDate)
         val tvProductPrice = view.findViewById<TextView>(R.id.tvProductPrice)
         val rbProductCard = view.findViewById<RatingBar>(R.id.rbProductCard)
 
-        tvCityName.text = villa.district
-        tvPlaceDate.text = villa.added.toString()
-        tvProductPrice.text = villa.price.toString()
+        tvCityName.text = villa.district.capitalize()
+        tvProductPrice.text = "Rs " +String.format("%.2f",villa.price)
         rbProductCard.rating = villa.rating.toFloat()
 
         view.setOnClickListener {
