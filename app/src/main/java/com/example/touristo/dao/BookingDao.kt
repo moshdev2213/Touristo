@@ -4,18 +4,25 @@ import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.example.touristo.modal.Booking
 import com.example.touristo.modal.UserInquery
+import com.example.touristo.modal.Villa
+import com.example.touristo.modalDTO.BookingDTO
 
 @Dao
 interface BookingDao {
     @Insert
-    suspend fun insertUser(booking: Booking)
+    suspend fun insertBooking(booking: Booking)
 
     @Update
-    suspend fun updateUser(booking: Booking)
+    suspend fun updateBooking(booking: Booking)
 
     @Delete
-    suspend fun deleteUser(booking: Booking)
+    suspend fun deleteBooking(booking: Booking)
 
     @Query("SELECT * FROM booking")
-    fun getAllUsers(): LiveData<List<Booking>>
+    fun getAllBooking(): List<Booking>
+
+    @Query("SELECT strftime('%Y.%m.%d', b.added) as booked,b.paymentId,v.img01,v.price,v.villaName,v.id as villaId ,b.uemail,b.id as bookingId\n" +
+            "FROM booking b, villa v\n" +
+            "WHERE b.villaId = v.id and b.uemail=:email")
+    fun getBookingForListView(email:String):List<BookingDTO>
 }

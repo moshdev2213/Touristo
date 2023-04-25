@@ -39,7 +39,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView25"
+        android:id="@+id/tvPaymentToPay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:elevation="10dp"
@@ -64,7 +64,7 @@
         app:srcCompat="@drawable/spashrectangle" />
 
     <TextView
-        android:id="@+id/textView25"
+        android:id="@+id/tvLabelCardName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -117,7 +117,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.054"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
+        app:layout_constraintTop_toBottomOf="@+id/etCardHoldrName" />
 
     <TextView
         android:id="@+id/textView31"
@@ -132,7 +132,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.051"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        app:layout_constraintTop_toBottomOf="@+id/etPaymentCArdNumber" />
 
     <TextView
         android:id="@+id/textView32"
@@ -147,17 +147,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.919"
         app:layout_constraintStart_toEndOf="@+id/textView31"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        app:layout_constraintTop_toBottomOf="@+id/etPaymentCArdNumber" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/etPaymentCArdNumber"
         android:layout_width="379dp"
         android:layout_height="50dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/editfeld"
         android:ems="10"
         android:hint="xxxx-xxxx-xxxx-xxxx"
-        android:inputType="textPersonName"
+        android:inputType="number"
         android:padding="10dp"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -166,7 +166,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView30" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName5"
+        android:id="@+id/etPaymentMonth"
         android:layout_width="80dp"
         android:layout_height="50dp"
         android:layout_marginTop="12dp"
@@ -176,13 +176,13 @@
         android:inputType="number"
         android:padding="10dp"
         android:textSize="23sp"
-        app:layout_constraintEnd_toStartOf="@+id/editTextTextPersonName7"
+        app:layout_constraintEnd_toStartOf="@+id/etPaymentYear"
         app:layout_constraintHorizontal_bias="0.39"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView31" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName7"
+        android:id="@+id/etPaymentYear"
         android:layout_width="80dp"
         android:layout_height="50dp"
         android:layout_marginTop="12dp"
@@ -193,11 +193,11 @@
         android:inputType="number"
         android:padding="10dp"
         android:textSize="23sp"
-        app:layout_constraintEnd_toStartOf="@+id/editTextTextPersonName6"
+        app:layout_constraintEnd_toStartOf="@+id/etPaymentCVC"
         app:layout_constraintTop_toBottomOf="@+id/textView31" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName6"
+        android:id="@+id/etPaymentCVC"
         android:layout_width="91dp"
         android:layout_height="49dp"
         android:layout_marginTop="12dp"
@@ -213,7 +213,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView32" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/etCardHoldrName"
         android:layout_width="379dp"
         android:layout_height="50dp"
         android:layout_marginTop="16dp"
@@ -226,7 +226,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.406"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView25" />
+        app:layout_constraintTop_toBottomOf="@+id/tvLabelCardName" />
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -237,7 +237,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName5"
+        app:layout_constraintTop_toBottomOf="@+id/etPaymentMonth"
         app:layout_constraintVertical_bias="1.0">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -245,7 +245,7 @@
             android:layout_height="match_parent">
 
             <Button
-                android:id="@+id/button5"
+                android:id="@+id/btnPaymentPayNow"
                 android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
@@ -259,7 +259,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/btnPaymentDecline"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/dltbtncolor"
@@ -268,7 +268,7 @@
                 android:text="Decline"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/button5"
+                app:layout_constraintEnd_toStartOf="@+id/btnPaymentPayNow"
                 app:layout_constraintHorizontal_bias="0.567"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

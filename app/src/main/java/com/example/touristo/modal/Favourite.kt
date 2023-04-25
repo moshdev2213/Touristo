@@ -8,6 +8,6 @@ data class Favourite(
     var id:Int,
     var uemail:String,
     var villaId:Int,
-    var added:Long,
-    var modified:Long
+    var added:String,
+    var modified:String?=null
 )

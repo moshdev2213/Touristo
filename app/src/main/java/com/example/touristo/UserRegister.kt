@@ -10,6 +10,9 @@ import android.graphics.drawable.ColorDrawable
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.method.HideReturnsTransformationMethod
+import android.text.method.PasswordTransformationMethod
+import android.view.MotionEvent
 import android.view.Window
 import android.view.WindowManager
 import android.widget.Button
@@ -39,6 +42,8 @@ class UserRegister : AppCompatActivity() {
     private lateinit var btnURegSignUp: Button
     private lateinit var dialog: Dialog
     private var count = 0;
+
+    @SuppressLint("ClickableViewAccessibility", "CutPasteId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_register)
@@ -69,10 +74,50 @@ class UserRegister : AppCompatActivity() {
             startActivity(Intent(this@UserRegister,UserLogin::class.java))
             finish()
         }
+        //password hiding unhiding thing comes here
+        etURegPass.setOnTouchListener { _, event ->
+            if (event.action == MotionEvent.ACTION_UP) {
+                val drawableEnd = ContextCompat.getDrawable(this, R.drawable.baseline_key_24)
+                if (event.x >= etURegPass.width - etURegPass.paddingEnd - drawableEnd?.intrinsicWidth!!) {
+                    if (etURegPass.transformationMethod == PasswordTransformationMethod.getInstance()) {
+                        etURegPass.transformationMethod = HideReturnsTransformationMethod.getInstance()
+                    } else {
+                        etURegPass.transformationMethod = PasswordTransformationMethod.getInstance()
+                    }
+                    etURegPass.setSelection(etURegPass.text.length)
+                    true
+                } else {
+                    false
+                }
+            } else {
+                false
+            }
+        }
+
+
+        etURegRePass.setOnTouchListener { _, event ->
+            if (event.action == MotionEvent.ACTION_UP) {
+                val drawableEnd = ContextCompat.getDrawable(this, R.drawable.baseline_key_24)
+                if (event.x >= etURegRePass.width - etURegRePass.paddingEnd - drawableEnd?.intrinsicWidth!!) {
+                    if (etURegRePass.transformationMethod == PasswordTransformationMethod.getInstance()) {
+                        etURegRePass.transformationMethod = HideReturnsTransformationMethod.getInstance()
+                    } else {
+                        etURegRePass.transformationMethod = PasswordTransformationMethod.getInstance()
+                    }
+                    etURegRePass.setSelection(etURegRePass.text.length)
+                    true
+                } else {
+                    false
+                }
+            } else {
+                false
+            }
+        }
+
     }
     //function for the custom Alert
 
-    fun showCustomDialogWithAutoLayoutHeight(context: Context, title :String, description:String) {
+    private fun showCustomDialogWithAutoLayoutHeight(context: Context, title :String, description:String) {
         dialog = Dialog(context)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog.setCancelable(false)
@@ -144,40 +189,64 @@ class UserRegister : AppCompatActivity() {
         when(emailValidation){
             is ValidationResult.Valid ->{ count ++ }
             is ValidationResult.Invalid ->{
-                etURegEmail.error =emailValidation.errorMessage
+                GlobalScope.launch(Dispatchers.Main) {
+                    etURegEmail.error =emailValidation.errorMessage
+                }
+
             }
             is ValidationResult.Empty ->{
-                etURegEmail.error =emailValidation.errorMessage
+                GlobalScope.launch(Dispatchers.Main) {
+                    etURegEmail.error =emailValidation.errorMessage
+                }
+
             }
         }
 
         when(nameValidation){
             is ValidationResult.Valid ->{ count ++ }
             is ValidationResult.Invalid ->{
-                etURegName.error =nameValidation.errorMessage
+                GlobalScope.launch(Dispatchers.Main) {
+                    etURegName.error =nameValidation.errorMessage
+                }
+
             }
             is ValidationResult.Empty ->{
-                etURegName.error =nameValidation.errorMessage
+                GlobalScope.launch(Dispatchers.Main) {
+                    etURegName.error =nameValidation.errorMessage
+                }
+
             }
         }
 
         when(passwordValidation){
             is ValidationResult.Valid ->{ count ++ }
             is ValidationResult.Invalid ->{
-                etURegPass.error =passwordValidation.errorMessage
+                GlobalScope.launch(Dispatchers.Main) {
+                    etURegPass.error =passwordValidation.errorMessage
+                }
+
             }
             is ValidationResult.Empty ->{
-                etURegPass.error =passwordValidation.errorMessage
+                GlobalScope.launch(Dispatchers.Main) {
+                    etURegPass.error =passwordValidation.errorMessage
+                }
+
             }
         }
 
         when(telValidation){
             is ValidationResult.Valid ->{ count ++ }
             is ValidationResult.Invalid ->{
-                etURegTel.error =telValidation.errorMessage
+                GlobalScope.launch(Dispatchers.Main) {
+                    etURegTel.error =telValidation.errorMessage
+                }
+
             }
             is ValidationResult.Empty ->{
-                etURegTel.error =telValidation.errorMessage
+                GlobalScope.launch(Dispatchers.Main) {
+                    etURegTel.error =telValidation.errorMessage
+                }
+
             }
         }
         if(count==4) {

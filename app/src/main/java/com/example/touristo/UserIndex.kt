@@ -9,18 +9,17 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.touristo.Fragments.BookingFrag
 import com.example.touristo.Fragments.CartFrag
 import com.example.touristo.Fragments.ProfileFrag
 import com.example.touristo.Fragments.UserHomeFrag
-import com.example.touristo.adapter.UserHomeRVAdapter
 import com.example.touristo.dbCon.TouristoDB
 import com.example.touristo.fragmentListeners.FragmentListenerUserIndex
+import com.example.touristo.modal.Booking
 import com.example.touristo.modal.User
+import com.example.touristo.modal.Villa
+import com.example.touristo.modalDTO.BookingDTO
 import com.example.touristo.repository.UserRepository
-import com.example.touristo.repository.VillaRepository
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -110,7 +109,7 @@ class UserIndex : AppCompatActivity(), FragmentListenerUserIndex {
 
 
     // Implement the methods from the fragmentListener interface
-    override fun onFragmentButtonClick() {
+    override fun onFragmentPropicButtonClick() {
         var userObj : User
         GlobalScope.launch(Dispatchers.Main){
             userObj = getDbUserObject(globalEmail)
@@ -121,9 +120,42 @@ class UserIndex : AppCompatActivity(), FragmentListenerUserIndex {
             val intent = Intent(this@UserIndex,EditProfile::class.java)
             intent.putExtras( bundle)
             startActivity(intent)
-
         }
+    }
 
+    override fun onFragmentFavouriteButtonClick() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            window.statusBarColor = ContextCompat.getColor(this, R.color.splashBackground)
+
+            val flags = window.decorView.systemUiVisibility
+            window.decorView.systemUiVisibility = flags and View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR.inv()
+        }
+        replaceFragment(BookingFrag())
+    }
+
+    override fun onItemClickedHome(villa: Villa) {
+        var userObj:User
+
+        GlobalScope.launch(Dispatchers.IO){
+            globalEmail = intent.getStringExtra("useremail").toString()
+            userObj = getDbUserObject(globalEmail)
+
+            val bundle = Bundle().apply {
+                putSerializable("villa", villa)
+                putSerializable("user", userObj)
+            }
+            val intent = Intent(this@UserIndex,Product::class.java)
+            intent.putExtras( bundle)
+            startActivity(intent)
+        }
+    }
+
+    override fun onBookingItemClicked(bookingDTO: BookingDTO) {
+        Toast.makeText(this@UserIndex,"dsa",Toast.LENGTH_LONG).show()
+    }
+
+    override fun getTheUserEmail(): String {
+        return intent.getStringExtra("useremail").toString()
     }
 
     private fun replaceFragment(fragment: Fragment){

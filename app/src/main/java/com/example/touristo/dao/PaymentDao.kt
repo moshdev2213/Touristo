@@ -1,21 +1,22 @@
 package com.example.touristo.dao
 
-import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.example.touristo.modal.Payment
-import com.example.touristo.modal.Villa
 
 @Dao
 interface PaymentDao {
     @Insert
-    suspend fun insertUser(payment: Payment)
+    suspend fun insertPayment(payment: Payment)
 
     @Update
-    suspend fun updateUser(payment: Payment)
+    suspend fun updatePayment(payment: Payment)
 
     @Delete
-    suspend fun deleteUser(payment: Payment)
+    suspend fun deletePayment(payment: Payment)
 
     @Query("SELECT * FROM payment")
-    fun getAllUsers(): LiveData<List<Payment>>
+    fun getAllPayment(): List<Payment>
+
+    @Query("SELECT id FROM payment WHERE cardName=:cardName AND cardNumber=:cardNumber AND expireMonth=:expireMonth AND expireYear=:expireYear ORDER BY id DESC LIMIT 1\n")
+    fun getPaymentId(cardName:String,cardNumber:String,expireMonth:Int,expireYear:Int):Int
 }

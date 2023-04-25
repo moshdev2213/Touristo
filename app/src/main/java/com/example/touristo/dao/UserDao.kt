@@ -31,4 +31,9 @@ interface UserDao {
 
     @Query("SELECT * FROM user WHERE uemail=:email LIMIT 1")
     fun getUserObject( email: String):User
+
+    @Query("UPDATE user SET country =:country, gender=:gender , age=:age , tel=:tel , propic=:propic , password=:password ,uname=:uname  WHERE uemail =:uemail;")
+    fun updateUserProfile(
+        country:String?, gender:String?, age:Int?, tel:String, propic: kotlin.String?, password: String,
+        uname:String, uemail: String):Int
 }

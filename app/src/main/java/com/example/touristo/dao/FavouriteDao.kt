@@ -7,7 +7,7 @@ import com.example.touristo.modal.Favourite
 @Dao
 interface FavouriteDao {
     @Insert
-    suspend fun insertUser(favourite: Favourite)
+    suspend fun insertFavourites(favourite: Favourite)
 
     @Update
     suspend fun updateUser(favourite: Favourite)
@@ -16,5 +16,8 @@ interface FavouriteDao {
     suspend fun deleteUser(favourite: Favourite)
 
     @Query("SELECT * FROM favourite")
-    fun getAllUsers(): LiveData<List<Favourite>>
+    fun getAllUsers(): List<Favourite>
+
+    @Query("SELECT COUNT(id) FROM favourite WHERE uemail=:uemail AND villaId=:villaId")
+    fun getUserAddedOrNot(uemail:String,villaId : Int):Int
 }
