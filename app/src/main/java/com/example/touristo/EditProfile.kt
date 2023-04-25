@@ -100,8 +100,6 @@ class EditProfile : AppCompatActivity() {
             tvEditProfileEmail.text = user.uemail
             tvEditProfileUName.text = user.uname
 
-
-
             btnEditProfileUpdate.setOnClickListener {
 
                 GlobalScope.launch(Dispatchers.IO) {
