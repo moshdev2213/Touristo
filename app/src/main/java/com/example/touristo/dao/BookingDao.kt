@@ -21,7 +21,7 @@ interface BookingDao {
     @Query("SELECT * FROM booking")
     fun getAllBooking(): List<Booking>
 
-    @Query("SELECT strftime('%Y.%m.%d', b.added) as booked,b.paymentId,v.img01,v.price,v.villaName,v.id as villaId ,b.uemail,b.id as bookingId\n" +
+    @Query("SELECT strftime('%Y.%m.%d', b.added) as booked,b.reference,b.paymentId,v.img01,v.price,v.villaName,v.id as villaId ,b.uemail,b.id as bookingId\n" +
             "FROM booking b, villa v\n" +
             "WHERE b.villaId = v.id and b.uemail=:email")
     fun getBookingForListView(email:String):List<BookingDTO>

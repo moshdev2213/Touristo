@@ -11,6 +11,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import com.example.touristo.R
+import com.example.touristo.modalDTO.BookingDTO
 
 class ConfirmationDialog(
     private val context: Context,
@@ -92,6 +93,35 @@ class ConfirmationDialog(
         dgOkBtn.backgroundTintList = ColorStateList.valueOf(color)
 
         dgOkBtn.setOnClickListener {
+            onDismiss()
+            dialog.dismiss()
+        }
+        dialog.show()
+    }
+    fun generateSlipDialog(bookingDTO: BookingDTO , onDismiss: () -> Unit){
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setCancelable(false)
+        dialog.setContentView(R.layout.payment_done_receipt)
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+        val tvPaySlipPrice = dialog.findViewById<TextView>(R.id.tvPaySlipPrice)
+        val tvPaySlipReference = dialog.findViewById<TextView>(R.id.tvPaySlipReference)
+        val tvPaySlipDate = dialog.findViewById<TextView>(R.id.tvPaySlipDate)
+        val tvPaySlipTax = dialog.findViewById<TextView>(R.id.tvPaySlipTax)
+        val tvPaySlipStatus = dialog.findViewById<TextView>(R.id.tvPaySlipStatus)
+        val tvPaySlipType = dialog.findViewById<TextView>(R.id.tvPaySlipType)
+        val tvPaySlipVillaName = dialog.findViewById<TextView>(R.id.tvPaySlipVillaName)
+        val btnPaySlipDateOkBtn = dialog.findViewById<TextView>(R.id.btnPaySlipDateOkBtn)
+
+        tvPaySlipDate.text = bookingDTO.booked
+        tvPaySlipStatus.text = "Paid"
+        tvPaySlipReference.text = bookingDTO.reference
+        tvPaySlipPrice.text = "Rs "+bookingDTO.price.toString()
+        tvPaySlipTax.text = "Rs 00.00"
+        tvPaySlipType.text = "Card Payment"
+        tvPaySlipVillaName.text = bookingDTO.villaName
+
+        btnPaySlipDateOkBtn.setOnClickListener {
             onDismiss()
             dialog.dismiss()
         }

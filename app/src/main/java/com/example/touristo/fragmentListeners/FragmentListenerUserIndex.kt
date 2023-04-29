@@ -12,4 +12,5 @@ interface FragmentListenerUserIndex {
 
     fun getTheUserEmail():String
     fun onBookingItemClicked(bookingDTO: BookingDTO)
+    fun InitiatePaySlip(bookingDTO: BookingDTO)
 }

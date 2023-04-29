@@ -20,6 +20,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.lifecycleScope
 import com.example.touristo.dbCon.TouristoDB
 import com.example.touristo.modal.Favourite
 import com.example.touristo.modal.User
@@ -124,7 +125,7 @@ class Product : AppCompatActivity() {
                 finish()
             }
             fbProductFavouriteBtn.setOnClickListener{
-                GlobalScope.launch(Dispatchers.IO) {
+                lifecycleScope.launch(Dispatchers.IO) {
                     if (user != null) {
                         insertIntoFavourites(villa,user.uemail)
                     }

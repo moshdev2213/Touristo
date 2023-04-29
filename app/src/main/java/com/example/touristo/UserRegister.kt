@@ -14,6 +14,8 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
 import com.example.touristo.dbCon.TouristoDB
 import com.example.touristo.dialogAlerts.ConfirmationDialog
 import com.example.touristo.formData.UserRegisterForm
@@ -60,7 +62,7 @@ class UserRegister : AppCompatActivity() {
         tvURegSignIn = findViewById(R.id.tvURegSignIn)
 
         btnURegSignUp.setOnClickListener {
-            GlobalScope.launch(Dispatchers.IO) {
+            lifecycleScope.launch(Dispatchers.IO) {
                 userRegSubmit()
             }
         }
@@ -141,13 +143,13 @@ class UserRegister : AppCompatActivity() {
         when(emailValidation){
             is ValidationResult.Valid ->{ count ++ }
             is ValidationResult.Invalid ->{
-                GlobalScope.launch(Dispatchers.Main) {
+                lifecycleScope.launch(Dispatchers.Main) {
                     etURegEmail.error =emailValidation.errorMessage
                 }
 
             }
             is ValidationResult.Empty ->{
-                GlobalScope.launch(Dispatchers.Main) {
+                lifecycleScope.launch(Dispatchers.Main) {
                     etURegEmail.error =emailValidation.errorMessage
                 }
 
@@ -157,13 +159,13 @@ class UserRegister : AppCompatActivity() {
         when(nameValidation){
             is ValidationResult.Valid ->{ count ++ }
             is ValidationResult.Invalid ->{
-                GlobalScope.launch(Dispatchers.Main) {
+                lifecycleScope.launch(Dispatchers.Main) {
                     etURegName.error =nameValidation.errorMessage
                 }
 
             }
             is ValidationResult.Empty ->{
-                GlobalScope.launch(Dispatchers.Main) {
+                lifecycleScope.launch(Dispatchers.Main) {
                     etURegName.error =nameValidation.errorMessage
                 }
 
@@ -173,13 +175,13 @@ class UserRegister : AppCompatActivity() {
         when(passwordValidation){
             is ValidationResult.Valid ->{ count ++ }
             is ValidationResult.Invalid ->{
-                GlobalScope.launch(Dispatchers.Main) {
+                lifecycleScope.launch(Dispatchers.Main) {
                     etURegPass.error =passwordValidation.errorMessage
                 }
 
             }
             is ValidationResult.Empty ->{
-                GlobalScope.launch(Dispatchers.Main) {
+                lifecycleScope.launch(Dispatchers.Main) {
                     etURegPass.error =passwordValidation.errorMessage
                 }
 
@@ -189,13 +191,13 @@ class UserRegister : AppCompatActivity() {
         when(telValidation){
             is ValidationResult.Valid ->{ count ++ }
             is ValidationResult.Invalid ->{
-                GlobalScope.launch(Dispatchers.Main) {
+                lifecycleScope.launch(Dispatchers.Main) {
                     etURegTel.error =telValidation.errorMessage
                 }
 
             }
             is ValidationResult.Empty ->{
-                GlobalScope.launch(Dispatchers.Main) {
+                lifecycleScope.launch(Dispatchers.Main) {
                     etURegTel.error =telValidation.errorMessage
                 }
 
@@ -214,7 +216,7 @@ class UserRegister : AppCompatActivity() {
             val userRepo =UserRepository(userDao, Dispatchers.IO)
 
             if(userRepo.userExist(dbEmail)>0){
-                GlobalScope.launch(Dispatchers.Main) {
+                lifecycleScope.launch(Dispatchers.Main) {
                     //initializing the dialogBox Class
                     confirmationDialog = ConfirmationDialog(this@UserRegister)
                     //lamdas starts here
@@ -223,7 +225,8 @@ class UserRegister : AppCompatActivity() {
                     }
                 }
             }else{
-                GlobalScope.launch(Dispatchers.Main) {
+                lifecycleScope
+                lifecycleScope.launch(Dispatchers.Main) {
                     userRepo.insertUser(User(0,dbName,dbEmail,dbPassword,null,dbTel,null,null,null,currentDateTime.toString(),))
                     //initializing the dialogBox Class
                     confirmationDialog = ConfirmationDialog(this@UserRegister)

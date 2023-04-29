@@ -25,6 +25,8 @@ import kotlinx.coroutines.launch
 import java.sql.Timestamp
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.random.Random
+
 
 class Payment : AppCompatActivity() {
     private lateinit var btnPaymentDecline:Button
@@ -186,7 +188,8 @@ class Payment : AppCompatActivity() {
             //get tHe lastInserteed PaymentId
             val lastPayId = paymentRepo.getPaymentId(dbcname,dbcnum,dbcmonth.toInt(),dbcyear.toInt())
 
-            val bookingObj = Booking(0,user.uemail,villa.id,villa.villaName,lastPayId,currentDateTime.toString(),"")
+            var reference = "RF"+ Random.nextInt(1000000, 9999999)
+            val bookingObj = Booking(0,user.uemail,villa.id,villa.villaName,reference,lastPayId,currentDateTime.toString(),"")
             bookingRepo.insertBooking(bookingObj)
 
             GlobalScope.launch(Dispatchers.Main) {

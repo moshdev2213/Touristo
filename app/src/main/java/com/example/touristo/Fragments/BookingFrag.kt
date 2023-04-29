@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.touristo.R
@@ -48,18 +49,24 @@ class BookingFrag : Fragment() {
             val theEmail = fragmentListener?.getTheUserEmail()
 
             recyclerView.layoutManager = LinearLayoutManager(context)
-            adapter = UserHomeBLAdapter {
+            adapter = UserHomeBLAdapter({
                 selectedItem: BookingDTO ->listItemClicked(selectedItem)
-            }
+            },{
+                payItem: BookingDTO ->initiatePaySlip(payItem)
+            })
 
 
-            GlobalScope.launch(Dispatchers.Main){
+            lifecycleScope.launch(Dispatchers.Main){
                 recyclerView.adapter = adapter
                 adapter.setList(bookingRepo.getBookingForListView(theEmail.toString()))
                 adapter.notifyDataSetChanged()
             }
 
         }
+    }
+
+    private fun initiatePaySlip(payItem: BookingDTO) {
+        fragmentListener?.InitiatePaySlip(payItem)
     }
 
     private fun listItemClicked(bookingDTO: BookingDTO) {

@@ -11,9 +11,11 @@ import com.example.touristo.R
 import com.example.touristo.modal.Booking
 import com.example.touristo.modal.Villa
 import com.example.touristo.modalDTO.BookingDTO
+import com.example.touristo.modalDTO.PayslipDTO
 
 class UserHomeBLAdapter(
-    private val clickListner: (BookingDTO) -> Unit
+    private val clickListner: (BookingDTO) -> Unit,
+    private val paySlipView:(BookingDTO)->Unit
 ):RecyclerView.Adapter<UserHomeBlViewHolder>() {
 
     private val bookingList = ArrayList<BookingDTO>()
@@ -29,7 +31,7 @@ class UserHomeBLAdapter(
     }
 
     override fun onBindViewHolder(holder: UserHomeBlViewHolder, position: Int) {
-       holder.bind(bookingList[position],clickListner)
+       holder.bind(bookingList[position],clickListner,paySlipView)
     }
     fun setList(bookingDTO: List<BookingDTO>){
         bookingList.clear()
@@ -38,12 +40,13 @@ class UserHomeBLAdapter(
 
 }
 class UserHomeBlViewHolder(private val view: View):RecyclerView.ViewHolder(view){
-    fun bind(bookingDTO: BookingDTO, clickListner:(BookingDTO)->Unit){
+    fun bind(bookingDTO: BookingDTO, clickListner:(BookingDTO)->Unit , paySlipView:(BookingDTO)->Unit){
         val ImgProductCard = view.findViewById<ImageView>(R.id.smigBookingImage)
         val tvBookingListName = view.findViewById<TextView>(R.id.tvBookingListName)
         val btnDltBookingCardView = view.findViewById<CardView>(R.id.btnDltBookingCardView)
         val tvBookingListPrice = view.findViewById<TextView>(R.id.tvBookingListPrice)
         val tvBookingListDate = view.findViewById<TextView>(R.id.tvBookingListDate)
+        val btnWatchBookingCardView = view.findViewById<CardView>(R.id.btnWatchBookingCardView)
 
         tvBookingListDate.text = bookingDTO.booked
         tvBookingListPrice.text =  "Rs " + String.format("%.2f", bookingDTO.price)
@@ -51,6 +54,9 @@ class UserHomeBlViewHolder(private val view: View):RecyclerView.ViewHolder(view)
 
         btnDltBookingCardView.setOnClickListener {
             clickListner(bookingDTO)
+        }
+        btnWatchBookingCardView.setOnClickListener {
+            paySlipView(bookingDTO)
         }
 
 
