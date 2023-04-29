@@ -60,7 +60,7 @@
         app:srcCompat="@drawable/thnkuimg" />
 
     <Button
-        android:id="@+id/button9"
+        android:id="@+id/btnSeeBooking"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/btnSplash"

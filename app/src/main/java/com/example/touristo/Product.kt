@@ -139,6 +139,7 @@ class Product : AppCompatActivity() {
                 val intent = Intent(this@Product,Checkout::class.java)
                 intent.putExtras( bundle)
                 startActivity(intent)
+                finish()
             }
 
         }

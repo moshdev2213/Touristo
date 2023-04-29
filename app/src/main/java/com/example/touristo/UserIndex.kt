@@ -11,17 +11,20 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import com.example.touristo.Fragments.BookingFrag
 import com.example.touristo.Fragments.CartFrag
 import com.example.touristo.Fragments.ProfileFrag
 import com.example.touristo.Fragments.UserHomeFrag
 import com.example.touristo.dbCon.TouristoDB
 import com.example.touristo.dialogAlerts.ConfirmationDialog
+import com.example.touristo.dialogAlerts.PaySlipGenerator
 import com.example.touristo.fragmentListeners.FragmentListenerUserIndex
 import com.example.touristo.modal.Booking
 import com.example.touristo.modal.User
 import com.example.touristo.modal.Villa
 import com.example.touristo.modalDTO.BookingDTO
+import com.example.touristo.repository.BookingRepository
 import com.example.touristo.repository.UserRepository
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.coroutines.Dispatchers
@@ -34,6 +37,7 @@ class UserIndex : AppCompatActivity(), FragmentListenerUserIndex {
     private lateinit var globalEmail:String
     private lateinit var db : TouristoDB
     private lateinit var confirmationDialog: ConfirmationDialog
+    private lateinit var paySlipGenerator: PaySlipGenerator
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_index)
@@ -134,7 +138,7 @@ class UserIndex : AppCompatActivity(), FragmentListenerUserIndex {
     override fun onItemClickedHome(villa: Villa) {
         var userObj:User
 
-        GlobalScope.launch(Dispatchers.IO){
+        lifecycleScope.launch(Dispatchers.IO){
             globalEmail = intent.getStringExtra("useremail").toString()
             userObj = getDbUserObject(globalEmail)
 
@@ -149,12 +153,17 @@ class UserIndex : AppCompatActivity(), FragmentListenerUserIndex {
     }
 
     override fun onBookingItemClicked(bookingDTO: BookingDTO) {
+        lifecycleScope.launch(Dispatchers.IO){
+            db = TouristoDB.getInstance(this@UserIndex)
+            val bookDAo = db.bookingDao()
+            val bookingRepo = BookingRepository(bookDAo,Dispatchers.IO)
+        }
         Toast.makeText(this@UserIndex,"dsa",Toast.LENGTH_LONG).show()
     }
 
     override fun InitiatePaySlip(bookingDTO: BookingDTO) {
-        confirmationDialog = ConfirmationDialog(this@UserIndex)
-        confirmationDialog.generateSlipDialog(bookingDTO) {
+        paySlipGenerator = PaySlipGenerator(this@UserIndex)
+        paySlipGenerator.generateSlipDialog(bookingDTO) {
             //do anything
         }
     }

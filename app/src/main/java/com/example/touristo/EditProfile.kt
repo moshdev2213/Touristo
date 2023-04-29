@@ -70,7 +70,10 @@ class EditProfile : AppCompatActivity() {
         tvEditProfileUName=findViewById(R.id.tvEditProfileUName)
 
         toggleButton = findViewById(R.id.imgEditProfileTogglePwd)
-
+        fbEditProfileBtn = findViewById(R.id.fbEditProfileBtn)
+        fbEditProfileBtn.setOnClickListener {
+            finish()
+        }
         toggleButton.setOnClickListener {
             if (etEditProfilePassword.transformationMethod == PasswordTransformationMethod.getInstance()) {
                 // Show the password

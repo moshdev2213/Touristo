@@ -6,6 +6,7 @@ import androidx.room.PrimaryKey
 data class Payment(
     @PrimaryKey(autoGenerate = true)
     var id:Int,
+    var uemail:String,
     var cardName:String,
     var cardNumber:String,
     var expireMonth:Int,
