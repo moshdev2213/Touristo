@@ -1,12 +1,7 @@
 package com.example.touristo
 
 import android.annotation.SuppressLint
-import android.app.Dialog
-import android.content.Context
 import android.content.Intent
-import android.content.res.ColorStateList
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -17,11 +12,10 @@ import android.view.Window
 import android.view.WindowManager
 import android.widget.Button
 import android.widget.EditText
-import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.example.touristo.dbCon.TouristoDB
+import com.example.touristo.dialogAlerts.ConfirmationDialog
 import com.example.touristo.formData.UserRegisterForm
 import com.example.touristo.modal.User
 import com.example.touristo.repository.UserRepository
@@ -40,8 +34,8 @@ class UserRegister : AppCompatActivity() {
     private lateinit var tvURegSignIn: TextView
     private lateinit var tvURegNamelabel: TextView
     private lateinit var btnURegSignUp: Button
-    private lateinit var dialog: Dialog
     private var count = 0;
+    private lateinit var confirmationDialog: ConfirmationDialog
 
     @SuppressLint("ClickableViewAccessibility", "CutPasteId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -114,48 +108,6 @@ class UserRegister : AppCompatActivity() {
             }
         }
 
-    }
-    //function for the custom Alert
-
-    private fun showCustomDialogWithAutoLayoutHeight(context: Context, title :String, description:String) {
-        dialog = Dialog(context)
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        dialog.setCancelable(false)
-        dialog.setContentView(R.layout.dialog_box_success)
-        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-
-
-        val dgDescription = dialog.findViewById<TextView>(R.id.tvDgDecsrition)
-        val dgOkBtn = dialog.findViewById<TextView>(R.id.btnDgOk)
-        val imgDg = dialog.findViewById<ImageView>(R.id.imgDg)
-
-
-        // Get resource ID of image based on title
-        val resourceId = context.resources.getIdentifier(title, "drawable", context.packageName)
-        // Set image using resource ID
-        imgDg.setImageResource(resourceId)
-        dgDescription.text = description
-
-        val color:Int
-        if(title.equals("infocoloredred", ignoreCase = true)){
-            color = ContextCompat.getColor(this, R.color.bgDialogError)
-            dgOkBtn.backgroundTintList = ColorStateList.valueOf(color)
-
-            dgOkBtn.setOnClickListener {
-                dialog.dismiss()
-            }
-        }else if(title.equals("success", ignoreCase = true)){
-            color = ContextCompat.getColor(this, R.color.bgDialogSuccess)
-            dgOkBtn.backgroundTintList = ColorStateList.valueOf(color)
-
-            dgOkBtn.setOnClickListener {
-                startActivity(Intent(this@UserRegister,UserLogin::class.java))
-                finish()
-            }
-        }
-
-
-        dialog.show()
     }
     //function for the userForm Submission
     suspend fun userRegSubmit(){
@@ -263,25 +215,27 @@ class UserRegister : AppCompatActivity() {
 
             if(userRepo.userExist(dbEmail)>0){
                 GlobalScope.launch(Dispatchers.Main) {
-
-                    showCustomDialogWithAutoLayoutHeight(this@UserRegister,"infocoloredred","Account Already Exists")
+                    //initializing the dialogBox Class
+                    confirmationDialog = ConfirmationDialog(this@UserRegister)
+                    //lamdas starts here
+                    confirmationDialog.dialogWithInfo("Account Already Exists") {
+                       //do anything
+                    }
                 }
             }else{
                 GlobalScope.launch(Dispatchers.Main) {
                     userRepo.insertUser(User(0,dbName,dbEmail,dbPassword,null,dbTel,null,null,null,currentDateTime.toString(),))
-                    showCustomDialogWithAutoLayoutHeight(this@UserRegister,"success","You have successfully registered")
+                    //initializing the dialogBox Class
+                    confirmationDialog = ConfirmationDialog(this@UserRegister)
+                    confirmationDialog.dialogWithSuccess("You have successfully registered") {
+                        startActivity(Intent(this@UserRegister,UserLogin::class.java))
+                        finish()
+                    }
                 }
             }
             count=0;
         }
         count=0;
     }
-    override fun onDestroy() {
-        super.onDestroy()
-        GlobalScope.launch(Dispatchers.Main) {
-            dialog = Dialog(this@UserRegister)
-            dialog.dismiss() // Dismiss the dialog if it's still showing
-        }
 
-    }
 }

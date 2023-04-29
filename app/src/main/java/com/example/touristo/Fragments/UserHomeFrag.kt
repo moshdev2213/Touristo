@@ -56,7 +56,6 @@ class UserHomeFrag : Fragment() {
             // Get the UserDao from the database
             val villaDao = db.villaDao()
             val villaRepo = VillaRepository(villaDao, Dispatchers.IO)
-//            recyclerView.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
             recyclerView.layoutManager= LinearLayoutManager(context)
             adapter = UserHomeRVAdapter{
                 selectedItem:Villa->listItemClicked(selectedItem)
