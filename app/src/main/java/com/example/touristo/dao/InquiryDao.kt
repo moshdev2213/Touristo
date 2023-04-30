@@ -14,13 +14,13 @@ interface InquiryDao {
 
     //the userInquiry starts here
     @Insert
-    suspend fun insertUser(userInquery: UserInquery)
+    suspend fun insertInquiry(userInquery: UserInquery)
 
     @Update
-    suspend fun updateUser(userInquery: UserInquery)
+    suspend fun updateInquiry(userInquery: UserInquery)
 
     @Delete
-    suspend fun deleteUser(userInquery: UserInquery)
+    suspend fun deleteInquiry(userInquery: UserInquery)
 
     @Query("SELECT * FROM inquiryReply")
     fun getAllUsers(): LiveData<List<UserInquery>>

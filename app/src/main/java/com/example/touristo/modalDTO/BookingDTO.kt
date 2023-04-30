@@ -12,4 +12,4 @@ data class BookingDTO(
     var villaId:Int,
     val uemail:String,
     var bookingId:Int
-)
+):java.io.Serializable

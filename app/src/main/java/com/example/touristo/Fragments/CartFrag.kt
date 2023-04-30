@@ -48,10 +48,10 @@ class CartFrag : Fragment() {
             adapter = UserHomeFVAdapter{
                 selectedItem:FavouriteDTO -> listItemChecked(selectedItem)
             }
-            recyclerView.adapter = adapter
-            adapter.setList(favRepo.getAllFavouriteList(email.toString()))
-            lifecycleScope.launch(Dispatchers.Main){
 
+            lifecycleScope.launch(Dispatchers.Main){
+                recyclerView.adapter = adapter
+                adapter.setList(favRepo.getAllFavouriteList(email.toString()))
                 adapter.notifyDataSetChanged()
             }
         }

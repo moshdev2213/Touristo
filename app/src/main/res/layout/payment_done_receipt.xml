@@ -278,15 +278,33 @@
             android:layout_marginTop="20dp"
             android:background="@color/bgBackground" />
 
-        <Button
-            android:id="@+id/btnPaySlipDateOkBtn"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            android:backgroundTint="@color/bgDialogSuccess"
-            android:fontFamily="@font/montserrat_semibold"
-            android:text="DONE"
-            android:textSize="16sp" />
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnPaySlipDateInquiryBtn2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/bgDialogError"
+                android:fontFamily="@font/montserrat_semibold"
+                android:text="Inquiry"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/btnPaySlipDateOkBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/bgDialogSuccess"
+                android:fontFamily="@font/montserrat_semibold"
+                android:text="DONE"
+                android:textSize="16sp" />
+        </LinearLayout>
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>

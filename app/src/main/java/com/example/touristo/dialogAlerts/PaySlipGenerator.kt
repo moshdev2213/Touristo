@@ -5,6 +5,7 @@ import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.view.Window
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import com.example.touristo.R
@@ -15,7 +16,7 @@ class PaySlipGenerator(
 ) {
     private var dialog = Dialog(context)
 
-    fun generateSlipDialog(bookingDTO: BookingDTO, onDismiss: () -> Unit){
+    fun generateSlipDialog(bookingDTO: BookingDTO, onDismiss: () -> Unit, onInquiry: () -> Unit){
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog.setCancelable(true)
         dialog.setContentView(R.layout.payment_done_receipt)
@@ -28,7 +29,9 @@ class PaySlipGenerator(
         val tvPaySlipStatus = dialog.findViewById<TextView>(R.id.tvPaySlipStatus)
         val tvPaySlipType = dialog.findViewById<TextView>(R.id.tvPaySlipType)
         val tvPaySlipVillaName = dialog.findViewById<TextView>(R.id.tvPaySlipVillaName)
-        val btnPaySlipDateOkBtn = dialog.findViewById<TextView>(R.id.btnPaySlipDateOkBtn)
+
+        val btnPaySlipDateOkBtn = dialog.findViewById<Button>(R.id.btnPaySlipDateOkBtn)
+        val btnPaySlipDateInquiryBtn2 = dialog.findViewById<Button>(R.id.btnPaySlipDateInquiryBtn2)
 
         tvPaySlipDate.text = bookingDTO.booked
         tvPaySlipStatus.text = "Paid"
@@ -40,6 +43,10 @@ class PaySlipGenerator(
 
         btnPaySlipDateOkBtn.setOnClickListener {
             onDismiss()
+            dialog.dismiss()
+        }
+        btnPaySlipDateInquiryBtn2.setOnClickListener{
+            onInquiry()
             dialog.dismiss()
         }
         dialog.show()

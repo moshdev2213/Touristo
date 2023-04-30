@@ -158,14 +158,20 @@ class UserIndex : AppCompatActivity(), FragmentListenerUserIndex {
             val bookDAo = db.bookingDao()
             val bookingRepo = BookingRepository(bookDAo,Dispatchers.IO)
         }
-        Toast.makeText(this@UserIndex,"dsa",Toast.LENGTH_LONG).show()
     }
 
     override fun InitiatePaySlip(bookingDTO: BookingDTO) {
         paySlipGenerator = PaySlipGenerator(this@UserIndex)
-        paySlipGenerator.generateSlipDialog(bookingDTO) {
+        paySlipGenerator.generateSlipDialog(bookingDTO, {
             //do anything
-        }
+        },{
+            val bundle = Bundle().apply {
+                putSerializable("bookingDTO", bookingDTO)
+            }
+            val intent = Intent(this@UserIndex,UserInquiryForm::class.java)
+            intent.putExtras( bundle)
+            startActivity(intent)
+        })
     }
 
     override fun getTheUserEmail(): String {
