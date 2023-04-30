@@ -16,7 +16,7 @@ class Thanku : AppCompatActivity() {
         val bundle = intent.extras
         val villa = bundle?.getSerializable("villa") as? Villa
         val user = bundle?.getSerializable("user") as? User
-       
+
         btnSeeBooking = findViewById(R.id.btnSeeBooking)
         btnSeeBooking.setOnClickListener {
             val bundle = Bundle().apply {

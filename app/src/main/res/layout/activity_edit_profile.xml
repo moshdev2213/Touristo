@@ -253,17 +253,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvEditProfileTel" />
 
-    <EditText
+    <Spinner
         android:id="@+id/etEditProfileGender"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:background="@drawable/editfeld"
-        android:ems="10"
-        android:fontFamily="@font/montserrat"
-        android:hint="male"
-        android:inputType="text"
-        android:padding="10dp"
+        android:entries="@array/gender"
+        android:padding="14dp"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/etEditProfileTel"

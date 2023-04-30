@@ -16,13 +16,18 @@ import android.view.WindowManager
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.lifecycleScope
 import com.example.touristo.dao.UserDao
 import com.example.touristo.dbCon.TouristoDB
+import com.example.touristo.dialogAlerts.ConfirmationDialog
+import com.example.touristo.formData.UserProfileValidation
 import com.example.touristo.modal.User
 import com.example.touristo.repository.UserRepository
+import com.example.touristo.validations.ValidationResult
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -33,7 +38,7 @@ class EditProfile : AppCompatActivity() {
     private lateinit var btnEditProfileUpdate:Button
     private lateinit var etEditProfileCountry:EditText
     private lateinit var etEditProfileAge:EditText
-    private lateinit var etEditProfileGender:EditText
+    private lateinit var etEditProfileGender:Spinner
     private lateinit var etEditProfileTel:EditText
     private lateinit var etEditProfilePassword:EditText
     private lateinit var etEditProfileEmail:EditText
@@ -42,6 +47,10 @@ class EditProfile : AppCompatActivity() {
     private lateinit var tvEditProfileEmail:TextView
     private lateinit var fbEditProfileBtnPencil:FloatingActionButton
     private lateinit var fbEditProfileBtn:FloatingActionButton
+    private var count = 0;
+
+
+    private lateinit var confirmationDialog : ConfirmationDialog
     // Get a reference to the EditText field and the toggle button
 
     private lateinit var toggleButton: ImageView
@@ -94,7 +103,13 @@ class EditProfile : AppCompatActivity() {
             etEditProfileCountry.setText(user.country)
             user.age?.let { etEditProfileAge.setText(it.toString()) }
 
-            etEditProfileGender.setText(user.gender)
+            var position:Int =0
+            if(user.gender.toString() == "Male"){
+                position =0
+            }else if(user.gender.toString()=="Female"){
+                position=1
+            }
+            etEditProfileGender.setSelection(position)
             etEditProfileTel.setText(user.tel)
             etEditProfilePassword.setText(user.password)
 
@@ -105,91 +120,135 @@ class EditProfile : AppCompatActivity() {
 
             btnEditProfileUpdate.setOnClickListener {
 
-                GlobalScope.launch(Dispatchers.IO) {
+                lifecycleScope.launch(Dispatchers.IO) {
                     updateUserProfile(user.uemail)
                 }
             }
         }
     }
-    suspend fun updateUserProfile( email: String){
+    private suspend fun updateUserProfile(email: String){
         val country = etEditProfileCountry.text.toString()
         val password = etEditProfilePassword.text.toString()
         val tel = etEditProfileTel.text.toString()
-        val gender = etEditProfileGender.text.toString()
+        val gender = etEditProfileGender.selectedItem.toString()
         val age = etEditProfileAge.text.toString()
         val uName = etEditProfileEmail.text.toString()
 
-        println("Country: $country")
-        println("Email: $email")
-        println("Password: $password")
-        println("Tel: $tel")
-        println("Gender: $gender")
-        println("Age: $age")
-        println("UName: $uName")
-        val db = TouristoDB.getInstance(application)
-        // Get the UserDao from the database
-        val userDao = db.userDao()
-        val userRepo = UserRepository(userDao, Dispatchers.IO)
+        val userEditForm = UserProfileValidation(
+            uName,
+            password,
+            tel,
+            "",
+            age,
+            country
+        )
 
-        val result : Int = userRepo.updateUserProfile(country,gender,age.toInt(),tel,"propic",password,uName,email)
+        val validationAge =userEditForm.validationAge()
+        val nameValidation =userEditForm.validateUserName()
+        val passwordValidation =userEditForm.validatePassword()
+        val telValidation =userEditForm.validateTel()
+        val validateCountry =userEditForm.validateCountry()
 
-        if(result>0){
-            GlobalScope.launch(Dispatchers.Main){
-                showCustomDialogWithAutoLayoutHeight(this@EditProfile,"success","You have successfully registered")
+        when(validationAge){
+            is ValidationResult.Valid ->{ count ++ }
+            is ValidationResult.Invalid ->{
+                lifecycleScope.launch(Dispatchers.Main) {
+                    etEditProfileAge.error =validationAge.errorMessage
+                }
+
             }
+            is ValidationResult.Empty ->{
+                lifecycleScope.launch(Dispatchers.Main) {
+                    etEditProfileAge.error =validationAge.errorMessage
+                }
 
-        }else{
-            GlobalScope.launch(Dispatchers.Main){
-                showCustomDialogWithAutoLayoutHeight(this@EditProfile,"error","Invalid Credentials")
-            }
-
-        }
-    }
-    fun showCustomDialogWithAutoLayoutHeight(context: Context, title :String, description:String) {
-        dialog = Dialog(context)
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        dialog.setCancelable(false)
-        dialog.setContentView(R.layout.dialog_box_success)
-        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-
-
-        val dgDescription = dialog.findViewById<TextView>(R.id.tvDgDecsrition)
-        val dgOkBtn = dialog.findViewById<Button>(R.id.btnDgOk)
-        val imgDg = dialog.findViewById<ImageView>(R.id.imgDg)
-
-
-        // Get resource ID of image based on title
-        val resourceId = context.resources.getIdentifier(title, "drawable", context.packageName)
-        // Set image using resource ID
-        imgDg.setImageResource(resourceId)
-        dgDescription.text = description
-
-        val color:Int
-        if(title.equals("error", ignoreCase = true)){
-            color = ContextCompat.getColor(this, R.color.bgDialogError)
-            dgOkBtn.backgroundTintList = ColorStateList.valueOf(color)
-
-            dgOkBtn.setOnClickListener {
-                dialog.dismiss()
-            }
-        }else if(title.equals("success", ignoreCase = true)){
-            color = ContextCompat.getColor(this, R.color.bgDialogSuccess)
-            dgOkBtn.backgroundTintList = ColorStateList.valueOf(color)
-
-            dgOkBtn.setOnClickListener {
-                dialog.dismiss()
             }
         }
-        dialog.show()
-    }
-    override fun onDestroy() {
-        super.onDestroy()
-        dialog = Dialog(this@EditProfile)
-        if (dialog.isShowing) {
-            dialog.dismiss()
+
+        when(nameValidation){
+            is ValidationResult.Valid ->{ count ++ }
+            is ValidationResult.Invalid ->{
+                lifecycleScope.launch(Dispatchers.Main) {
+                    etEditProfileEmail.error =nameValidation.errorMessage
+                }
+
+            }
+            is ValidationResult.Empty ->{
+                lifecycleScope.launch(Dispatchers.Main) {
+                    etEditProfileEmail.error =nameValidation.errorMessage
+                }
+
+            }
         }
+
+        when(passwordValidation){
+            is ValidationResult.Valid ->{ count ++ }
+            is ValidationResult.Invalid ->{
+                lifecycleScope.launch(Dispatchers.Main) {
+                    etEditProfilePassword.error =passwordValidation.errorMessage
+                }
+
+            }
+            is ValidationResult.Empty ->{
+                lifecycleScope.launch(Dispatchers.Main) {
+                    etEditProfilePassword.error =passwordValidation.errorMessage
+                }
+
+            }
+        }
+
+        when(telValidation){
+            is ValidationResult.Valid ->{ count ++ }
+            is ValidationResult.Invalid ->{
+                lifecycleScope.launch(Dispatchers.Main) {
+                    etEditProfileTel.error =telValidation.errorMessage
+                }
+
+            }
+            is ValidationResult.Empty ->{
+                lifecycleScope.launch(Dispatchers.Main) {
+                    etEditProfileTel.error =telValidation.errorMessage
+                }
+
+            }
+        }
+        when(validateCountry){
+            is ValidationResult.Valid ->{ count ++ }
+            is ValidationResult.Invalid ->{
+                lifecycleScope.launch(Dispatchers.Main) {
+                    etEditProfileCountry.error =validateCountry.errorMessage
+                }
+
+            }
+            is ValidationResult.Empty ->{
+                lifecycleScope.launch(Dispatchers.Main) {
+                    etEditProfileCountry.error =validateCountry.errorMessage
+                }
+
+            }
+        }
+        if(count==5){
+
+            val db = TouristoDB.getInstance(application)
+            // Get the UserDao from the database
+            val userDao = db.userDao()
+            val userRepo = UserRepository(userDao, Dispatchers.IO)
+
+            val result : Int = userRepo.updateUserProfile(country,gender,age.toInt(),tel,"propic",password,uName,email)
+            lifecycleScope.launch(Dispatchers.Main){
+                confirmationDialog = ConfirmationDialog(this@EditProfile)
+                if(result>0){
+                    confirmationDialog.dialogWithSuccess("You have successfully registered") {
+                        finish()
+                    }
+                }else{
+                    confirmationDialog.dialogWithError("Invalid Credentials") {
+                        //do anything
+                    }
+                }
+            }
+            count=0
+        }
+        count=0
     }
-
-
-
 }

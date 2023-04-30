@@ -112,7 +112,7 @@ class UserRegister : AppCompatActivity() {
 
     }
     //function for the userForm Submission
-    suspend fun userRegSubmit(){
+    private suspend fun userRegSubmit(){
         val dbName = etURegName.text.toString()
         val dbEmail = etURegEmail.text.toString()
         val dbPassword =  etURegPass.text.toString()

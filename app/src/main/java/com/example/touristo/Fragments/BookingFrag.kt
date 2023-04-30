@@ -40,7 +40,7 @@ class BookingFrag : Fragment() {
         return view
     }
     private fun initRecycler(){
-        GlobalScope.launch(Dispatchers.IO) {
+        lifecycleScope.launch(Dispatchers.IO) {
             // Get an instance of the TouristoDB database
             db = TouristoDB.getInstance(requireContext().applicationContext)
             val bookingDao = db.bookingDao()
@@ -54,11 +54,11 @@ class BookingFrag : Fragment() {
             },{
                 payItem: BookingDTO ->initiatePaySlip(payItem)
             })
-
+            //herachical touch error then put inside the lifecyclescope
+            recyclerView.adapter = adapter
+            adapter.setList(bookingRepo.getBookingForListView(theEmail.toString()))
 
             lifecycleScope.launch(Dispatchers.Main){
-                recyclerView.adapter = adapter
-                adapter.setList(bookingRepo.getBookingForListView(theEmail.toString()))
                 adapter.notifyDataSetChanged()
             }
 

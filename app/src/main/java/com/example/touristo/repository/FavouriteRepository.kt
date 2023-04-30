@@ -2,6 +2,7 @@ package com.example.touristo.repository
 
 import com.example.touristo.dao.FavouriteDao
 import com.example.touristo.modal.Favourite
+import com.example.touristo.modalDTO.FavouriteDTO
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
@@ -22,5 +23,12 @@ class FavouriteRepository(private val dao: FavouriteDao, private val ioDispatche
         }
         println(result)
         return result
+    }
+    suspend fun getAllFavouriteList(email:String):List<FavouriteDTO>{
+        var favouriteDTO:List<FavouriteDTO>
+        withContext(ioDispatcher){
+            favouriteDTO = dao.getAllFavouriteList(email)
+        }
+        return favouriteDTO
     }
 }
