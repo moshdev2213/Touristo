@@ -11,6 +11,6 @@ data class UserInquery(
     var uemail:String,
     var description:String,
     var bookingId:Int,
-    var added:Long,
-    var modified:Long
+    var added:String,
+    var modified:String?=null
 )

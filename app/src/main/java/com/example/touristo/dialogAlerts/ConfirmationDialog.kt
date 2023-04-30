@@ -11,6 +11,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import com.example.touristo.R
+import com.example.touristo.modalDTO.BookingDTO
 
 class ConfirmationDialog(
     private val context: Context,
@@ -97,4 +98,5 @@ class ConfirmationDialog(
         }
         dialog.show()
     }
+
 }

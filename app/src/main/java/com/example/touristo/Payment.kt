@@ -11,7 +11,12 @@ import android.view.Window
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
+import androidx.lifecycle.lifecycleScope
 import com.example.touristo.dbCon.TouristoDB
+import com.example.touristo.dialogAlerts.ConfirmationDialog
+import com.example.touristo.dialogAlerts.ProgressLoader
+import com.example.touristo.dialogAlerts.YesNoDialog
 import com.example.touristo.formData.CardValidation
 import com.example.touristo.modal.Booking
 import com.example.touristo.modal.User
@@ -21,10 +26,13 @@ import com.example.touristo.repository.PaymentRepository
 import com.example.touristo.validations.ValidationResult
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import java.sql.Timestamp
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.random.Random
+
 
 class Payment : AppCompatActivity() {
     private lateinit var btnPaymentDecline:Button
@@ -37,6 +45,9 @@ class Payment : AppCompatActivity() {
     private lateinit var tvPaymentToPay:TextView
     private var count = 0;
     private lateinit var dialog: Dialog
+    private lateinit var yesNoDialog: YesNoDialog
+    private lateinit var progressLoader: ProgressLoader
+    private lateinit var confirmationDialog: ConfirmationDialog
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_payment)
@@ -60,7 +71,21 @@ class Payment : AppCompatActivity() {
             tvPaymentToPay.text =  "Rs ${villa.price.toInt().toString()}"
 
             btnPaymentPayNow.setOnClickListener {
-                showCustomDialogWithAutoLayoutHeight(this@Payment)
+                yesNoDialog = YesNoDialog(this@Payment)
+                yesNoDialog.yesNoConfirmDialog({
+                    //do anthing
+                },{
+                    val bundle = intent.extras
+                    val villa = bundle?.getSerializable("villa") as? Villa
+                    val user = bundle?.getSerializable("user") as? User
+                    if (villa != null) {
+                        lifecycleScope.launch(Dispatchers.IO){
+                            if (user != null) {
+                                userPaymentSubmission(villa,user)
+                            }
+                        }
+                    }
+                })
             }
         }
 
@@ -166,8 +191,11 @@ class Payment : AppCompatActivity() {
 
             }
         }
+        println(count)
 
         if(count==5){
+            val reference = "RF"+ Random.nextInt(1000000, 9999999)
+
             //initializing db Credentils and storing data
             val currentDateTime = Timestamp(System.currentTimeMillis())
 
@@ -180,77 +208,46 @@ class Payment : AppCompatActivity() {
             val paymentRepo = PaymentRepository(paymentDao, Dispatchers.IO)
             val bookingRepo = BookingRepository(bookingDao, Dispatchers.IO)
 
-            val payObj = com.example.touristo.modal.Payment(0, dbcname,dbcnum,dbcmonth.toInt(),dbcyear.toInt(),dbcvc.toInt(),currentDateTime.toString(),"")
-            paymentRepo.insertPayment(payObj)
+            lifecycleScope.launch (Dispatchers.Main){
+                progressLoader = ProgressLoader(
+                    this@Payment,
+                    "Verifying",
+                    "Processing Please Wait..."
+                )
+                progressLoader.startProgressLoader()
+                val payObj = com.example.touristo.modal.Payment(0, user.uemail,dbcname,dbcnum,dbcmonth.toInt(),dbcyear.toInt(),dbcvc.toInt(),currentDateTime.toString(),"")
+                paymentRepo.insertPayment(payObj)
 
-            //get tHe lastInserteed PaymentId
-            val lastPayId = paymentRepo.getPaymentId(dbcname,dbcnum,dbcmonth.toInt(),dbcyear.toInt())
+                //get tHe lastInserteed PaymentId
+                val lastPayId = paymentRepo.getPaymentId(dbcname,dbcnum,dbcmonth.toInt(),dbcyear.toInt())
 
-            val bookingObj = Booking(0,user.uemail,villa.id,villa.villaName,lastPayId,currentDateTime.toString(),"")
-            bookingRepo.insertBooking(bookingObj)
+                delay(5000L) // delay for 5 seconds
+                val bookingObj = Booking(0,user.uemail,villa.id,villa.villaName,reference,lastPayId,currentDateTime.toString(),"")
+                bookingRepo.insertBooking(bookingObj)
 
-            GlobalScope.launch(Dispatchers.Main) {
-                showCustomDialogWithAutoLayoutHeightForThePaymentConfirmation(this@Payment)
+                progressLoader.dismissProgressLoader() // dismiss the dialog
+
+                confirmationDialog = ConfirmationDialog(this@Payment)
+                confirmationDialog.dialogWithSuccess(
+                    "Payment Successful"
+                ) {
+
+                    val bundle = Bundle().apply {
+                        putSerializable("villa", villa)
+                        putSerializable("user", user)
+                    }
+                    val intent = Intent(this@Payment, Thanku::class.java)
+                    intent.putExtras( bundle)
+                    startActivity(intent)
+                    finish()
+
+                }
             }
-
 
             count=0
         }
         count=0
-    }
-    private fun showCustomDialogWithAutoLayoutHeight(context: Context) {
-        dialog = Dialog(context)
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        dialog.setCancelable(false)
-        dialog.setContentView(R.layout.dialog_box_info)
-        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-
-
-        val btnYes = dialog.findViewById<Button>(R.id.btnYes)
-        val btnNo = dialog.findViewById<Button>(R.id.btnNo)
-
-        btnYes.setOnClickListener {
-            val bundle = intent.extras
-            val villa = bundle?.getSerializable("villa") as? Villa
-            val user = bundle?.getSerializable("user") as? User
-            if (villa != null) {
-                GlobalScope.launch(Dispatchers.IO){
-                    if (user != null) {
-                        userPaymentSubmission(villa,user)
-                    }
-                }
-            }
-            dialog.dismiss()
-
-        }
-        btnNo.setOnClickListener {
-            dialog.dismiss()
-        }
-        dialog.show()
+        println(count)
     }
 
-    private fun showCustomDialogWithAutoLayoutHeightForThePaymentConfirmation(context: Context) {
-        dialog = Dialog(context)
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        dialog.setCancelable(false)
-        dialog.setContentView(R.layout.dialog_box_success)
-        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-
-        val btnDgOk = dialog.findViewById<Button>(R.id.btnDgOk)
-
-        btnDgOk.setOnClickListener {
-            val intent = Intent(this@Payment,Thanku::class.java)
-            startActivity(intent)
-            finish()
-        }
-        dialog.show()
-    }
-    override fun onDestroy() {
-        super.onDestroy()
-        GlobalScope.launch(Dispatchers.Main) {
-            dialog = Dialog(this@Payment)
-            dialog.dismiss() // Dismiss the dialog if it's still showing
-        }
-
-    }
 }

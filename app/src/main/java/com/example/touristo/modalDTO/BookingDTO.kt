@@ -8,7 +8,8 @@ data class BookingDTO(
     var img01:String,
     var price:Double,
     var villaName:String,
+    var reference:String,
     var villaId:Int,
     val uemail:String,
     var bookingId:Int
-)
+):java.io.Serializable

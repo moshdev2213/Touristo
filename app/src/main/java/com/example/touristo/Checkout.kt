@@ -79,6 +79,8 @@ class Checkout : AppCompatActivity() {
                 val intent = Intent(this@Checkout,Payment::class.java)
                 intent.putExtras( bundle)
                 startActivity(intent)
+                finish()
+
             }
         }
     }
