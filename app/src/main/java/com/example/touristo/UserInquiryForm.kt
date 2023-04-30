@@ -107,9 +107,7 @@ class UserInquiryForm : AppCompatActivity() {
                         }
                     }
                 }
-
             }
-
         }
     }
 }

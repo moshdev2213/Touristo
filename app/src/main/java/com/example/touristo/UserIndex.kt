@@ -19,6 +19,7 @@ import com.example.touristo.Fragments.UserHomeFrag
 import com.example.touristo.dbCon.TouristoDB
 import com.example.touristo.dialogAlerts.ConfirmationDialog
 import com.example.touristo.dialogAlerts.PaySlipGenerator
+import com.example.touristo.dialogAlerts.YesNoDialog
 import com.example.touristo.fragmentListeners.FragmentListenerUserIndex
 import com.example.touristo.modal.Booking
 import com.example.touristo.modal.User
@@ -38,6 +39,7 @@ class UserIndex : AppCompatActivity(), FragmentListenerUserIndex {
     private lateinit var db : TouristoDB
     private lateinit var confirmationDialog: ConfirmationDialog
     private lateinit var paySlipGenerator: PaySlipGenerator
+    private lateinit var yesNoDialog: YesNoDialog
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_index)
@@ -97,7 +99,7 @@ class UserIndex : AppCompatActivity(), FragmentListenerUserIndex {
 
     }
     //the dbQuery fetches the UserObject
-    suspend fun getDbUserObject(email:String): User {
+    private suspend fun getDbUserObject(email:String): User {
         val userObj : User
         // Get an instance of the TouristoDB database
         db = TouristoDB.getInstance(application)
@@ -149,14 +151,6 @@ class UserIndex : AppCompatActivity(), FragmentListenerUserIndex {
             val intent = Intent(this@UserIndex,Product::class.java)
             intent.putExtras( bundle)
             startActivity(intent)
-        }
-    }
-
-    override fun onBookingItemClicked(bookingDTO: BookingDTO) {
-        lifecycleScope.launch(Dispatchers.IO){
-            db = TouristoDB.getInstance(this@UserIndex)
-            val bookDAo = db.bookingDao()
-            val bookingRepo = BookingRepository(bookDAo,Dispatchers.IO)
         }
     }
 

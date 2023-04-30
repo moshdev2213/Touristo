@@ -49,16 +49,14 @@ class BookingFrag : Fragment() {
             val theEmail = fragmentListener?.getTheUserEmail()
 
             recyclerView.layoutManager = LinearLayoutManager(context)
-            adapter = UserHomeBLAdapter({
-                selectedItem: BookingDTO ->listItemClicked(selectedItem)
-            },{
-                payItem: BookingDTO ->initiatePaySlip(payItem)
-            })
-            //herachical touch error then put inside the lifecyclescope
-            recyclerView.adapter = adapter
-            adapter.setList(bookingRepo.getBookingForListView(theEmail.toString()))
+            adapter = UserHomeBLAdapter(requireActivity()) { payItem: BookingDTO ->
+                initiatePaySlip(payItem)
+            }
 
             lifecycleScope.launch(Dispatchers.Main){
+                //herachical touch error then put inside the lifecyclescope
+                recyclerView.adapter = adapter
+                adapter.setList(bookingRepo.getBookingForListView(theEmail.toString()))
                 adapter.notifyDataSetChanged()
             }
 
@@ -69,9 +67,8 @@ class BookingFrag : Fragment() {
         fragmentListener?.InitiatePaySlip(payItem)
     }
 
-    private fun listItemClicked(bookingDTO: BookingDTO) {
-        fragmentListener?.onBookingItemClicked(bookingDTO)
-    }
+
+
 
     // the below method is for communication from parent activity to fragments
     override fun onAttach(context: Context) {
