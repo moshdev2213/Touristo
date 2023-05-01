@@ -14,6 +14,7 @@ import com.example.touristo.MainActivity
 import com.example.touristo.R
 import com.example.touristo.dialogAlerts.ConfirmationDialog
 import com.example.touristo.dialogAlerts.ProgressLoader
+import com.example.touristo.dialogAlerts.YesNoDialog
 import com.example.touristo.fragmentListeners.FragmentListenerUserIndex
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -25,6 +26,7 @@ class ProfileFrag : Fragment() {
     private lateinit var cvDeleteAccount:CardView
     private lateinit var progressLoader: ProgressLoader
     private lateinit var confirmationDialog: ConfirmationDialog
+    private lateinit var yesNoDialog: YesNoDialog
     private var fragmentListener: FragmentListenerUserIndex? = null
 
     override fun onCreateView(
@@ -39,6 +41,15 @@ class ProfileFrag : Fragment() {
         cvAboutUs = view.findViewById(R.id.cvAboutUs)
         cvLogout = view.findViewById(R.id.cvLogout)
         cvDeleteAccount = view.findViewById(R.id.cvDeleteAccount)
+
+        cvDeleteAccount.setOnClickListener {
+           yesNoDialog = YesNoDialog(requireContext())
+            yesNoDialog.yesNoConfirmDialog({
+                //do anything
+            },{
+                fragmentListener?.deleteUserAccount()
+            })
+        }
 
         cvEditProfile.setOnClickListener {
             fragmentListener?.onFragmentPropicButtonClick()

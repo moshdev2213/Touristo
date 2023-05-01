@@ -12,4 +12,6 @@ interface FragmentListenerUserIndex {
 
     fun getTheUserEmail():String
     fun InitiatePaySlip(bookingDTO: BookingDTO)
+
+    fun deleteUserAccount()
 }

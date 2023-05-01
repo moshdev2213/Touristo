@@ -67,4 +67,12 @@ class UserRepository(private val dao: UserDao,private val ioDispatcher: Coroutin
         return result
     }
 
+    suspend fun deleteUserAccount(email: String):Int{
+        var result = 0
+        withContext(ioDispatcher){
+            result = dao.deleteUserAccount(email)
+        }
+        return result
+    }
+
 }
