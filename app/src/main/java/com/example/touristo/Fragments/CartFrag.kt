@@ -45,9 +45,7 @@ class CartFrag : Fragment() {
 
             val email = fragmentListener?.getTheUserEmail()
             recyclerView.layoutManager = LinearLayoutManager(context)
-            adapter = UserHomeFVAdapter{
-                selectedItem:FavouriteDTO -> listItemChecked(selectedItem)
-            }
+            adapter = UserHomeFVAdapter(requireActivity())
 
             lifecycleScope.launch(Dispatchers.Main){
                 recyclerView.adapter = adapter
@@ -55,10 +53,6 @@ class CartFrag : Fragment() {
                 adapter.notifyDataSetChanged()
             }
         }
-    }
-
-    private fun listItemChecked(selectedItem: FavouriteDTO) {
-        Toast.makeText(context,selectedItem.added,Toast.LENGTH_SHORT).show()
     }
 
     // the below method is for communication from parent activity to fragments

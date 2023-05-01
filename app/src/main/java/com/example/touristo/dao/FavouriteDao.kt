@@ -22,6 +22,8 @@ interface FavouriteDao {
     @Query("SELECT COUNT(id) FROM favourite WHERE uemail=:uemail AND villaId=:villaId")
     fun getUserAddedOrNot(uemail:String,villaId : Int):Int
 
-    @Query("select strftime('%d.%m.%Y %H:%M',f.added) as added,v.villaName,v.id as villaId ,v.price,v.img01,f.uemail from villa v,favourite f where v.id=f.villaId and f.uemail =:email")
+    @Query("select strftime('%d.%m.%Y %H:%M',f.added) as added,v.villaName,v.id as villaId ,v.price,v.img01,f.uemail,f.id from villa v,favourite f where v.id=f.villaId and f.uemail =:email")
     fun getAllFavouriteList(email: String):List<FavouriteDTO>
+    @Query("DELETE FROM favourite WHERE id=:id;")
+    fun deleteItemFromBookingList(id:Int)
 }
