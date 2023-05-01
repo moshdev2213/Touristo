@@ -15,6 +15,6 @@ data class Admin(
     var age:Int,
     var gender:String,
     var designation:String,
-    var added:Long,
-    var modified:Long
-)
+    var added:String,
+    var modified:String?=null
+):java.io.Serializable
