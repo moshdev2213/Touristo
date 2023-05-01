@@ -19,6 +19,7 @@ import com.example.touristo.Fragments.UserHomeFrag
 import com.example.touristo.dbCon.TouristoDB
 import com.example.touristo.dialogAlerts.ConfirmationDialog
 import com.example.touristo.dialogAlerts.PaySlipGenerator
+import com.example.touristo.dialogAlerts.ProgressLoader
 import com.example.touristo.dialogAlerts.YesNoDialog
 import com.example.touristo.fragmentListeners.FragmentListenerUserIndex
 import com.example.touristo.modal.Booking
@@ -30,6 +31,7 @@ import com.example.touristo.repository.UserRepository
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class UserIndex : AppCompatActivity(), FragmentListenerUserIndex {
@@ -40,6 +42,7 @@ class UserIndex : AppCompatActivity(), FragmentListenerUserIndex {
     private lateinit var confirmationDialog: ConfirmationDialog
     private lateinit var paySlipGenerator: PaySlipGenerator
     private lateinit var yesNoDialog: YesNoDialog
+    private lateinit var progressLoader: ProgressLoader
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_index)
@@ -111,6 +114,34 @@ class UserIndex : AppCompatActivity(), FragmentListenerUserIndex {
         return userObj
     }
 
+    override fun deleteUserAccount() {
+        val mail = globalEmail
+
+        lifecycleScope.launch(Dispatchers.IO){
+            // Get an instance of the TouristoDB database
+            db = TouristoDB.getInstance(application)
+            // Get the UserDao from the database
+            val userDao = db.userDao()
+            val userRepo = UserRepository(userDao, Dispatchers.IO)
+            val result = userRepo.deleteUserAccount(mail)
+
+            lifecycleScope.launch(Dispatchers.Main){
+                progressLoader = ProgressLoader(this@UserIndex,"Deleting","Please Wait.....")
+                if (result>0){
+                    progressLoader.startProgressLoader()
+                    delay(3000L)
+                    progressLoader.dismissProgressLoader() // dismiss the dialog
+                    val intent = Intent(this@UserIndex, MainActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                }else{
+                    //do something
+                }
+            }
+        }
+
+
+    }
 
     // Implement the methods from the fragmentListener interface
     override fun onFragmentPropicButtonClick() {

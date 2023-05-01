@@ -23,14 +23,17 @@ interface UserDao {
     @Query("SELECT COUNT(uid) FROM user WHERE uemail=:email")
     fun getUserExist(email: String):Int
 
-    @Query("SELECT COUNT(uid) FROM user WHERE uemail=:email AND password=:password")
+    @Query("SELECT COUNT(uid) FROM user WHERE uemail=:email AND password=:password AND deleted=0")
     fun getUserLogin( email: String, password:String):Int
 
    @Insert
    suspend fun insertLoggedTime(logTime: LogTime)
 
-    @Query("SELECT * FROM user WHERE uemail=:email LIMIT 1")
+    @Query("SELECT * FROM user WHERE uemail=:email  AND deleted=0 LIMIT 1")
     fun getUserObject( email: String):User
+
+    @Query("UPDATE user SET deleted=1 WHERE uemail=:uemail;")
+    fun deleteUserAccount(uemail: String):Int
 
     @Query("UPDATE user SET country =:country, gender=:gender , age=:age , tel=:tel , propic=:propic , password=:password ,uname=:uname  WHERE uemail =:uemail;")
     fun updateUserProfile(

@@ -17,5 +17,6 @@ data class User(
     var gender: String?= null,
     var country: String?= null,
     var added: String,
-    var modified:String? = null
+    var modified:String? = null,
+    var deleted:Int?=null
 ): Serializable
