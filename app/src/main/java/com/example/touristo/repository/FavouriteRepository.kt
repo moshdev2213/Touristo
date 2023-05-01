@@ -31,4 +31,13 @@ class FavouriteRepository(private val dao: FavouriteDao, private val ioDispatche
         }
         return favouriteDTO
     }
+
+    suspend fun deleteItemFromBookingList(id:Int):Int{
+        var result : Int = -1
+        withContext(ioDispatcher){
+            dao.deleteItemFromBookingList(id)
+            result =2
+        }
+        return result
+    }
 }

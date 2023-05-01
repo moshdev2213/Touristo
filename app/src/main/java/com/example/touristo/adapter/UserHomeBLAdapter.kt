@@ -57,6 +57,8 @@ class UserHomeBLAdapter(
     fun deleteItem(position: Int) {
         bookingList.removeAt(position)
         notifyItemRemoved(position)
+        notifyDataSetChanged()
+
     }
 
     private fun showConfirmationDialog(position: Int,bookingDTO: BookingDTO) {
