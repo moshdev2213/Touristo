@@ -227,7 +227,7 @@ class UserRegister : AppCompatActivity() {
             }else{
                 lifecycleScope
                 lifecycleScope.launch(Dispatchers.Main) {
-                    userRepo.insertUser(User(0,dbName,dbEmail,dbPassword,null,dbTel,null,null,null,currentDateTime.toString(),"",0))
+                    userRepo.insertUser(User(0,dbName,dbEmail,dbPassword,null,dbTel,dbAge,null,null,currentDateTime.toString(),"",0))
                     //initializing the dialogBox Class
                     confirmationDialog = ConfirmationDialog(this@UserRegister)
                     confirmationDialog.dialogWithSuccess("You have successfully registered") {

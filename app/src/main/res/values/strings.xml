@@ -26,4 +26,9 @@
         <item>Male</item>
         <item>Female</item>
     </string-array>
+
+    <string-array name="act_status">
+        <item>Active</item>
+        <item>Deactive</item>
+    </string-array>
 </resources>
