@@ -34,11 +34,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profile_image"
+        app:layout_constraintTop_toBottomOf="@+id/sideNavProImg"
         app:layout_constraintVertical_bias="0.039" />
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/profile_image"
+        android:id="@+id/sideNavProImg"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginTop="10dp"
@@ -49,7 +49,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView73" />
 
     <TextView
-        android:id="@+id/textView74"
+        android:id="@+id/sideNavName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/montserrat_semibold"
@@ -58,13 +58,14 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.082"
-        app:layout_constraintStart_toEndOf="@+id/profile_image"
-        app:layout_constraintTop_toBottomOf="@+id/textView75" />
+        app:layout_constraintStart_toEndOf="@+id/sideNavProImg"
+        app:layout_constraintTop_toBottomOf="@+id/sideNavEmail" />
 
     <TextView
-        android:id="@+id/textView75"
+        android:id="@+id/sideNavEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
         android:layout_marginTop="12dp"
         android:fontFamily="@font/montserrat_semibold"
         android:text="mosh456@gmail.com"
@@ -72,7 +73,7 @@
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.093"
-        app:layout_constraintStart_toEndOf="@+id/profile_image"
+        app:layout_constraintStart_toEndOf="@+id/sideNavProImg"
         app:layout_constraintTop_toBottomOf="@+id/textView73" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

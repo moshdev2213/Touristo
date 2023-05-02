@@ -36,5 +36,13 @@ class AdminRepository(private val dao: AdminDao, private val ioDispatcher: Corou
             dao.insertLoggedTime(logTime)
         }
     }
+    suspend fun getAdminByEmail(email: String):Admin{
+        var adminObj: Admin
+        withContext(ioDispatcher){
+            adminObj =dao.getAllAdminByEmail(email)
+        }
+        return adminObj
+    }
+
 
 }

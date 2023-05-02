@@ -3,24 +3,35 @@ package com.example.touristo
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import com.example.touristo.Fragments.*
+import com.example.touristo.dbCon.TouristoDB
 import com.example.touristo.fragmentListeners.AdminHomeFragListners
+import com.example.touristo.modal.Admin
+import com.example.touristo.repository.AdminRepository
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class AdminHome : AppCompatActivity(), AdminHomeFragListners {
 lateinit var toggle : ActionBarDrawerToggle
 lateinit var drawerLayout : DrawerLayout
 private lateinit var btnNav : BottomNavigationView
+private lateinit var globalMail : String
+private lateinit var admin : Admin
+private lateinit var admHomeProImg : ImageView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_admin_home)
@@ -86,6 +97,23 @@ private lateinit var btnNav : BottomNavigationView
             true
         }
 
+        //code starts here
+        globalMail =  intent.getStringExtra("adminEmail").toString()
+
+
+
+
+        // Get an instance of the TouristoDB database
+        val db = TouristoDB.getInstance(this@AdminHome)
+        //getting dbInstance of the DAo
+        val adminDao = db.adminDao()
+        var adminRepo = AdminRepository(adminDao,Dispatchers.IO)
+
+        lifecycleScope.launch(Dispatchers.IO){
+           admin = adminRepo.getAdminByEmail(globalMail)
+            initSideNavViews(admin)
+        }
+
     }
 
     //the below function is for the frag replacement in the sidenavigation bar
@@ -117,5 +145,15 @@ private lateinit var btnNav : BottomNavigationView
     //listnersOverriders
     fun getTheAdminEmail(): String {
         return intent.getStringExtra("adminEmail").toString()
+    }
+    fun initSideNavViews(admin: Admin){
+        val navigationView = findViewById<NavigationView>(R.id.navView)
+        val headerView = navigationView.getHeaderView(0)
+
+        val nameTextView = headerView.findViewById<TextView>(R.id.sideNavName)
+        nameTextView.text = admin.fname.capitalize()
+
+        val emailTextView = headerView.findViewById<TextView>(R.id.sideNavEmail)
+        emailTextView.text = admin.aemail.toLowerCase()
     }
 }

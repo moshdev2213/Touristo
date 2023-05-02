@@ -1,6 +1,7 @@
 package com.example.touristo.dao
 
 import android.database.Cursor
+import android.provider.ContactsContract.CommonDataKinds.Email
 import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.example.touristo.modal.Admin
@@ -18,7 +19,7 @@ interface AdminDao {
     suspend fun deleteAdmin(admin: Admin)
 
     @Query("SELECT * FROM admin")
-    fun getAllAdmin(): LiveData<List<Admin>>
+    fun getAllAdmin(): List<Admin>
 
     @Query("SELECT COUNT(aid) FROM admin WHERE aemail=:email ")
     fun getUserExist(email: String):Int
@@ -40,6 +41,9 @@ interface AdminDao {
             "WHERE a.aemail =  :email\n" +
             "GROUP BY a.aid, a.fname\n")
     fun getAdminNameAndCount(email: String):Cursor?
+
+    @Query ("SELECT * FROM admin WHERE aemail=:email LIMIT 1")
+    fun getAllAdminByEmail(email: String):Admin
 
 
 }

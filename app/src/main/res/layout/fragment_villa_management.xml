@@ -106,7 +106,7 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView9"
             android:layout_width="380dp"
-            android:layout_height="250dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             app:cardCornerRadius="10dp"
@@ -126,17 +126,15 @@
                     android:id="@+id/button12"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginEnd="110dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
                     android:backgroundTint="@color/touristMcard"
                     android:clickable="false"
                     android:fontFamily="@font/montserrat_semibold"
                     android:text="23"
                     android:textSize="20sp"
-                    app:layout_constraintEnd_toStartOf="@+id/shapeableImageView"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView82" />
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView79" />
 
                 <TextView
                     android:id="@+id/textView79"
@@ -159,12 +157,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
-                    android:layout_marginEnd="140dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="24dp"
                     android:fontFamily="@font/montserrat"
                     android:text="Roman"
                     android:textColor="@color/splashBackground"
                     android:textSize="16sp"
-                    app:layout_constraintEnd_toStartOf="@+id/shapeableImageView"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView86" />
 
@@ -172,17 +171,15 @@
                     android:id="@+id/textView112"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="82dp"
-                    android:layout_marginBottom="28dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="16dp"
                     android:alpha="0.5"
                     android:fontFamily="@font/montserrat"
                     android:text="Total Bookings"
                     android:textColor="@color/splashBackground"
                     android:textSize="16sp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/shapeableImageView"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/button12" />
 
                 <TextView
@@ -203,31 +200,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
-                    android:layout_marginTop="24dp"
-                    android:layout_marginEnd="33dp"
+                    android:layout_marginTop="16dp"
                     android:fontFamily="@font/montserrat"
                     android:text="Vativcana Romia"
                     android:textColor="@color/btnSplash"
                     android:textSize="20sp"
-                    app:layout_constraintEnd_toStartOf="@+id/shapeableImageView"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView78" />
-
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/shapeableImageView"
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
-                    android:layout_marginTop="22dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginBottom="30dp"
-                    android:adjustViewBounds="true"
-                    android:elevation="30dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/interiordemo"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView79"
-                    app:shapeAppearanceOverlay="@style/roundedImageView" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>

@@ -59,7 +59,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/textView72" />
 
                 <Button
-                    android:id="@+id/button10"
+                    android:id="@+id/fragTMAddTouristBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="12dp"
@@ -124,7 +124,7 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/textView79"
+                    android:id="@+id/fragTMUpdatedDate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="24dp"
@@ -152,13 +152,13 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toEndOf="@+id/floatingActionButton7"
-                    app:layout_constraintTop_toBottomOf="@+id/textView87" />
+                    app:layout_constraintTop_toBottomOf="@+id/fragTMActive" />
 
                 <TextView
                     android:id="@+id/textView82"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
+                    android:layout_marginStart="10dp"
                     android:layout_marginBottom="34dp"
                     android:alpha="0.5"
                     android:fontFamily="@font/montserrat"
@@ -167,7 +167,7 @@
                     android:textSize="16sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/floatingActionButton8"
-                    app:layout_constraintTop_toBottomOf="@+id/textView86"
+                    app:layout_constraintTop_toBottomOf="@+id/fragTMInactiveAct"
                     app:layout_constraintVertical_bias="0.0" />
 
                 <TextView
@@ -184,35 +184,34 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/textView86"
+                    android:id="@+id/fragTMInactiveAct"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
                     android:layout_marginTop="24dp"
                     android:layout_marginEnd="69dp"
                     android:fontFamily="@font/montserrat_semibold"
-                    android:text="234"
+                    android:text="0"
                     android:textColor="@color/btnSplash"
                     android:textSize="20sp"
                     app:layout_constraintEnd_toStartOf="@+id/floatingActionButton7"
-                    app:layout_constraintHorizontal_bias="0.153"
+                    app:layout_constraintHorizontal_bias="0.454"
                     app:layout_constraintStart_toEndOf="@+id/floatingActionButton8"
                     app:layout_constraintTop_toBottomOf="@+id/textView78" />
 
                 <TextView
-                    android:id="@+id/textView87"
+                    android:id="@+id/fragTMActive"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="15dp"
                     android:layout_marginTop="28dp"
                     android:fontFamily="@font/montserrat_semibold"
-                    android:text="121"
+                    android:text="0"
                     android:textColor="@color/btnSplash"
                     android:textSize="20sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toEndOf="@+id/floatingActionButton7"
-                    app:layout_constraintTop_toBottomOf="@+id/textView79" />
+                    app:layout_constraintTop_toBottomOf="@+id/fragTMUpdatedDate" />
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     android:id="@+id/floatingActionButton7"
@@ -227,7 +226,7 @@
                     app:fabSize="normal"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/textView82"
-                    app:layout_constraintTop_toBottomOf="@+id/textView79"
+                    app:layout_constraintTop_toBottomOf="@+id/fragTMUpdatedDate"
                     app:maxImageSize="24dp"
                     app:srcCompat="@drawable/outline_people_outline_24" />
 
@@ -276,6 +275,7 @@
             app:layout_constraintTop_toBottomOf="@+id/cardView9" />
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvFragTM"
             android:layout_width="409dp"
             android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
