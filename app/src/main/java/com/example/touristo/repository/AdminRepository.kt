@@ -36,4 +36,5 @@ class AdminRepository(private val dao: AdminDao, private val ioDispatcher: Corou
             dao.insertLoggedTime(logTime)
         }
     }
+
 }

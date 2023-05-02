@@ -1,5 +1,6 @@
 package com.example.touristo.dao
 
+import android.database.Cursor
 import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.example.touristo.modal.Admin
@@ -27,4 +28,18 @@ interface AdminDao {
 
     @Insert
     suspend fun insertLoggedTime(logTime: LogTime)
+
+    @Query("SELECT a.aid, a.fname, COUNT(a.aid) AS adminCount, (\n" +
+            "    SELECT strftime('%Y-%m-%d %H:%M:%S', l.log)\n" +
+            "    FROM logtime l\n" +
+            "    WHERE l.email=:email  AND l.role = \"admin\"\n" +
+            "    ORDER BY l.id DESC\n" +
+            "    LIMIT 1 OFFSET 1\n" +
+            ") AS secondLastPunch, (SELECT COUNT(id) FROM userInquiry) as inquiry ,  (SELECT COUNT(id) FROM booking) as booking ,  (SELECT COUNT(uid) FROM user) as user\n" +
+            "FROM admin a\n" +
+            "WHERE a.aemail =  :email\n" +
+            "GROUP BY a.aid, a.fname\n")
+    fun getAdminNameAndCount(email: String):Cursor?
+
+
 }
