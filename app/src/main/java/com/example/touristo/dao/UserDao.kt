@@ -39,4 +39,9 @@ interface UserDao {
     fun updateUserProfile(
         country:String?, gender:String?, age:Int?, tel:String, propic: kotlin.String?, password: String,
         uname:String, uemail: String):Int
+
+    @Query("UPDATE user SET country =:country, gender=:gender , age=:age , tel=:tel , propic=:propic , password=:password ,uname=:uname,deleted=:deleted  WHERE uemail =:uemail;")
+    fun updateUserProfileAsAdmin(
+        country:String?, gender:String?, age:Int?, tel:String, propic: kotlin.String?, password: String,
+        uname:String, uemail: String,deleted:Int):Int
 }

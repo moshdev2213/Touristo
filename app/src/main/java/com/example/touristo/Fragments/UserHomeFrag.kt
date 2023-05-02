@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.touristo.R
@@ -49,7 +50,7 @@ class UserHomeFrag : Fragment() {
 
 
     private fun initRecycler(){
-        GlobalScope.launch(Dispatchers.IO){
+        lifecycleScope.launch(Dispatchers.IO){
             // Get an instance of the TouristoDB database
             db = TouristoDB.getInstance(requireContext().applicationContext)
 
@@ -62,7 +63,7 @@ class UserHomeFrag : Fragment() {
             }
             recyclerView.adapter = adapter
             adapter.setList(villaRepo.getAllVilla())
-            GlobalScope.launch (Dispatchers.Main){
+            lifecycleScope.launch (Dispatchers.Main){
 
                 adapter.notifyDataSetChanged()
             }
