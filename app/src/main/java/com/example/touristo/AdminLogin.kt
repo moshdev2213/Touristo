@@ -12,6 +12,7 @@ import android.widget.EditText
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
+import com.example.touristo.Fragments.AdminHomeFrag
 import com.example.touristo.dbCon.TouristoDB
 import com.example.touristo.dialogAlerts.ConfirmationDialog
 import com.example.touristo.dialogAlerts.ProgressLoader
@@ -97,8 +98,11 @@ class AdminLogin : AppCompatActivity() {
                     progressLoader.startProgressLoader()
 
                     adminRepo.insertLoggedTime(LogTime(0,email,"admin",currentDateTime.toString()))
+
                     val intent = Intent(this@AdminLogin,AdminHome::class.java)
                     intent.putExtra("adminEmail", email)
+                    val fragment = AdminHomeFrag()
+                    fragment.arguments = intent.extras
 
                     delay(3000L) // delay for 5 seconds
                     progressLoader.dismissProgressLoader() // dismiss the dialog

@@ -13,11 +13,11 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import com.example.touristo.Fragments.*
+import com.example.touristo.fragmentListeners.AdminHomeFragListners
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
 
-class AdminHome : AppCompatActivity() {
+class AdminHome : AppCompatActivity(), AdminHomeFragListners {
 lateinit var toggle : ActionBarDrawerToggle
 lateinit var drawerLayout : DrawerLayout
 private lateinit var btnNav : BottomNavigationView
@@ -86,7 +86,6 @@ private lateinit var btnNav : BottomNavigationView
             true
         }
 
-
     }
 
     //the below function is for the frag replacement in the sidenavigation bar
@@ -95,6 +94,7 @@ private lateinit var btnNav : BottomNavigationView
         val fragmentTransaction = fragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.frameLayout,fragment)
         drawerLayout.closeDrawers()
+        fragmentTransaction.setCustomAnimations(R.anim.enter_right_to_left,R.anim.exit_right_to_left,R.anim.enter_left_to_right,R.anim.exit_left_to_right)
         fragmentTransaction.commit()
     }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -112,5 +112,10 @@ private lateinit var btnNav : BottomNavigationView
         fragmentTransaction.commit()
 
 
+    }
+
+    //listnersOverriders
+    fun getTheAdminEmail(): String {
+        return intent.getStringExtra("adminEmail").toString()
     }
 }

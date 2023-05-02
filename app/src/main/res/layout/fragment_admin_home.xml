@@ -55,7 +55,7 @@
                         app:layout_constraintTop_toBottomOf="@+id/textView88" />
 
                     <TextView
-                        android:id="@+id/textView89"
+                        android:id="@+id/adminHomeFragObj1SubName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="12dp"
@@ -64,11 +64,11 @@
                         android:text="Rome"
                         android:textColor="@color/btnSplash"
                         android:textSize="14sp"
-                        app:layout_constraintStart_toEndOf="@+id/shapeableImageView"
-                        app:layout_constraintTop_toBottomOf="@+id/textView90" />
+                        app:layout_constraintStart_toEndOf="@+id/admnHomeGragObj01Pic"
+                        app:layout_constraintTop_toBottomOf="@+id/adminHomeFragObj1Name" />
 
                     <TextView
-                        android:id="@+id/textView91"
+                        android:id="@+id/adminHomeFragObj1Price"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="76dp"
@@ -80,11 +80,11 @@
                         android:textColor="@color/btnSplash"
                         android:textSize="14sp"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/textView90"
+                        app:layout_constraintStart_toEndOf="@+id/adminHomeFragObj1Name"
                         app:layout_constraintTop_toBottomOf="@+id/imageView31" />
 
                     <TextView
-                        android:id="@+id/textView94"
+                        android:id="@+id/adminHomeFragObj2Price"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="77dp"
@@ -96,11 +96,11 @@
                         android:textColor="@color/btnSplash"
                         android:textSize="14sp"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/textView92"
-                        app:layout_constraintTop_toBottomOf="@+id/textView91" />
+                        app:layout_constraintStart_toEndOf="@+id/adminHomeFragObj2Name"
+                        app:layout_constraintTop_toBottomOf="@+id/adminHomeFragObj1Price" />
 
                     <TextView
-                        android:id="@+id/textView93"
+                        android:id="@+id/adminHomeFragObj2SubName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="12dp"
@@ -109,11 +109,11 @@
                         android:text="Rome"
                         android:textColor="@color/btnSplash"
                         android:textSize="14sp"
-                        app:layout_constraintStart_toEndOf="@+id/shapeableImageView5"
-                        app:layout_constraintTop_toBottomOf="@+id/textView92" />
+                        app:layout_constraintStart_toEndOf="@+id/adminHomeFragObj02Pic"
+                        app:layout_constraintTop_toBottomOf="@+id/adminHomeFragObj2Name" />
 
                     <TextView
-                        android:id="@+id/textView90"
+                        android:id="@+id/adminHomeFragObj1Name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="12dp"
@@ -122,11 +122,11 @@
                         android:text="Vaticana Roomia"
                         android:textColor="@color/btnSplash"
                         android:textSize="16sp"
-                        app:layout_constraintStart_toEndOf="@+id/shapeableImageView"
+                        app:layout_constraintStart_toEndOf="@+id/admnHomeGragObj01Pic"
                         app:layout_constraintTop_toBottomOf="@+id/textView79" />
 
                     <TextView
-                        android:id="@+id/textView92"
+                        android:id="@+id/adminHomeFragObj2Name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="12dp"
@@ -135,8 +135,8 @@
                         android:text="Vaticana Roomia"
                         android:textColor="@color/btnSplash"
                         android:textSize="16sp"
-                        app:layout_constraintStart_toEndOf="@+id/shapeableImageView5"
-                        app:layout_constraintTop_toBottomOf="@+id/textView89" />
+                        app:layout_constraintStart_toEndOf="@+id/adminHomeFragObj02Pic"
+                        app:layout_constraintTop_toBottomOf="@+id/adminHomeFragObj1SubName" />
 
                     <TextView
                         android:id="@+id/textView88"
@@ -165,7 +165,7 @@
                         app:srcCompat="@drawable/outline_image_24" />
 
                     <com.google.android.material.imageview.ShapeableImageView
-                        android:id="@+id/shapeableImageView"
+                        android:id="@+id/admnHomeGragObj01Pic"
                         android:layout_width="60dp"
                         android:layout_height="60dp"
                         android:layout_marginStart="16dp"
@@ -178,7 +178,7 @@
                         app:shapeAppearanceOverlay="@style/roundedImageView" />
 
                     <com.google.android.material.imageview.ShapeableImageView
-                        android:id="@+id/shapeableImageView5"
+                        android:id="@+id/adminHomeFragObj02Pic"
                         android:layout_width="60dp"
                         android:layout_height="60dp"
                         android:layout_marginStart="16dp"
@@ -187,11 +187,11 @@
                         android:scaleType="centerCrop"
                         android:src="@drawable/propic1"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/shapeableImageView"
+                        app:layout_constraintTop_toBottomOf="@+id/admnHomeGragObj01Pic"
                         app:shapeAppearanceOverlay="@style/roundedImageView" />
 
                     <Button
-                        android:id="@+id/button22"
+                        android:id="@+id/btnAdminHomeFragSeeBookings"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
@@ -203,7 +203,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView93" />
+                        app:layout_constraintTop_toBottomOf="@+id/adminHomeFragObj2SubName" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
@@ -268,7 +268,7 @@
                         app:srcCompat="@drawable/cuslist" />
 
                     <Button
-                        android:id="@+id/button23"
+                        android:id="@+id/btnAdminHomeFragSeeCus"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="15dp"
@@ -304,13 +304,13 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/textView72"
+                        android:id="@+id/adminFragHomeName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="16dp"
                         android:fontFamily="@font/montserrat_semibold"
-                        android:text="Welcome John 😎"
+                        android:text="Hey John 😎"
                         android:textColor="@color/btnSplash"
                         android:textSize="24sp"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -331,18 +331,18 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.042"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView72" />
+                        app:layout_constraintTop_toBottomOf="@+id/adminFragHomeName" />
 
                     <TextView
-                        android:id="@+id/textView77"
+                        android:id="@+id/adminHomeFragsales"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="16dp"
                         android:fontFamily="@font/montserrat"
                         android:text="Rs 150.55k"
                         android:textColor="@color/adminbtn"
-                        android:textSize="20sp"
+                        android:textSize="16sp"
                         android:textStyle="bold"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.033"
@@ -357,13 +357,13 @@
                         android:layout_marginBottom="16dp"
                         android:backgroundTint="@color/adminbtn"
                         android:fontFamily="@font/montserrat"
-                        android:text="View Sales"
+                        android:text="Last Loggin"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.004"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView77"
+                        app:layout_constraintTop_toBottomOf="@+id/adminHomeFragsales"
                         app:layout_constraintVertical_bias="0.0" />
 
                     <ImageView
@@ -402,7 +402,7 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/textView79"
+                        android:id="@+id/adminHomeFragDateStats"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="24dp"
@@ -424,13 +424,13 @@
                         android:layout_marginStart="15dp"
                         android:alpha="0.5"
                         android:fontFamily="@font/montserrat"
-                        android:text="Sales"
+                        android:text="Inqueries"
                         android:textColor="@color/btnSplash"
                         android:textSize="16sp"
                         app:layout_constraintEnd_toStartOf="@+id/floatingActionButton7"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toEndOf="@+id/floatingActionButton6"
-                        app:layout_constraintTop_toBottomOf="@+id/textView84" />
+                        app:layout_constraintTop_toBottomOf="@+id/adminHomeFragStatsSales" />
 
                     <TextView
                         android:id="@+id/textView81"
@@ -445,7 +445,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toEndOf="@+id/floatingActionButton7"
-                        app:layout_constraintTop_toBottomOf="@+id/textView87" />
+                        app:layout_constraintTop_toBottomOf="@+id/adminHomeFragCusCount" />
 
                     <TextView
                         android:id="@+id/textView82"
@@ -460,7 +460,7 @@
                         app:layout_constraintEnd_toStartOf="@+id/floatingActionButton9"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toEndOf="@+id/floatingActionButton8"
-                        app:layout_constraintTop_toBottomOf="@+id/textView86" />
+                        app:layout_constraintTop_toBottomOf="@+id/adminHomeFragBookCount" />
 
                     <TextView
                         android:id="@+id/textView83"
@@ -475,7 +475,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toEndOf="@+id/floatingActionButton9"
-                        app:layout_constraintTop_toBottomOf="@+id/textView85" />
+                        app:layout_constraintTop_toBottomOf="@+id/adminHomeFragAdminCout" />
 
                     <TextView
                         android:id="@+id/textView78"
@@ -491,28 +491,29 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/textView84"
+                        android:id="@+id/adminHomeFragStatsSales"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="15dp"
-                        android:layout_marginTop="24dp"
+                        android:layout_marginTop="20dp"
                         android:layout_marginEnd="52dp"
                         android:fontFamily="@font/montserrat_semibold"
-                        android:text="500k"
+                        android:text="0"
                         android:textColor="@color/btnSplash"
                         android:textSize="20sp"
                         app:layout_constraintEnd_toStartOf="@+id/floatingActionButton7"
+                        app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toEndOf="@+id/floatingActionButton6"
                         app:layout_constraintTop_toBottomOf="@+id/textView78" />
 
                     <TextView
-                        android:id="@+id/textView85"
+                        android:id="@+id/adminHomeFragAdminCout"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="15dp"
                         android:layout_marginTop="20dp"
                         android:fontFamily="@font/montserrat_semibold"
-                        android:text="13"
+                        android:text="0"
                         android:textColor="@color/btnSplash"
                         android:textSize="20sp"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -521,13 +522,13 @@
                         app:layout_constraintTop_toBottomOf="@+id/textView81" />
 
                     <TextView
-                        android:id="@+id/textView86"
+                        android:id="@+id/adminHomeFragBookCount"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="15dp"
                         android:layout_marginTop="20dp"
                         android:fontFamily="@font/montserrat_semibold"
-                        android:text="234"
+                        android:text="0"
                         android:textColor="@color/btnSplash"
                         android:textSize="20sp"
                         app:layout_constraintEnd_toStartOf="@+id/floatingActionButton9"
@@ -536,19 +537,19 @@
                         app:layout_constraintTop_toBottomOf="@+id/textView80" />
 
                     <TextView
-                        android:id="@+id/textView87"
+                        android:id="@+id/adminHomeFragCusCount"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="15dp"
                         android:layout_marginTop="28dp"
                         android:fontFamily="@font/montserrat_semibold"
-                        android:text="121"
+                        android:text="0"
                         android:textColor="@color/btnSplash"
                         android:textSize="20sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toEndOf="@+id/floatingActionButton7"
-                        app:layout_constraintTop_toBottomOf="@+id/textView79" />
+                        app:layout_constraintTop_toBottomOf="@+id/adminHomeFragDateStats" />
 
                     <com.google.android.material.floatingactionbutton.FloatingActionButton
                         android:id="@+id/floatingActionButton6"
@@ -576,7 +577,7 @@
                         app:elevation="0dp"
                         app:fabSize="normal"
                         app:layout_constraintStart_toEndOf="@+id/floatingActionButton6"
-                        app:layout_constraintTop_toBottomOf="@+id/textView79"
+                        app:layout_constraintTop_toBottomOf="@+id/adminHomeFragDateStats"
                         app:maxImageSize="24dp"
                         app:srcCompat="@drawable/outline_people_outline_24" />
 
