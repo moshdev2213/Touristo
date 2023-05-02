@@ -272,8 +272,6 @@ class TouristEditProfile : AppCompatActivity() {
                         confirmationDialog = ConfirmationDialog(this@TouristEditProfile)
                         if(result>0){
                             confirmationDialog.dialogWithSuccess("Profile Updated") {
-//                                val intent = Intent(this@TouristEditProfile,TouristManagement::class.java)
-//                                startActivity(intent)
                                 finish()
                             }
                         }else{

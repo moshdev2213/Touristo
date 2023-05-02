@@ -13,6 +13,11 @@ import com.example.touristo.dbCon.TouristoDB
 import com.example.touristo.dialogAlerts.YesNoDialog
 import com.example.touristo.modal.User
 import com.example.touristo.modalDTO.BookingDTO
+import com.example.touristo.repository.BookingRepository
+import com.example.touristo.repository.UserRepository
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
@@ -40,7 +45,7 @@ class AdminHomeTMAdapter(
     override fun onBindViewHolder(holder: AdminHomeTMViewHolder, position: Int) {
         holder.bind(userList[position],userProfileiew,userCardClicked)
         holder.itemView.findViewById<CardView>(R.id.userListDLTbtn).setOnClickListener {
-            Toast.makeText(context,"bllooo",Toast.LENGTH_SHORT).show()
+            showConfirmationDialog(position,userList[position])
         }
     }
     fun setList(user: List<User>){
@@ -52,6 +57,21 @@ class AdminHomeTMAdapter(
         userList.removeAt(position)
         notifyItemRemoved(position)
         notifyDataSetChanged()
+
+    }
+    private fun showConfirmationDialog(position: Int,user: User) {
+        val yesNoDialog = YesNoDialog(context)
+        yesNoDialog.yesNoConfirmDialog({
+            //do Something
+        },{
+            GlobalScope.launch(Dispatchers.IO){
+                db = TouristoDB.getInstance(context)
+                val userDAo = db.userDao()
+                val userRepo = UserRepository(userDAo, Dispatchers.IO)
+                userRepo.deleteUser(user)
+            }
+            deleteItem(position)
+        })
 
     }
 }
