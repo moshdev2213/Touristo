@@ -105,6 +105,8 @@ private lateinit var admHomeProImg : ImageView
 
         if (replaceFragment == "TouristManagement") {
             replaceAdmBottomNavFragment(TouristManagement())
+        }else if(replaceFragment=="AdminManagement"){
+            replaceAdmBottomNavFragment(AdminManagement())
         }
 
 

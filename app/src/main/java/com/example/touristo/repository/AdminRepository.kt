@@ -1,5 +1,6 @@
 package com.example.touristo.repository
 
+import android.annotation.SuppressLint
 import com.example.touristo.dao.AdminDao
 import com.example.touristo.modal.Admin
 import com.example.touristo.modal.LogTime
@@ -47,6 +48,28 @@ class AdminRepository(private val dao: AdminDao, private val ioDispatcher: Corou
         adminRepositoryScope.launch(Dispatchers.IO) {
             dao.deleteAdmin(admin)
         }
+    }
+
+    suspend fun updateAdminProfile(fname:String, lname:String, password:String, age:Int, tel: String, propic: String,
+                                   gender:String, designation: String,modified:String,aemail:String):Int{
+        var result = 0
+        withContext(ioDispatcher) {
+            result=dao.updateAdminProfile(fname,lname, password,age,tel, propic,gender, designation, modified, aemail)
+        }
+        return result
+    }
+
+    @SuppressLint("Range")
+    fun getAdminLogs(email: String): Array<String>? {
+        var adminInfo: Array<String>? = null
+        val cursor = dao.getAdminLogs(email)
+        if (cursor.moveToFirst() == true) {
+            val logcount = cursor.getInt(cursor.getColumnIndex("logcount")).toString()
+            val inquiry = cursor.getInt(cursor.getColumnIndex("inrep")).toString()
+            adminInfo = arrayOf(logcount, inquiry)
+        }
+        cursor.close()
+        return adminInfo
     }
 
 

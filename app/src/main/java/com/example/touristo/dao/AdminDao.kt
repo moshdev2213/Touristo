@@ -45,5 +45,19 @@ interface AdminDao {
     @Query ("SELECT * FROM admin WHERE aemail=:email LIMIT 1")
     fun getAllAdminByEmail(email: String):Admin
 
+    @Query("SELECT COUNT(ir.id) as inrep,(\n" +
+            "           SELECT COUNT(lg.id) \n" +
+            "           FROM logtime lg \n" +
+            "           WHERE lg.role=\"admin\" AND lg.email=:email\n" +
+            "           ) as logcount\n" +
+            "FROM inquiryReply ir \n" +
+            "WHERE ir.uemail=:email")
+    fun getAdminLogs(email:String):Cursor
+
+    @Query("UPDATE admin SET fname =:fname,lname=:lname, password=:password , age=:age , tel=:tel , propic=:propic , gender=:gender ,designation=:designation,modified=:modified  WHERE aemail =:email;")
+    fun updateAdminProfile(
+        fname:String, lname:String, password:String, age:Int, tel: String, propic: String,
+        gender:String, designation: String,modified:String,email:String):Int
+
 
 }
