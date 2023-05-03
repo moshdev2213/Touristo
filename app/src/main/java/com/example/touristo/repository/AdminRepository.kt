@@ -3,14 +3,14 @@ package com.example.touristo.repository
 import com.example.touristo.dao.AdminDao
 import com.example.touristo.modal.Admin
 import com.example.touristo.modal.LogTime
-import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+import com.example.touristo.modal.User
+import kotlinx.coroutines.*
 
 class AdminRepository(private val dao: AdminDao, private val ioDispatcher: CoroutineDispatcher) {
     private val adminRepositoryScope = CoroutineScope(ioDispatcher)
-
+    fun getAllAdmin(): List<Admin> {
+        return dao.getAllAdmin()
+    }
     suspend fun insertAdmin(admin: Admin){
         adminRepositoryScope.launch {
             dao.insertAdmin(admin)
@@ -43,6 +43,12 @@ class AdminRepository(private val dao: AdminDao, private val ioDispatcher: Corou
         }
         return adminObj
     }
+    fun deleteAdmin(admin: Admin){
+        adminRepositoryScope.launch(Dispatchers.IO) {
+            dao.deleteAdmin(admin)
+        }
+    }
+
 
 
 }
