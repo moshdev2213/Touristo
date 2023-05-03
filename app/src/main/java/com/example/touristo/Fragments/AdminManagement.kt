@@ -96,15 +96,4 @@ class AdminManagement : Fragment() {
         startActivity(intent)
     }
 
-    private fun getAdminObjectForIntent(email:String): Admin? {
-       var adminObj: Admin? = null
-        lifecycleScope.launch(Dispatchers.IO){
-            db = TouristoDB.getInstance(requireActivity())
-            val adminDao= db.adminDao()
-            val adminRepo = AdminRepository(adminDao,Dispatchers.IO)
-            adminObj = adminRepo.getAdminByEmail(email)
-
-        }
-        return adminObj
-    }
 }
