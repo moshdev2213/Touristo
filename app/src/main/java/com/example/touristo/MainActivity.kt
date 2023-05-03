@@ -54,7 +54,8 @@ class MainActivity : AppCompatActivity() {
                 21,
                 "male",
                 "Admin",
-                currentDateTime.toString())
+                currentDateTime.toString(),
+            "")
 
             lifecycleScope.launch(Dispatchers.IO){
                 // Get an instance of the TouristoDB database

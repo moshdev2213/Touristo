@@ -41,7 +41,7 @@
             android:layout_height="match_parent">
 
           <EditText
-              android:id="@+id/editTextTextEmailAddress8"
+              android:id="@+id/etAdminregisterRePass"
               android:layout_width="170dp"
               android:layout_height="40dp"
               android:layout_marginTop="8dp"
@@ -61,13 +61,13 @@
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:layout_marginTop="16dp"
-              android:layout_marginEnd="110dp"
+              android:layout_marginEnd="90dp"
               android:fontFamily="@font/montserrat_semibold"
-              android:text="Password"
+              android:text="Re-Password"
               android:textColor="@color/btnSplash"
               android:textSize="14sp"
               app:layout_constraintEnd_toEndOf="parent"
-              app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
+              app:layout_constraintTop_toBottomOf="@+id/etAdminRegisterEmail" />
 
           <TextView
               android:id="@+id/textView72"
@@ -84,7 +84,7 @@
               app:layout_constraintTop_toTopOf="parent" />
 
           <ImageView
-              android:id="@+id/imageView47"
+              android:id="@+id/imgAdminRegister"
               android:layout_width="150dp"
               android:layout_height="150dp"
               android:layout_marginTop="20dp"
@@ -107,7 +107,7 @@
               app:layout_constraintEnd_toEndOf="parent"
               app:layout_constraintHorizontal_bias="0.0"
               app:layout_constraintStart_toStartOf="parent"
-              app:layout_constraintTop_toBottomOf="@+id/imageView47" />
+              app:layout_constraintTop_toBottomOf="@+id/imgAdminRegister" />
 
           <TextView
               android:id="@+id/textView66"
@@ -122,7 +122,7 @@
               app:layout_constraintEnd_toEndOf="parent"
               app:layout_constraintHorizontal_bias="0.0"
               app:layout_constraintStart_toStartOf="parent"
-              app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
+              app:layout_constraintTop_toBottomOf="@+id/etAdminRegisterEmail" />
 
           <TextView
               android:id="@+id/textView68"
@@ -137,7 +137,7 @@
               app:layout_constraintEnd_toStartOf="@+id/textView69"
               app:layout_constraintHorizontal_bias="0.0"
               app:layout_constraintStart_toStartOf="parent"
-              app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress2" />
+              app:layout_constraintTop_toBottomOf="@+id/etAdminRegisterPass" />
 
           <TextView
               android:id="@+id/textView106"
@@ -152,7 +152,7 @@
               app:layout_constraintEnd_toStartOf="@+id/textView69"
               app:layout_constraintHorizontal_bias="0.0"
               app:layout_constraintStart_toStartOf="parent"
-              app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress3" />
+              app:layout_constraintTop_toBottomOf="@+id/etAdminRegisterFName" />
 
           <TextView
               android:id="@+id/textView70"
@@ -167,7 +167,7 @@
               app:layout_constraintEnd_toStartOf="@+id/textView71"
               app:layout_constraintHorizontal_bias="0.0"
               app:layout_constraintStart_toStartOf="parent"
-              app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress9" />
+              app:layout_constraintTop_toBottomOf="@+id/etAdminRegisterTel" />
 
           <TextView
               android:id="@+id/textView71"
@@ -180,7 +180,7 @@
               android:textColor="@color/btnSplash"
               android:textSize="14sp"
               app:layout_constraintEnd_toEndOf="parent"
-              app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress10" />
+              app:layout_constraintTop_toBottomOf="@+id/spAdminRegisterGender" />
 
           <TextView
               android:id="@+id/textView69"
@@ -193,7 +193,7 @@
               android:textColor="@color/btnSplash"
               android:textSize="14sp"
               app:layout_constraintEnd_toEndOf="parent"
-              app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress8" />
+              app:layout_constraintTop_toBottomOf="@+id/etAdminregisterRePass" />
 
           <TextView
               android:id="@+id/textView109"
@@ -206,10 +206,10 @@
               android:textColor="@color/btnSplash"
               android:textSize="14sp"
               app:layout_constraintEnd_toEndOf="parent"
-              app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress4" />
+              app:layout_constraintTop_toBottomOf="@+id/etAdminRegisterLName" />
 
           <EditText
-              android:id="@+id/editTextTextEmailAddress"
+              android:id="@+id/etAdminRegisterEmail"
               android:layout_width="350dp"
               android:layout_height="40dp"
               android:layout_marginStart="16dp"
@@ -228,7 +228,7 @@
               app:layout_constraintTop_toBottomOf="@+id/textView65" />
 
           <EditText
-              android:id="@+id/editTextTextEmailAddress2"
+              android:id="@+id/etAdminRegisterPass"
               android:layout_width="170dp"
               android:layout_height="40dp"
               android:layout_marginStart="16dp"
@@ -247,7 +247,7 @@
               app:layout_constraintTop_toBottomOf="@+id/textView66" />
 
           <EditText
-              android:id="@+id/editTextTextEmailAddress3"
+              android:id="@+id/etAdminRegisterFName"
               android:layout_width="170dp"
               android:layout_height="40dp"
               android:layout_marginStart="16dp"
@@ -263,7 +263,7 @@
               app:layout_constraintTop_toBottomOf="@+id/textView68" />
 
           <EditText
-              android:id="@+id/editTextTextEmailAddress9"
+              android:id="@+id/etAdminRegisterTel"
               android:layout_width="170dp"
               android:layout_height="40dp"
               android:layout_marginStart="16dp"
@@ -279,7 +279,7 @@
               app:layout_constraintTop_toBottomOf="@+id/textView106" />
 
           <EditText
-              android:id="@+id/editTextTextEmailAddress4"
+              android:id="@+id/etAdminRegisterLName"
               android:layout_width="170dp"
               android:layout_height="40dp"
               android:layout_marginTop="8dp"
@@ -293,11 +293,11 @@
               android:textSize="16sp"
               app:layout_constraintEnd_toEndOf="parent"
               app:layout_constraintHorizontal_bias="0.937"
-              app:layout_constraintStart_toEndOf="@+id/editTextTextEmailAddress3"
+              app:layout_constraintStart_toEndOf="@+id/etAdminRegisterFName"
               app:layout_constraintTop_toBottomOf="@+id/textView69" />
 
           <Spinner
-              android:id="@+id/editTextTextEmailAddress10"
+              android:id="@+id/spAdminRegisterGender"
               android:layout_width="170dp"
               android:layout_height="40dp"
               android:layout_marginTop="8dp"
@@ -307,11 +307,11 @@
               android:padding="10dp"
               app:layout_constraintEnd_toEndOf="parent"
               app:layout_constraintHorizontal_bias="0.937"
-              app:layout_constraintStart_toEndOf="@+id/editTextTextEmailAddress3"
+              app:layout_constraintStart_toEndOf="@+id/etAdminRegisterFName"
               app:layout_constraintTop_toBottomOf="@+id/textView109" />
 
           <EditText
-              android:id="@+id/editTextTextEmailAddress6"
+              android:id="@+id/etAdminRegisterAge"
               android:layout_width="150dp"
               android:layout_height="40dp"
               android:layout_marginTop="8dp"
@@ -330,7 +330,7 @@
               app:layout_constraintVertical_bias="0.0" />
 
           <Spinner
-              android:id="@+id/editTextTextEmailAddress5"
+              android:id="@+id/spAdminRegisterDesignation"
               android:layout_width="150dp"
               android:layout_height="40dp"
               android:entries="@array/adminDesignation"
@@ -340,7 +340,7 @@
               android:background="@drawable/editfeld"
               android:padding="10dp"
               app:layout_constraintBottom_toBottomOf="parent"
-              app:layout_constraintEnd_toStartOf="@+id/editTextTextEmailAddress6"
+              app:layout_constraintEnd_toStartOf="@+id/etAdminRegisterAge"
               app:layout_constraintHorizontal_bias="0.0"
               app:layout_constraintStart_toStartOf="parent"
               app:layout_constraintTop_toBottomOf="@+id/textView70"
@@ -500,7 +500,7 @@
         android:layout_height="match_parent">
 
       <Button
-          android:id="@+id/button8"
+          android:id="@+id/btnAdminRegisterBackBtn"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:layout_marginStart="18dp"
@@ -513,12 +513,12 @@
           android:textSize="20sp"
           android:textStyle="bold"
           app:layout_constraintBottom_toBottomOf="parent"
-          app:layout_constraintEnd_toStartOf="@+id/button21"
+          app:layout_constraintEnd_toStartOf="@+id/btnAdminRegisterAddAdmin"
           app:layout_constraintStart_toStartOf="parent"
           app:layout_constraintTop_toTopOf="parent" />
 
       <Button
-          android:id="@+id/button21"
+          android:id="@+id/btnAdminRegisterAddAdmin"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:layout_marginTop="16dp"
