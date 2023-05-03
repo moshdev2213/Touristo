@@ -85,23 +85,8 @@ class UserRepository(private val dao: UserDao,private val ioDispatcher: Coroutin
         }
         return result
     }
+
     @SuppressLint("Range")
-//    fun selectTouristManageProfile(email: String): Array<String>? {
-//        var adminInfo: Array<String>? = null
-//        val cursor = dao.selectTouristManageProfile(email)
-//        if (cursor?.moveToFirst() == true) {
-//            val amount = cursor.getString(cursor.getColumnIndex("amount"))
-//            val logcount = cursor.getInt(cursor.getColumnIndex("logcount"))
-//            val inquiry = cursor.getInt(cursor.getColumnIndex("inquiry"))
-//            val bookcount = cursor.getInt(cursor.getColumnIndex("bookcount"))
-//            val lastbookdate = cursor.getString(cursor.getColumnIndex("lastbookdate"))
-//            val villaName = cursor.getString(cursor.getColumnIndex("villaName"))
-//            val lastPay = cursor.getString(cursor.getColumnIndex("lastPay"))
-//            adminInfo = arrayOf(amount, logcount.toString(), inquiry.toString(),bookcount.toString(),lastbookdate,villaName,lastPay)
-//        }
-//        cursor?.close()
-//        return adminInfo
-//    }
     fun selectTouristManageProfile(email: String): Array<String>? {
         var adminInfo: Array<String>? = null
         val cursor = dao.selectTouristManageProfile(email)

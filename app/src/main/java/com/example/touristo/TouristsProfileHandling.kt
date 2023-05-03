@@ -142,6 +142,12 @@ class TouristsProfileHandling : AppCompatActivity() {
                     }else{
                         tvTMPUserPaymnetMode.text = "Card"
                     }
+                    btnTPHUserPayAmt.text = "Rs "+touristDetail[0]
+                    btnTPHUserBookedTotal.text = touristDetail[3]
+                    tvTPHUserLastBookedLocation.text = touristDetail[5]
+                    tvTPHUserLastBookDate.text = touristDetail[4]
+                    tvTPHUserInquiryCount.text = touristDetail[2]
+                    tvTPHUserLogCount.text = touristDetail[1]
                 }
             }
 
