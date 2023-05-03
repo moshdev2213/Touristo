@@ -27,9 +27,6 @@ class TouristManagement : Fragment() {
     private lateinit var rvFragTM:RecyclerView
     private lateinit var adapter: AdminHomeTMAdapter
     private lateinit var fragTMAddTouristBtn:Button
-    private lateinit var fragTMInactiveAct:TextView
-    private lateinit var fragTMActive:TextView
-    private lateinit var fragTMUpdatedDate:TextView
     private lateinit var db:TouristoDB
     val currentDateTime = Timestamp(System.currentTimeMillis())
     private  lateinit var globalEmail :String
@@ -46,10 +43,10 @@ class TouristManagement : Fragment() {
         fragTMAddTouristBtn = view.findViewById(R.id.fragTMAddTouristBtn)
         fragTMAddTouristBtn.setOnClickListener {
             val intent = Intent(adminHomeActivity,TouristManagementRegistration::class.java)
+            intent.putExtra("amail",globalEmail)
             startActivity(intent)
         }
-        fragTMUpdatedDate = view.findViewById(R.id.fragTMUpdatedDate)
-        fragTMUpdatedDate.text = "Updated "+dateFormatter(currentDateTime.toString())
+
 
         initRecyclerView(view)
         return view

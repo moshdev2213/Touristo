@@ -47,6 +47,10 @@ class AdminHomeTMAdapter(
         holder.itemView.findViewById<CardView>(R.id.userListDLTbtn).setOnClickListener {
             showConfirmationDialog(position,userList[position])
         }
+        holder.itemView.findViewById<CardView>(R.id.userListEditBTN).setOnClickListener {
+            userProfileiew(userList[position])
+            updateItem(position)
+        }
     }
     fun setList(user: List<User>){
         userList.clear()
@@ -58,6 +62,9 @@ class AdminHomeTMAdapter(
         notifyItemRemoved(position)
         notifyDataSetChanged()
 
+    }
+    fun updateItem(position:Int){
+        notifyDataSetChanged()
     }
     private fun showConfirmationDialog(position: Int,user: User) {
         val yesNoDialog = YesNoDialog(context)
@@ -91,10 +98,6 @@ class AdminHomeTMViewHolder(private val view: View):RecyclerView.ViewHolder(view
         userListUsrName.text = user.uname
 
 
-
-        userListEditBTN.setOnClickListener {
-            userProfileiew(user)
-        }
         theUserListCard.setOnClickListener {
             userCardClicked(user)
         }

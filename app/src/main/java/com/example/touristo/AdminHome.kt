@@ -1,5 +1,7 @@
 package com.example.touristo
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -99,7 +101,11 @@ private lateinit var admHomeProImg : ImageView
 
         //code starts here
         globalMail =  intent.getStringExtra("adminEmail").toString()
+        val replaceFragment = intent.getStringExtra("replaceFragment")
 
+        if (replaceFragment == "TouristManagement") {
+            replaceAdmBottomNavFragment(TouristManagement())
+        }
 
 
 
@@ -115,6 +121,7 @@ private lateinit var admHomeProImg : ImageView
         }
 
     }
+
 
     //the below function is for the frag replacement in the sidenavigation bar
     fun replaceFrags(fragment: Fragment){
@@ -138,8 +145,6 @@ private lateinit var admHomeProImg : ImageView
         val fragmentTransaction = fragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.frameLayout,fragment)
         fragmentTransaction.commit()
-
-
     }
 
     //listnersOverriders

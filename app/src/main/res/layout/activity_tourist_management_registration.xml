@@ -38,6 +38,35 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
+                    <EditText
+                        android:id="@+id/etTMRUSErName"
+                        android:layout_width="160dp"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginEnd="16dp"
+                        android:background="@drawable/editfeld"
+                        android:ems="10"
+                        android:fontFamily="@font/montserrat"
+                        android:hint="amma1234"
+                        android:inputType="text"
+                        android:padding="10dp"
+                        android:textSize="16sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView65" />
+
+                    <TextView
+                        android:id="@+id/textView14"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="95dp"
+                        android:fontFamily="@font/montserrat_semibold"
+                        android:text="User Name"
+                        android:textColor="@color/btnSplash"
+                        android:textSize="14sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/imgTMRAddImage" />
+
                     <TextView
                         android:id="@+id/textView72"
                         android:layout_width="wrap_content"
@@ -53,7 +82,7 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <ImageView
-                        android:id="@+id/imageView47"
+                        android:id="@+id/imgTMRAddImage"
                         android:layout_width="150dp"
                         android:layout_height="150dp"
                         android:layout_marginTop="20dp"
@@ -76,7 +105,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/imageView47" />
+                        app:layout_constraintTop_toBottomOf="@+id/imgTMRAddImage" />
 
                     <TextView
                         android:id="@+id/textView66"
@@ -91,37 +120,20 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
+                        app:layout_constraintTop_toBottomOf="@+id/etTMRUserEmail" />
 
                     <TextView
                         android:id="@+id/textView98"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
                         android:layout_marginTop="16dp"
+                        android:layout_marginEnd="45dp"
                         android:fontFamily="@font/montserrat_semibold"
                         android:text="Re-Enter Password"
                         android:textColor="@color/btnSplash"
                         android:textSize="14sp"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress2" />
-
-                    <TextView
-                        android:id="@+id/textView68"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="16dp"
-                        android:fontFamily="@font/montserrat_semibold"
-                        android:text="First Name"
-                        android:textColor="@color/btnSplash"
-                        android:textSize="14sp"
-                        app:layout_constraintEnd_toStartOf="@+id/textView69"
-                        app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress7" />
+                        app:layout_constraintTop_toBottomOf="@+id/etTMRUSErName" />
 
                     <TextView
                         android:id="@+id/textView106"
@@ -133,10 +145,8 @@
                         android:text="Telephone Number"
                         android:textColor="@color/btnSplash"
                         android:textSize="14sp"
-                        app:layout_constraintEnd_toStartOf="@+id/textView69"
-                        app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress3" />
+                        app:layout_constraintTop_toBottomOf="@+id/etTMRUserRePass" />
 
                     <TextView
                         android:id="@+id/textView70"
@@ -145,39 +155,26 @@
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="16dp"
                         android:fontFamily="@font/montserrat_semibold"
-                        android:text="Designation"
+                        android:text="Country"
                         android:textColor="@color/btnSplash"
                         android:textSize="14sp"
                         app:layout_constraintEnd_toStartOf="@+id/textView71"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress9" />
+                        app:layout_constraintTop_toBottomOf="@+id/etTMRUserTel" />
 
                     <TextView
                         android:id="@+id/textView71"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
-                        android:layout_marginEnd="140dp"
+                        android:layout_marginEnd="130dp"
                         android:fontFamily="@font/montserrat_semibold"
                         android:text="Age"
                         android:textColor="@color/btnSplash"
                         android:textSize="14sp"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress10" />
-
-                    <TextView
-                        android:id="@+id/textView69"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginEnd="90dp"
-                        android:fontFamily="@font/montserrat_semibold"
-                        android:text="Last Name"
-                        android:textColor="@color/btnSplash"
-                        android:textSize="14sp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress7" />
+                        app:layout_constraintTop_toBottomOf="@+id/spTMEUserGender" />
 
                     <TextView
                         android:id="@+id/textView109"
@@ -190,11 +187,11 @@
                         android:textColor="@color/btnSplash"
                         android:textSize="14sp"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress4" />
+                        app:layout_constraintTop_toBottomOf="@+id/etTMRUserRePass" />
 
                     <EditText
-                        android:id="@+id/editTextTextEmailAddress"
-                        android:layout_width="350dp"
+                        android:id="@+id/etTMRUserEmail"
+                        android:layout_width="180dp"
                         android:layout_height="40dp"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="12dp"
@@ -212,8 +209,8 @@
                         app:layout_constraintTop_toBottomOf="@+id/textView65" />
 
                     <EditText
-                        android:id="@+id/editTextTextEmailAddress2"
-                        android:layout_width="350dp"
+                        android:id="@+id/etTMRUserPass"
+                        android:layout_width="170dp"
                         android:layout_height="40dp"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="16dp"
@@ -231,10 +228,9 @@
                         app:layout_constraintTop_toBottomOf="@+id/textView66" />
 
                     <EditText
-                        android:id="@+id/editTextTextEmailAddress7"
-                        android:layout_width="350dp"
+                        android:id="@+id/etTMRUserRePass"
+                        android:layout_width="170dp"
                         android:layout_height="40dp"
-                        android:layout_marginStart="16dp"
                         android:layout_marginTop="16dp"
                         android:layout_marginEnd="16dp"
                         android:background="@drawable/editfeld"
@@ -245,29 +241,11 @@
                         android:padding="10dp"
                         android:textSize="16sp"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textView98" />
 
                     <EditText
-                        android:id="@+id/editTextTextEmailAddress3"
-                        android:layout_width="150dp"
-                        android:layout_height="40dp"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="12dp"
-                        android:background="@drawable/editfeld"
-                        android:ems="10"
-                        android:fontFamily="@font/montserrat"
-                        android:hint="mosh"
-                        android:inputType="number"
-                        android:padding="10dp"
-                        android:textSize="16sp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView68" />
-
-                    <EditText
-                        android:id="@+id/editTextTextEmailAddress9"
-                        android:layout_width="150dp"
+                        android:id="@+id/etTMRUserTel"
+                        android:layout_width="180dp"
                         android:layout_height="40dp"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="16dp"
@@ -281,48 +259,24 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textView106" />
 
-                    <EditText
-                        android:id="@+id/editTextTextEmailAddress4"
-                        android:layout_width="150dp"
-                        android:layout_height="40dp"
-                        android:layout_marginTop="12dp"
-                        android:layout_marginEnd="16dp"
-                        android:background="@drawable/editfeld"
-                        android:ems="10"
-                        android:fontFamily="@font/montserrat"
-                        android:hint="gale"
-                        android:inputType="number"
-                        android:padding="10dp"
-                        android:textSize="16sp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.937"
-                        app:layout_constraintStart_toEndOf="@+id/editTextTextEmailAddress3"
-                        app:layout_constraintTop_toBottomOf="@+id/textView69" />
-
-                    <EditText
-                        android:id="@+id/editTextTextEmailAddress10"
+                    <Spinner
+                        android:id="@+id/spTMEUserGender"
                         android:layout_width="150dp"
                         android:layout_height="40dp"
                         android:layout_marginTop="16dp"
                         android:layout_marginEnd="16dp"
                         android:background="@drawable/editfeld"
-                        android:ems="10"
-                        android:fontFamily="@font/montserrat"
-                        android:hint="male"
-                        android:inputType="number"
+                        android:entries="@array/gender"
                         android:padding="10dp"
-                        android:textSize="16sp"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.937"
-                        app:layout_constraintStart_toEndOf="@+id/editTextTextEmailAddress3"
                         app:layout_constraintTop_toBottomOf="@+id/textView109" />
 
                     <EditText
-                        android:id="@+id/editTextTextEmailAddress6"
+                        android:id="@+id/etTMRUserAge"
                         android:layout_width="150dp"
                         android:layout_height="40dp"
                         android:layout_marginTop="12dp"
-                        android:layout_marginEnd="20dp"
+                        android:layout_marginEnd="16dp"
                         android:layout_marginBottom="16dp"
                         android:background="@drawable/editfeld"
                         android:ems="10"
@@ -337,8 +291,8 @@
                         app:layout_constraintVertical_bias="0.0" />
 
                     <EditText
-                        android:id="@+id/editTextTextEmailAddress5"
-                        android:layout_width="150dp"
+                        android:id="@+id/etTMRUserCountry"
+                        android:layout_width="180dp"
                         android:layout_height="40dp"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="12dp"
@@ -347,11 +301,11 @@
                         android:ems="10"
                         android:fontFamily="@font/montserrat"
                         android:hint="germany"
-                        android:inputType="number"
+                        android:inputType="text"
                         android:padding="10dp"
                         android:textSize="16sp"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/editTextTextEmailAddress6"
+                        app:layout_constraintEnd_toStartOf="@+id/etTMRUserAge"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textView70"
@@ -399,7 +353,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
                         android:fontFamily="@font/montserrat"
-                        android:text="Current Tourists"
+                        android:text="Current Tourist"
                         android:textColor="@color/admincount"
                         android:textSize="16sp"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -408,7 +362,7 @@
                         app:layout_constraintTop_toBottomOf="@+id/textView72" />
 
                     <Button
-                        android:id="@+id/button21"
+                        android:id="@+id/btnTMRCurrentCount"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="12dp"
@@ -416,7 +370,7 @@
                         android:backgroundTint="@color/admincount"
                         android:clickable="false"
                         android:fontFamily="@font/montserrat_semibold"
-                        android:text="5"
+                        android:text="Active"
                         android:textSize="20sp"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -479,27 +433,15 @@
                 android:id="@+id/textView67"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="150dp"
+                android:layout_marginEnd="16dp"
                 android:fontFamily="@font/montserrat_semibold"
                 android:text="@string/app_name"
                 android:textColor="@color/btnSplash"
                 android:textSize="24sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/simgTMreg"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.5" />
-
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/simgTMreg"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginEnd="16dp"
-                android:src="@drawable/propic1"
-                app:civ_border_color="@android:color/transparent"
-                app:civ_border_width="2dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
@@ -536,12 +478,12 @@
                 android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/button21"
+                app:layout_constraintEnd_toStartOf="@+id/btnTMRAddT"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <Button
-                android:id="@+id/button21"
+                android:id="@+id/btnTMRAddT"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
