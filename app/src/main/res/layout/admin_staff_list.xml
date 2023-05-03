@@ -2,12 +2,13 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/StaffMCardClick"
     android:layout_width="match_parent"
     android:layout_height="100dp"
     android:layout_marginStart="16dp"
-    android:layout_marginTop="16dp"
+    android:layout_marginTop="2dp"
     android:layout_marginEnd="16dp"
-    android:layout_marginBottom="0dp"
+    android:layout_marginBottom="10dp"
     app:cardCornerRadius="10dp"
     app:cardElevation="10dp">
 
@@ -16,7 +17,7 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/textView10"
+            android:id="@+id/staffMName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -26,13 +27,13 @@
             android:text="Mosh"
             android:textColor="@color/btnSplash"
             android:textSize="24sp"
-            app:layout_constraintEnd_toStartOf="@+id/cardView11"
+            app:layout_constraintEnd_toStartOf="@+id/staffMcardViewDlt"
             app:layout_constraintHorizontal_bias="0.147"
-            app:layout_constraintStart_toEndOf="@+id/shapeableImageView"
+            app:layout_constraintStart_toEndOf="@+id/simgStaffPic"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView18"
+            android:id="@+id/staffMTel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="7dp"
@@ -42,13 +43,13 @@
             android:text="John"
             android:textColor="@color/btnSplash"
             android:textSize="16sp"
-            app:layout_constraintEnd_toStartOf="@+id/cardView11"
+            app:layout_constraintEnd_toStartOf="@+id/staffMcardViewDlt"
             app:layout_constraintHorizontal_bias="0.093"
-            app:layout_constraintStart_toEndOf="@+id/shapeableImageView"
-            app:layout_constraintTop_toBottomOf="@+id/textView10" />
+            app:layout_constraintStart_toEndOf="@+id/simgStaffPic"
+            app:layout_constraintTop_toBottomOf="@+id/staffMName" />
 
         <TextView
-            android:id="@+id/textView19"
+            android:id="@+id/staffMEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="7dp"
@@ -59,14 +60,14 @@
             android:textColor="@color/btnSplash"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/cardView11"
+            app:layout_constraintEnd_toStartOf="@+id/staffMcardViewDlt"
             app:layout_constraintHorizontal_bias="0.081"
-            app:layout_constraintStart_toEndOf="@+id/shapeableImageView"
-            app:layout_constraintTop_toBottomOf="@+id/textView18"
+            app:layout_constraintStart_toEndOf="@+id/simgStaffPic"
+            app:layout_constraintTop_toBottomOf="@+id/staffMTel"
             app:layout_constraintVertical_bias="0.0" />
 
         <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/shapeableImageView"
+            android:id="@+id/simgStaffPic"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_marginStart="16dp"
@@ -79,15 +80,16 @@
             app:shapeAppearanceOverlay="@style/roundedImageView" />
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/cardView11"
+            android:id="@+id/staffMcardViewDlt"
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:layout_marginEnd="16dp"
             app:cardBackgroundColor="@color/bookingsbg"
             app:cardCornerRadius="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/staffMEditProfileCard"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.5"
-            tools:layout_editor_absoluteX="202dp" >
+            app:layout_constraintVertical_bias="0.5">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -108,16 +110,16 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/cardView7"
+            android:id="@+id/staffMEditProfileCard"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginStart="8dp"
+            android:layout_marginEnd="16dp"
             app:cardBackgroundColor="@color/salesbg"
             app:cardCornerRadius="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/cardView11"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.5" >
+            app:layout_constraintVertical_bias="0.5">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -135,39 +137,6 @@
                     app:layout_constraintVertical_bias="0.5"
                     app:srcCompat="@drawable/baseline_edit_24" />
             </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardView7"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginEnd="10dp"
-            app:cardBackgroundColor="@color/admincountbg"
-            app:cardCornerRadius="10dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/cardView7"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.5" >
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <ImageView
-                    android:id="@+id/imageView38"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.5"
-                    app:srcCompat="@drawable/baseline_remove_red_eye_24" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
         </androidx.cardview.widget.CardView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

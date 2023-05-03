@@ -56,7 +56,7 @@ class TouristManagement : Fragment() {
         rvFragTM = view.findViewById(R.id.rvFragTM)
         rvFragTM.layoutManager = LinearLayoutManager(requireActivity())
         adapter = AdminHomeTMAdapter(requireActivity(),{
-                selectedItem: User ->userProfileiew(selectedItem)
+                selectedItem: User ->userProfileView(selectedItem)
         },{
                 selectedItem: User ->userCardClicked(selectedItem)
 
@@ -87,7 +87,7 @@ class TouristManagement : Fragment() {
         startActivity(intent)
     }
 
-    private fun userProfileiew(selectedItem: User) {
+    private fun userProfileView(selectedItem: User) {
         val bundle = Bundle().apply {
             putSerializable("user", selectedItem)
             putString("amail",globalEmail)

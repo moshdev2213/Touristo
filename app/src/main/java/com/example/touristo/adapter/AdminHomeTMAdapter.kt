@@ -24,7 +24,7 @@ import kotlin.collections.ArrayList
 
 class AdminHomeTMAdapter(
     var context: Context,
-    private val userProfileiew:(User)->Unit,
+    private val userProfileView:(User)->Unit,
     private val userCardClicked:(User)->Unit
 ): RecyclerView.Adapter<AdminHomeTMViewHolder>() {
 
@@ -43,12 +43,12 @@ class AdminHomeTMAdapter(
     }
 
     override fun onBindViewHolder(holder: AdminHomeTMViewHolder, position: Int) {
-        holder.bind(userList[position],userProfileiew,userCardClicked)
+        holder.bind(userList[position],userProfileView,userCardClicked)
         holder.itemView.findViewById<CardView>(R.id.userListDLTbtn).setOnClickListener {
             showConfirmationDialog(position,userList[position])
         }
         holder.itemView.findViewById<CardView>(R.id.userListEditBTN).setOnClickListener {
-            userProfileiew(userList[position])
+            userProfileView(userList[position])
             updateItem(position)
         }
     }
@@ -83,7 +83,7 @@ class AdminHomeTMAdapter(
     }
 }
 class AdminHomeTMViewHolder(private val view: View):RecyclerView.ViewHolder(view){
-    fun bind(user: User,userProfileiew:(User)->Unit,userCardClicked:(User)->Unit){
+    fun bind(user: User,userProfileView:(User)->Unit,userCardClicked:(User)->Unit){
 
         val userListUserEmail = view.findViewById<TextView>(R.id.userListUserEmail)
         val userListAddedDate = view.findViewById<TextView>(R.id.userListAddedDate)
