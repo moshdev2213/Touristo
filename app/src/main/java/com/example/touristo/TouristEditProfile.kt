@@ -1,5 +1,6 @@
 package com.example.touristo
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
@@ -11,8 +12,10 @@ import android.widget.ImageView
 import android.widget.Spinner
 import android.widget.TextView
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.example.touristo.Fragments.TouristManagement
+import com.example.touristo.adapter.AdminHomeTMAdapter
 import com.example.touristo.dbCon.TouristoDB
 import com.example.touristo.dialogAlerts.ConfirmationDialog
 import com.example.touristo.formData.UserProfileValidation
@@ -85,10 +88,12 @@ class TouristEditProfile : AppCompatActivity() {
         btnTMSave = findViewById(R.id.btnTMSave)
         etTMUserEmail.isEnabled=false
 
+        btnTMDlt.setOnClickListener {
+            finish()
+        }
         val bundle = intent.extras
         val user = bundle?.getSerializable("user") as? User
-        aemail = bundle?.getString("aemail").toString()
-
+        aemail = bundle?.getString("amail").toString()
 
         if (user != null) {
             //set ET values Accordingly
@@ -267,12 +272,18 @@ class TouristEditProfile : AppCompatActivity() {
                     // Get the UserDao from the database
                     val userDao = db.userDao()
                     val userRepo = UserRepository(userDao, Dispatchers.IO)
-                    val result : Int = userRepo.updateUserProfileAsAdmin(dbCountry,dbGender,dbAge.toInt(),dbTel,"propic",dbPassword,dbName,dbEmail,dbActStausInt)
+                    val result : Int = userRepo.updateUserProfileAsAdmin(dbCountry,dbGender,dbAge,dbTel,"propic",dbPassword,dbName,dbEmail,dbActStausInt)
                     lifecycleScope.launch(Dispatchers.Main){
                         confirmationDialog = ConfirmationDialog(this@TouristEditProfile)
                         if(result>0){
                             confirmationDialog.dialogWithSuccess("Profile Updated") {
+                                val intent = Intent(this@TouristEditProfile, AdminHome::class.java).apply {
+                                    putExtra("replaceFragment", "TouristManagement")
+                                    putExtra("adminEmail", aemail)
+                                }
+                                startActivity(intent)
                                 finish()
+
                             }
                         }else{
                             confirmationDialog.dialogWithError("Invalid Credentials") {
