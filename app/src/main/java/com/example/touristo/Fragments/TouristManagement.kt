@@ -46,8 +46,6 @@ class TouristManagement : Fragment() {
             intent.putExtra("amail",globalEmail)
             startActivity(intent)
         }
-
-
         initRecyclerView(view)
         return view
     }

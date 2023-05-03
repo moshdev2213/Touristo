@@ -31,4 +31,10 @@
         <item>Active</item>
         <item>Deactive</item>
     </string-array>
+
+    <string-array name="adminDesignation">
+        <item>Admin</item>
+        <item>Staff</item>
+        <item>Employee</item>
+    </string-array>
 </resources>
