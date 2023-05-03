@@ -40,6 +40,35 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+          <EditText
+              android:id="@+id/editTextTextEmailAddress8"
+              android:layout_width="170dp"
+              android:layout_height="40dp"
+              android:layout_marginTop="8dp"
+              android:layout_marginEnd="16dp"
+              android:background="@drawable/editfeld"
+              android:ems="10"
+              android:fontFamily="@font/montserrat"
+              android:hint="xxxxxxxxxxxxxxx"
+              android:inputType="textPassword"
+              android:padding="10dp"
+              android:textSize="16sp"
+              app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintTop_toBottomOf="@+id/textView66" />
+
+          <TextView
+              android:id="@+id/textView15"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="16dp"
+              android:layout_marginEnd="110dp"
+              android:fontFamily="@font/montserrat_semibold"
+              android:text="Password"
+              android:textColor="@color/btnSplash"
+              android:textSize="14sp"
+              app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
+
           <TextView
               android:id="@+id/textView72"
               android:layout_width="wrap_content"
@@ -96,21 +125,6 @@
               app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
 
           <TextView
-              android:id="@+id/textView98"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:layout_marginStart="16dp"
-              android:layout_marginTop="16dp"
-              android:fontFamily="@font/montserrat_semibold"
-              android:text="Re-Enter Password"
-              android:textColor="@color/btnSplash"
-              android:textSize="14sp"
-              app:layout_constraintEnd_toEndOf="parent"
-              app:layout_constraintHorizontal_bias="0.0"
-              app:layout_constraintStart_toStartOf="parent"
-              app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress2" />
-
-          <TextView
               android:id="@+id/textView68"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
@@ -123,7 +137,7 @@
               app:layout_constraintEnd_toStartOf="@+id/textView69"
               app:layout_constraintHorizontal_bias="0.0"
               app:layout_constraintStart_toStartOf="parent"
-              app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress7" />
+              app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress2" />
 
           <TextView
               android:id="@+id/textView106"
@@ -173,20 +187,20 @@
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:layout_marginTop="16dp"
-              android:layout_marginEnd="90dp"
+              android:layout_marginEnd="105dp"
               android:fontFamily="@font/montserrat_semibold"
               android:text="Last Name"
               android:textColor="@color/btnSplash"
               android:textSize="14sp"
               app:layout_constraintEnd_toEndOf="parent"
-              app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress7" />
+              app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress8" />
 
           <TextView
               android:id="@+id/textView109"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:layout_marginTop="16dp"
-              android:layout_marginEnd="110dp"
+              android:layout_marginEnd="125dp"
               android:fontFamily="@font/montserrat_semibold"
               android:text="Gender"
               android:textColor="@color/btnSplash"
@@ -199,7 +213,7 @@
               android:layout_width="350dp"
               android:layout_height="40dp"
               android:layout_marginStart="16dp"
-              android:layout_marginTop="12dp"
+              android:layout_marginTop="8dp"
               android:layout_marginEnd="16dp"
               android:background="@drawable/editfeld"
               android:ems="10"
@@ -215,10 +229,10 @@
 
           <EditText
               android:id="@+id/editTextTextEmailAddress2"
-              android:layout_width="350dp"
+              android:layout_width="170dp"
               android:layout_height="40dp"
               android:layout_marginStart="16dp"
-              android:layout_marginTop="16dp"
+              android:layout_marginTop="8dp"
               android:layout_marginEnd="16dp"
               android:background="@drawable/editfeld"
               android:ems="10"
@@ -233,35 +247,16 @@
               app:layout_constraintTop_toBottomOf="@+id/textView66" />
 
           <EditText
-              android:id="@+id/editTextTextEmailAddress7"
-              android:layout_width="350dp"
-              android:layout_height="40dp"
-              android:layout_marginStart="16dp"
-              android:layout_marginTop="16dp"
-              android:layout_marginEnd="16dp"
-              android:background="@drawable/editfeld"
-              android:ems="10"
-              android:fontFamily="@font/montserrat"
-              android:hint="xxxxxxxxxxxxxxx"
-              android:inputType="textPassword"
-              android:padding="10dp"
-              android:textSize="16sp"
-              app:layout_constraintEnd_toEndOf="parent"
-              app:layout_constraintHorizontal_bias="0.0"
-              app:layout_constraintStart_toStartOf="parent"
-              app:layout_constraintTop_toBottomOf="@+id/textView98" />
-
-          <EditText
               android:id="@+id/editTextTextEmailAddress3"
-              android:layout_width="150dp"
+              android:layout_width="170dp"
               android:layout_height="40dp"
               android:layout_marginStart="16dp"
-              android:layout_marginTop="12dp"
+              android:layout_marginTop="8dp"
               android:background="@drawable/editfeld"
               android:ems="10"
               android:fontFamily="@font/montserrat"
               android:hint="mosh"
-              android:inputType="number"
+              android:inputType="text"
               android:padding="10dp"
               android:textSize="16sp"
               app:layout_constraintStart_toStartOf="parent"
@@ -269,10 +264,10 @@
 
           <EditText
               android:id="@+id/editTextTextEmailAddress9"
-              android:layout_width="150dp"
+              android:layout_width="170dp"
               android:layout_height="40dp"
               android:layout_marginStart="16dp"
-              android:layout_marginTop="16dp"
+              android:layout_marginTop="8dp"
               android:background="@drawable/editfeld"
               android:ems="10"
               android:fontFamily="@font/montserrat"
@@ -285,15 +280,15 @@
 
           <EditText
               android:id="@+id/editTextTextEmailAddress4"
-              android:layout_width="150dp"
+              android:layout_width="170dp"
               android:layout_height="40dp"
-              android:layout_marginTop="12dp"
+              android:layout_marginTop="8dp"
               android:layout_marginEnd="16dp"
               android:background="@drawable/editfeld"
               android:ems="10"
               android:fontFamily="@font/montserrat"
               android:hint="gale"
-              android:inputType="number"
+              android:inputType="text"
               android:padding="10dp"
               android:textSize="16sp"
               app:layout_constraintEnd_toEndOf="parent"
@@ -301,19 +296,15 @@
               app:layout_constraintStart_toEndOf="@+id/editTextTextEmailAddress3"
               app:layout_constraintTop_toBottomOf="@+id/textView69" />
 
-          <EditText
+          <Spinner
               android:id="@+id/editTextTextEmailAddress10"
-              android:layout_width="150dp"
+              android:layout_width="170dp"
               android:layout_height="40dp"
-              android:layout_marginTop="16dp"
+              android:layout_marginTop="8dp"
               android:layout_marginEnd="16dp"
               android:background="@drawable/editfeld"
-              android:ems="10"
-              android:fontFamily="@font/montserrat"
-              android:hint="male"
-              android:inputType="number"
+              android:entries="@array/gender"
               android:padding="10dp"
-              android:textSize="16sp"
               app:layout_constraintEnd_toEndOf="parent"
               app:layout_constraintHorizontal_bias="0.937"
               app:layout_constraintStart_toEndOf="@+id/editTextTextEmailAddress3"
@@ -323,7 +314,7 @@
               android:id="@+id/editTextTextEmailAddress6"
               android:layout_width="150dp"
               android:layout_height="40dp"
-              android:layout_marginTop="12dp"
+              android:layout_marginTop="8dp"
               android:layout_marginEnd="20dp"
               android:layout_marginBottom="16dp"
               android:background="@drawable/editfeld"
@@ -343,13 +334,13 @@
               android:layout_width="150dp"
               android:layout_height="40dp"
               android:layout_marginStart="16dp"
-              android:layout_marginTop="12dp"
+              android:layout_marginTop="8dp"
               android:layout_marginBottom="16dp"
               android:background="@drawable/editfeld"
               android:ems="10"
               android:fontFamily="@font/montserrat"
               android:hint="germany"
-              android:inputType="number"
+              android:inputType="text"
               android:padding="10dp"
               android:textSize="16sp"
               app:layout_constraintBottom_toBottomOf="parent"
@@ -418,7 +409,7 @@
               android:backgroundTint="@color/admincount"
               android:clickable="false"
               android:fontFamily="@font/montserrat_semibold"
-              android:text="5"
+              android:text="Active"
               android:textSize="20sp"
               android:textStyle="bold"
               app:layout_constraintBottom_toBottomOf="parent"
@@ -481,27 +472,15 @@
           android:id="@+id/textView67"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:layout_marginEnd="150dp"
+          android:layout_marginEnd="16dp"
           android:fontFamily="@font/montserrat_semibold"
           android:text="@string/app_name"
           android:textColor="@color/btnSplash"
           android:textSize="24sp"
           app:layout_constraintBottom_toBottomOf="parent"
-          app:layout_constraintEnd_toStartOf="@+id/profile_image"
+          app:layout_constraintEnd_toEndOf="parent"
           app:layout_constraintTop_toTopOf="parent"
           app:layout_constraintVertical_bias="0.5" />
-
-      <de.hdodenhof.circleimageview.CircleImageView
-          android:id="@+id/profile_image"
-          android:layout_width="50dp"
-          android:layout_height="50dp"
-          android:layout_marginEnd="16dp"
-          android:src="@drawable/propic1"
-          app:civ_border_color="@android:color/transparent"
-          app:civ_border_width="2dp"
-          app:layout_constraintBottom_toBottomOf="parent"
-          app:layout_constraintEnd_toEndOf="parent"
-          app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
   </androidx.cardview.widget.CardView>
