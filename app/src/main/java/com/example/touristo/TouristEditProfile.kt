@@ -33,7 +33,6 @@ class TouristEditProfile : AppCompatActivity() {
     private lateinit var confirmationDialog : ConfirmationDialog
 
 
-    private lateinit var imgTMEditProfileAdminPic:ImageView
     private lateinit var ImgTmEditProfileBack:ImageView
 
     private lateinit var smimgTmEditProfilePic:ImageView
@@ -70,7 +69,6 @@ class TouristEditProfile : AppCompatActivity() {
         //initialize the views
 
         ImgTmEditProfileBack = findViewById(R.id.ImgTmEditProfileBack)
-        imgTMEditProfileAdminPic = findViewById(R.id.imgTMEditProfileAdminPic)
         smimgTmEditProfilePic = findViewById(R.id.smimgTmEditProfilePic)
         tvTmEditProfileStatus = findViewById(R.id.tvTmEditProfileStatus)
         tvTmEditProfileName = findViewById(R.id.tvTmEditProfileName)
@@ -143,11 +141,7 @@ class TouristEditProfile : AppCompatActivity() {
         ImgTmEditProfileBack.setOnClickListener {
             finish()
         }
-        imgTMEditProfileAdminPic.setOnClickListener {
-            val intent = Intent(this@TouristEditProfile,AdminUpdateProfile::class.java)
-            intent.putExtra("aemail",aemail)
-            startActivity(intent)
-        }
+
         btnTMSave.setOnClickListener {
             //specific names for the variable
 

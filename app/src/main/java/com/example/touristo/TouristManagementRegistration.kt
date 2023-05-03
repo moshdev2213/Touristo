@@ -27,7 +27,6 @@ class TouristManagementRegistration : AppCompatActivity() {
     private lateinit var btnTMregistrationCancel:Button
     private lateinit var btnTMRAddT:Button
 
-    private lateinit var simgTMreg:ImageView
     private lateinit var openerImg:ImageView
 
     private lateinit var btnTMRCurrentCount:Button
@@ -62,7 +61,6 @@ class TouristManagementRegistration : AppCompatActivity() {
         aemail = intent?.getString("amail").toString()
 
         openerImg = findViewById(R.id.openerImg)
-        simgTMreg = findViewById(R.id.simgTMreg)
         btnTMregistrationCancel = findViewById(R.id.btnTMregistrationCancel)
         btnTMRAddT = findViewById(R.id.btnTMRAddT)
 
@@ -72,10 +70,7 @@ class TouristManagementRegistration : AppCompatActivity() {
         openerImg.setOnClickListener {
             finish()
         }
-        simgTMreg.setOnClickListener {
-            val intent = Intent(this@TouristManagementRegistration,AdminUpdateProfile::class.java)
-            startActivity(intent)
-        }
+
         btnTMRAddT.setOnClickListener {
             lifecycleScope.launch(Dispatchers.IO){
                 addNewTourist()

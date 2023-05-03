@@ -93,7 +93,7 @@
                         app:layout_constraintTop_toBottomOf="@+id/textView72" />
 
                     <TextView
-                        android:id="@+id/textView105"
+                        android:id="@+id/tvTPHUserLastBookDate"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:alpha="0.5"
@@ -118,7 +118,7 @@
                         app:layout_constraintTop_toBottomOf="@+id/textView102" />
 
                     <TextView
-                        android:id="@+id/textView108"
+                        android:id="@+id/tvTPHUserLastBookedLocation"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:alpha="0.5"
@@ -130,7 +130,7 @@
                         app:layout_constraintTop_toBottomOf="@+id/textView102" />
 
                     <Button
-                        android:id="@+id/button21"
+                        android:id="@+id/btnTPHUserBookedTotal"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="6dp"
@@ -155,7 +155,7 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardView12"
                 android:layout_width="180dp"
-                android:layout_height="180dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="19dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
@@ -184,20 +184,6 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/textView100"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:alpha="0.5"
-                        android:fontFamily="@font/montserrat"
-                        android:text="2023.09.09"
-                        android:textColor="@color/btnSplash"
-                        android:textSize="16sp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView72" />
-
-                    <TextView
                         android:id="@+id/textView104"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -210,21 +196,21 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView103" />
+                        app:layout_constraintTop_toBottomOf="@+id/tvTPHUserInquiryCount" />
 
                     <TextView
-                        android:id="@+id/textView103"
+                        android:id="@+id/tvTPHUserInquiryCount"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/montserrat"
-                        android:text="4"
+                        android:text="0"
                         android:textColor="@color/bookings"
                         android:textSize="34sp"
                         android:textStyle="bold"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView100" />
+                        app:layout_constraintTop_toBottomOf="@+id/textView72" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
@@ -232,7 +218,7 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardView10"
                 android:layout_width="180dp"
-                android:layout_height="180dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 app:cardCornerRadius="10dp"
@@ -260,20 +246,6 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/textView100"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:alpha="0.5"
-                        android:fontFamily="@font/montserrat"
-                        android:text="2023.09.09"
-                        android:textColor="@color/btnSplash"
-                        android:textSize="16sp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView72" />
-
-                    <TextView
                         android:id="@+id/textView104"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -286,21 +258,22 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView103" />
+                        app:layout_constraintTop_toBottomOf="@+id/tvTPHUserLogCount"
+                        app:layout_constraintVertical_bias="0.0" />
 
                     <TextView
-                        android:id="@+id/textView103"
+                        android:id="@+id/tvTPHUserLogCount"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/montserrat"
-                        android:text="34"
+                        android:text="0"
                         android:textColor="@color/sales"
                         android:textSize="34sp"
                         android:textStyle="bold"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView100" />
+                        app:layout_constraintTop_toBottomOf="@+id/textView72" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
@@ -363,7 +336,7 @@
                         app:layout_constraintTop_toBottomOf="@+id/textView72" />
 
                     <TextView
-                        android:id="@+id/textView100"
+                        android:id="@+id/tvTPHPayDate"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="6dp"
@@ -378,7 +351,7 @@
                         app:layout_constraintTop_toBottomOf="@+id/textView72" />
 
                     <TextView
-                        android:id="@+id/textView101"
+                        android:id="@+id/tvTMPUserPaymnetMode"
                         android:layout_width="89dp"
                         android:layout_height="24dp"
                         android:layout_marginStart="8dp"
@@ -386,12 +359,12 @@
                         android:layout_marginEnd="16dp"
                         android:fontFamily="@font/montserrat"
                         android:gravity="end"
-                        android:text="Cash"
+                        android:text="Card"
                         android:textColor="@color/btnGold"
                         android:textSize="16sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/textView102"
-                        app:layout_constraintTop_toBottomOf="@+id/textView100" />
+                        app:layout_constraintTop_toBottomOf="@+id/tvTPHPayDate" />
 
                     <TextView
                         android:id="@+id/textView102"
@@ -408,7 +381,7 @@
                         app:layout_constraintTop_toBottomOf="@+id/textView76" />
 
                     <Button
-                        android:id="@+id/button21"
+                        android:id="@+id/btnTPHUserPayAmt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="1dp"
@@ -423,7 +396,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.916"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView101" />
+                        app:layout_constraintTop_toBottomOf="@+id/tvTMPUserPaymnetMode" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -448,7 +421,7 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/textView72"
+                        android:id="@+id/tvTPHUserName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
@@ -463,7 +436,7 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/textView76"
+                        android:id="@+id/tvTPHUserCountry"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
@@ -475,10 +448,10 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.042"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView72" />
+                        app:layout_constraintTop_toBottomOf="@+id/tvTPHUserName" />
 
                     <TextView
-                        android:id="@+id/textView100"
+                        android:id="@+id/tvTPHUserTel"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
@@ -490,7 +463,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.043"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView76" />
+                        app:layout_constraintTop_toBottomOf="@+id/tvTPHUserCountry" />
 
                     <TextView
                         android:id="@+id/textView101"
@@ -505,10 +478,10 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.042"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView100" />
+                        app:layout_constraintTop_toBottomOf="@+id/tvTPHUserTel" />
 
                     <Button
-                        android:id="@+id/button21"
+                        android:id="@+id/btnTPHUserJoined"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="12dp"
@@ -525,7 +498,7 @@
                         app:layout_constraintTop_toBottomOf="@+id/textView101" />
 
                     <com.google.android.material.imageview.ShapeableImageView
-                        android:id="@+id/shapeableImageView"
+                        android:id="@+id/simTPHUserImg"
                         android:layout_width="160dp"
                         android:layout_height="160dp"
                         android:layout_marginEnd="16dp"
@@ -579,27 +552,15 @@
                 android:id="@+id/textView67"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="150dp"
+                android:layout_marginEnd="16dp"
                 android:fontFamily="@font/montserrat_semibold"
                 android:text="@string/app_name"
                 android:textColor="@color/btnSplash"
                 android:textSize="24sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/profile_image"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.5" />
-
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/profile_image"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginEnd="16dp"
-                android:src="@drawable/propic1"
-                app:civ_border_color="@android:color/transparent"
-                app:civ_border_width="2dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
@@ -632,13 +593,13 @@
                 android:textColor="@color/btnSplash"
                 android:textSize="24sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/button21"
+                app:layout_constraintEnd_toStartOf="@+id/btnTPHUserEditAccount"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <Button
-                android:id="@+id/button21"
+                android:id="@+id/btnTPHUserEditAccount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
