@@ -49,6 +49,15 @@ class AdminRepository(private val dao: AdminDao, private val ioDispatcher: Corou
         }
     }
 
+    suspend fun updateAdminProfile(fname:String, lname:String, password:String, age:Int, tel: String, propic: String,
+                                   gender:String, designation: String,modified:String,aemail:String):Int{
+        var result = 0
+        withContext(ioDispatcher) {
+            result=dao.updateAdminProfile(fname,lname, password,age,tel, propic,gender, designation, modified, aemail)
+        }
+        return result
+    }
+
 
 
 }

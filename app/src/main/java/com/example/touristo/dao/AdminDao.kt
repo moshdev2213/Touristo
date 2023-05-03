@@ -45,5 +45,10 @@ interface AdminDao {
     @Query ("SELECT * FROM admin WHERE aemail=:email LIMIT 1")
     fun getAllAdminByEmail(email: String):Admin
 
+    @Query("UPDATE admin SET fname =:fname,lname=:lname, password=:password , age=:age , tel=:tel , propic=:propic , gender=:gender ,designation=:designation,modified=:modified  WHERE aemail =:email;")
+    fun updateAdminProfile(
+        fname:String, lname:String, password:String, age:Int, tel: String, propic: String,
+        gender:String, designation: String,modified:String,email:String):Int
+
 
 }

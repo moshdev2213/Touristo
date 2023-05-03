@@ -100,16 +100,14 @@
                         android:id="@+id/textView66"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
                         android:layout_marginTop="16dp"
+                        android:layout_marginEnd="80dp"
                         android:fontFamily="@font/montserrat_semibold"
                         android:text="Password"
                         android:textColor="@color/btnSplash"
                         android:textSize="14sp"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/etAdminEditProfileEail" />
+                        app:layout_constraintTop_toBottomOf="@+id/simgAdminProfileUpdatePic" />
 
                     <TextView
                         android:id="@+id/textView68"
@@ -197,7 +195,7 @@
 
                     <EditText
                         android:id="@+id/etAdminEditProfileEail"
-                        android:layout_width="350dp"
+                        android:layout_width="190dp"
                         android:layout_height="40dp"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="12dp"
@@ -216,10 +214,9 @@
 
                     <EditText
                         android:id="@+id/etAdminProfilePassword"
-                        android:layout_width="350dp"
+                        android:layout_width="140dp"
                         android:layout_height="40dp"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="16dp"
+                        android:layout_marginTop="12dp"
                         android:layout_marginEnd="16dp"
                         android:background="@drawable/editfeld"
                         android:ems="10"
@@ -229,13 +226,11 @@
                         android:padding="10dp"
                         android:textSize="16sp"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textView66" />
 
                     <EditText
                         android:id="@+id/etAdminEditProfileFname"
-                        android:layout_width="150dp"
+                        android:layout_width="170dp"
                         android:layout_height="40dp"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="12dp"
@@ -251,7 +246,7 @@
 
                     <EditText
                         android:id="@+id/etAdminEditProfileNumber"
-                        android:layout_width="150dp"
+                        android:layout_width="170dp"
                         android:layout_height="40dp"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="16dp"
@@ -318,13 +313,13 @@
 
                     <Spinner
                         android:id="@+id/etAdminEditProfileDesignation"
-                        android:layout_width="150dp"
-                        android:entries="@array/adminDesignation"
+                        android:layout_width="170dp"
                         android:layout_height="40dp"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="12dp"
                         android:layout_marginBottom="16dp"
                         android:background="@drawable/editfeld"
+                        android:entries="@array/adminDesignation"
                         android:padding="10dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@+id/etAdminProfileEditAge"
