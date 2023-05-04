@@ -107,7 +107,8 @@ class VillaProfileHandling : AppCompatActivity() {
         val villaDistrict  = spAddVilaDistrict.selectedItem.toString()
         val villaProvince  = spAddVilaProvince.selectedItem.toString()
         val villaType  = spAddVilaType.selectedItem.toString()
-        val villaRating  = etVillaRating.text.toString()
+        var villaRating  = etVillaRating.text.toString()
+
 
         val villaEditForm = VillaRegisterValidation(
             villaName,
