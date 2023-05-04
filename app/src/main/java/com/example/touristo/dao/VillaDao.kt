@@ -26,4 +26,10 @@ interface VillaDao {
     fun updateVillaProfile(
         villaName:String, price:String, roomType:String, rating:String, description: String, district: String,
         province:String, img01: String,img02: String,img03: String,img04: String,modified:String,id:Int):Int
+
+    @Query("SELECT COUNT(b.id) as bcount\n" +
+            "FROM booking b,villa v \n" +
+            "WHERE v.id = b.villaId AND b.villaId =:id")
+    fun getVillaBookCount(id:Int):Int
+
 }

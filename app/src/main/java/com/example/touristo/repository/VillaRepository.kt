@@ -43,4 +43,13 @@ class VillaRepository(private val dao: VillaDao, private val ioDispatcher: Corou
         }
         return result
     }
+
+    suspend fun getVillaBookCount(id:Int):Int{
+        var result = -1
+        withContext(ioDispatcher) {
+            result=dao.getVillaBookCount(id)
+        }
+
+        return result
+    }
 }
