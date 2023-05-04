@@ -94,7 +94,7 @@
                         app:layout_constraintTop_toBottomOf="@+id/textView72" />
 
                     <TextView
-                        android:id="@+id/textView105"
+                        android:id="@+id/tvVillaLastBookedDate"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/montserrat"
@@ -110,14 +110,14 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
                         android:fontFamily="@font/montserrat"
-                        android:text="Name : John"
+                        android:text="Email:"
                         android:textColor="@color/white"
                         android:textSize="16sp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textView102" />
 
                     <TextView
-                        android:id="@+id/textView108"
+                        android:id="@+id/tvLastBookedEmail"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/montserrat"
@@ -128,7 +128,7 @@
                         app:layout_constraintTop_toBottomOf="@+id/textView102" />
 
                     <Button
-                        android:id="@+id/button21"
+                        android:id="@+id/btnTotalBook"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="6dp"
@@ -153,7 +153,7 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardView12"
                 android:layout_width="180dp"
-                android:layout_height="180dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="19dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
@@ -182,24 +182,10 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/textView100"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:alpha="0.5"
-                        android:fontFamily="@font/montserrat"
-                        android:text="2023.09.09"
-                        android:textColor="@color/btnSplash"
-                        android:textSize="16sp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView72" />
-
-                    <TextView
                         android:id="@+id/textView104"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="19dp"
+                        android:layout_marginBottom="16dp"
                         android:fontFamily="@font/montserrat"
                         android:text="Total Ratings"
                         android:textColor="@color/btnGold"
@@ -208,21 +194,21 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView103" />
+                        app:layout_constraintTop_toBottomOf="@+id/tvVillaTotRate" />
 
                     <TextView
-                        android:id="@+id/textView103"
+                        android:id="@+id/tvVillaTotRate"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/montserrat"
-                        android:text="4"
+                        android:text="0"
                         android:textColor="@color/btnGold"
                         android:textSize="34sp"
                         android:textStyle="bold"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView100" />
+                        app:layout_constraintTop_toBottomOf="@+id/textView72" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
@@ -230,7 +216,7 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardView10"
                 android:layout_width="180dp"
-                android:layout_height="180dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 app:cardCornerRadius="10dp"
@@ -258,24 +244,10 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/textView100"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:alpha="0.5"
-                        android:fontFamily="@font/montserrat"
-                        android:text="2023.09.09"
-                        android:textColor="@color/btnSplash"
-                        android:textSize="16sp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView72" />
-
-                    <TextView
                         android:id="@+id/textView104"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="19dp"
+                        android:layout_marginBottom="16dp"
                         android:fontFamily="@font/montserrat"
                         android:text="Total Bookings"
                         android:textColor="@color/sales"
@@ -284,21 +256,21 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView103" />
+                        app:layout_constraintTop_toBottomOf="@+id/tvVillaTotBooks" />
 
                     <TextView
-                        android:id="@+id/textView103"
+                        android:id="@+id/tvVillaTotBooks"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/montserrat"
-                        android:text="34"
+                        android:text="0"
                         android:textColor="@color/sales"
                         android:textSize="34sp"
                         android:textStyle="bold"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView100" />
+                        app:layout_constraintTop_toBottomOf="@+id/textView72" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
@@ -365,15 +337,13 @@
                         android:id="@+id/textView100"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="6dp"
                         android:layout_marginEnd="16dp"
                         android:alpha="0.5"
                         android:fontFamily="@font/montserrat"
-                        android:text="2023.09.09"
+                        android:text="New Update"
                         android:textColor="@color/btnSplash"
                         android:textSize="16sp"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/textView76"
                         app:layout_constraintTop_toBottomOf="@+id/textView72" />
 
                     <TextView
@@ -385,7 +355,7 @@
                         android:layout_marginEnd="16dp"
                         android:fontFamily="@font/montserrat"
                         android:gravity="end"
-                        android:text="Cash"
+                        android:text="Card"
                         android:textColor="@color/bookings"
                         android:textSize="16sp"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -407,7 +377,7 @@
                         app:layout_constraintTop_toBottomOf="@+id/textView76" />
 
                     <Button
-                        android:id="@+id/button21"
+                        android:id="@+id/btnVillaTotalPays"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="1dp"
@@ -447,7 +417,7 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/textView72"
+                        android:id="@+id/tvVillaName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="5dp"
@@ -462,7 +432,7 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/textView76"
+                        android:id="@+id/tvVillaDistrict"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
@@ -474,7 +444,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.042"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView72" />
+                        app:layout_constraintTop_toBottomOf="@+id/tvVillaName" />
 
                     <TextView
                         android:id="@+id/textView100"
@@ -483,20 +453,19 @@
                         android:layout_marginStart="8dp"
                         android:alpha="0.5"
                         android:fontFamily="@font/montserrat"
-                        android:text="077235476"
+                        android:text="Deluxe"
                         android:textColor="@color/btnSplash"
                         android:textSize="16sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.043"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView76" />
+                        app:layout_constraintTop_toBottomOf="@+id/tvVillaDistrict" />
 
                     <TextView
                         android:id="@+id/textView101"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
                         android:fontFamily="@font/montserrat"
                         android:text="Price"
                         android:textColor="@color/sales"
@@ -507,7 +476,7 @@
                         app:layout_constraintTop_toBottomOf="@+id/textView100" />
 
                     <Button
-                        android:id="@+id/button21"
+                        android:id="@+id/btnVillaPrice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="12dp"
@@ -524,9 +493,9 @@
                         app:layout_constraintTop_toBottomOf="@+id/textView101" />
 
                     <com.google.android.material.imageview.ShapeableImageView
-                        android:id="@+id/shapeableImageView"
-                        android:layout_width="160dp"
-                        android:layout_height="160dp"
+                        android:id="@+id/simgVillaPhoto"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
                         android:layout_marginEnd="16dp"
                         android:adjustViewBounds="true"
                         android:scaleType="centerCrop"
@@ -578,27 +547,15 @@
                 android:id="@+id/textView67"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="150dp"
+                android:layout_marginEnd="16dp"
                 android:fontFamily="@font/montserrat_semibold"
                 android:text="@string/app_name"
                 android:textColor="@color/btnSplash"
                 android:textSize="24sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/profile_image"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.5" />
-
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/profile_image"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginEnd="16dp"
-                android:src="@drawable/propic1"
-                app:civ_border_color="@android:color/transparent"
-                app:civ_border_width="2dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
@@ -627,23 +584,24 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:fontFamily="@font/montserrat_semibold"
-                android:text="ROMANIA FLORENCE"
+                android:text="Villa OverView"
+                android:textAllCaps="true"
                 android:textColor="@color/btnSplash"
-                android:textSize="16sp"
+                android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/button21"
+                app:layout_constraintEnd_toStartOf="@+id/btnVillaBack2Home"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <Button
-                android:id="@+id/button21"
+                android:id="@+id/btnVillaBack2Home"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
                 android:backgroundTint="@color/adminbtn"
                 android:fontFamily="@font/montserrat"
-                android:text="Edit Villa"
+                android:text="Back To Home"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

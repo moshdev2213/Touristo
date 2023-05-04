@@ -1,11 +1,9 @@
 package com.example.touristo.repository
 
 import com.example.touristo.dao.VillaDao
+import com.example.touristo.modal.Admin
 import com.example.touristo.modal.Villa
-import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+import kotlinx.coroutines.*
 
 class VillaRepository(private val dao: VillaDao, private val ioDispatcher: CoroutineDispatcher) {
     private val villaRepositoryScope = CoroutineScope(ioDispatcher)
@@ -24,5 +22,11 @@ class VillaRepository(private val dao: VillaDao, private val ioDispatcher: Corou
             dao.insertListOfVilla(villa)
         }
 
+    }
+
+    fun deleteVilla(villa: Villa){
+        villaRepositoryScope.launch(Dispatchers.IO) {
+            dao.deleteVilla(villa)
+        }
     }
 }
