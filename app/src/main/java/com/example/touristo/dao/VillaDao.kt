@@ -7,7 +7,7 @@ import com.example.touristo.modal.Villa
 
 @Dao
 interface VillaDao {
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertVilla(villa: Villa)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

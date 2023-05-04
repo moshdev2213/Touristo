@@ -8,6 +8,11 @@ import kotlinx.coroutines.*
 class VillaRepository(private val dao: VillaDao, private val ioDispatcher: CoroutineDispatcher) {
     private val villaRepositoryScope = CoroutineScope(ioDispatcher)
 
+    suspend fun insertVilla(villa: Villa){
+        villaRepositoryScope.launch {
+            dao.insertVilla(villa)
+        }
+    }
     suspend fun getAllVilla(): List<Villa> {
         var result :List<Villa>
         withContext(ioDispatcher){

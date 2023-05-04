@@ -44,7 +44,7 @@ class UserHomeViewHolder(private val view: View):RecyclerView.ViewHolder(view){
         val tvProductPrice = view.findViewById<TextView>(R.id.tvProductPrice)
         val rbProductCard = view.findViewById<RatingBar>(R.id.rbProductCard)
 
-        tvCityName.text = villa.district.capitalize()
+        tvCityName.text = villa.villaName.capitalize()
         tvProductPrice.text = "Rs " +String.format("%.2f",villa.price)
         rbProductCard.rating = villa.rating.toFloat()
 
