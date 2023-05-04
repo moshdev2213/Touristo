@@ -46,6 +46,7 @@ class RegisterAdmin : AppCompatActivity() {
     private lateinit var btnAdminRegisterBackBtn:Button
     private lateinit var btnAdminRegisterAddAdmin:Button
     private lateinit var imgAdminRegister:ImageView
+    @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register_admin)
@@ -64,33 +65,8 @@ class RegisterAdmin : AppCompatActivity() {
         openerImg = findViewById(R.id.openerImg)
         btnAdminRegisterBackBtn = findViewById(R.id.btnAdminRegisterBackBtn)
         btnAdminRegisterAddAdmin = findViewById(R.id.btnAdminRegisterAddAdmin)
-
-        btnAdminRegisterBackBtn.setOnClickListener {
-            finish()
-        }
-        openerImg.setOnClickListener {
-            finish()
-        }
-        btnAdminRegisterAddAdmin.setOnClickListener {
-            lifecycleScope.launch(Dispatchers.IO){
-                addNewStaff()
-            }
-        }
-    }
-
-    @SuppressLint("ClickableViewAccessibility")
-    private suspend fun addNewStaff() {
-        etAdminRegisterAge = findViewById(R.id.etAdminRegisterAge)
-        spAdminRegisterDesignation = findViewById(R.id.spAdminRegisterDesignation)
-        spAdminRegisterGender = findViewById(R.id.spAdminRegisterGender)
-        etAdminRegisterTel = findViewById(R.id.etAdminRegisterTel)
-        etAdminRegisterLName = findViewById(R.id.etAdminRegisterLName)
-        etAdminRegisterFName = findViewById(R.id.etAdminRegisterFName)
         etAdminRegisterPass = findViewById(R.id.etAdminRegisterPass)
         etAdminregisterRePass = findViewById(R.id.etAdminregisterRePass)
-        etAdminRegisterEmail = findViewById(R.id.etAdminRegisterEmail)
-        imgAdminRegister = findViewById(R.id.imgAdminRegister)
-
         //password hiding unhiding thing comes here
         etAdminregisterRePass.setOnTouchListener { _, event ->
             if (event.action == MotionEvent.ACTION_UP) {
@@ -130,6 +106,33 @@ class RegisterAdmin : AppCompatActivity() {
                 false
             }
         }
+
+
+        btnAdminRegisterBackBtn.setOnClickListener {
+            finish()
+        }
+        openerImg.setOnClickListener {
+            finish()
+        }
+        btnAdminRegisterAddAdmin.setOnClickListener {
+            lifecycleScope.launch(Dispatchers.IO){
+                addNewStaff()
+            }
+        }
+    }
+
+    private suspend fun addNewStaff() {
+        etAdminRegisterAge = findViewById(R.id.etAdminRegisterAge)
+        spAdminRegisterDesignation = findViewById(R.id.spAdminRegisterDesignation)
+        spAdminRegisterGender = findViewById(R.id.spAdminRegisterGender)
+        etAdminRegisterTel = findViewById(R.id.etAdminRegisterTel)
+        etAdminRegisterLName = findViewById(R.id.etAdminRegisterLName)
+        etAdminRegisterFName = findViewById(R.id.etAdminRegisterFName)
+        etAdminRegisterPass = findViewById(R.id.etAdminRegisterPass)
+        etAdminregisterRePass = findViewById(R.id.etAdminregisterRePass)
+        etAdminRegisterEmail = findViewById(R.id.etAdminRegisterEmail)
+        imgAdminRegister = findViewById(R.id.imgAdminRegister)
+
 
         val adminImg  = "propic1"
         val adminEmail  = etAdminRegisterEmail.text.toString()

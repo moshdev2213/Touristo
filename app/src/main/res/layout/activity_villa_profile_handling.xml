@@ -40,6 +40,35 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
+                    <EditText
+                        android:id="@+id/etAddVilaPrice"
+                        android:layout_width="150dp"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:background="@drawable/editfeld"
+                        android:ems="10"
+                        android:fontFamily="@font/montserrat"
+                        android:hint="Rs 20000"
+                        android:inputType="number"
+                        android:padding="10dp"
+                        android:textSize="16sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView66" />
+
+                    <TextView
+                        android:id="@+id/textView10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="55dp"
+                        android:fontFamily="@font/montserrat_semibold"
+                        android:text="Enter Villa Price"
+                        android:textColor="@color/btnSplash"
+                        android:textSize="14sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/etAddVilaDescription" />
+
                     <TextView
                         android:id="@+id/textView72"
                         android:layout_width="wrap_content"
@@ -82,7 +111,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
+                        app:layout_constraintTop_toBottomOf="@+id/etAddVilaDescription" />
 
                     <TextView
                         android:id="@+id/textView98"
@@ -91,13 +120,13 @@
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="16dp"
                         android:fontFamily="@font/montserrat_semibold"
-                        android:text="Specify Villa Type"
+                        android:text="Villa District"
                         android:textColor="@color/btnSplash"
                         android:textSize="14sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress2" />
+                        app:layout_constraintTop_toBottomOf="@+id/etAddVilaName" />
 
                     <TextView
                         android:id="@+id/textView68"
@@ -106,28 +135,13 @@
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="16dp"
                         android:fontFamily="@font/montserrat_semibold"
-                        android:text="Villa City"
+                        android:text="Villa Province"
                         android:textColor="@color/btnSplash"
                         android:textSize="14sp"
                         app:layout_constraintEnd_toStartOf="@+id/textView69"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress7" />
-
-                    <TextView
-                        android:id="@+id/textView106"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="16dp"
-                        android:fontFamily="@font/montserrat_semibold"
-                        android:text="Villa Price"
-                        android:textColor="@color/btnSplash"
-                        android:textSize="14sp"
-                        app:layout_constraintEnd_toStartOf="@+id/textView69"
-                        app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress3" />
+                        app:layout_constraintTop_toBottomOf="@+id/spAddVilaDistrict" />
 
                     <TextView
                         android:id="@+id/textView70"
@@ -135,45 +149,30 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="16dp"
-                        android:layout_marginEnd="278dp"
                         android:fontFamily="@font/montserrat_semibold"
                         android:text="Upload Images"
                         android:textColor="@color/btnSplash"
                         android:textSize="14sp"
-                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress9" />
+                        app:layout_constraintTop_toBottomOf="@+id/spAddVilaProvince" />
 
                     <TextView
                         android:id="@+id/textView69"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
-                        android:layout_marginEnd="80dp"
+                        android:layout_marginEnd="100dp"
                         android:fontFamily="@font/montserrat_semibold"
-                        android:text="Villa District"
+                        android:text="Villa Type"
                         android:textColor="@color/btnSplash"
                         android:textSize="14sp"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress7" />
-
-                    <TextView
-                        android:id="@+id/textView109"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginEnd="70dp"
-                        android:fontFamily="@font/montserrat_semibold"
-                        android:text="Villa Province"
-                        android:textColor="@color/btnSplash"
-                        android:textSize="14sp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress4" />
+                        app:layout_constraintTop_toBottomOf="@+id/spAddVilaDistrict" />
 
                     <EditText
-                        android:id="@+id/editTextTextEmailAddress"
+                        android:id="@+id/etAddVilaDescription"
                         android:layout_width="350dp"
-                        android:layout_height="100dp"
+                        android:layout_height="150dp"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="12dp"
                         android:layout_marginEnd="16dp"
@@ -182,7 +181,7 @@
                         android:fontFamily="@font/montserrat"
                         android:gravity="start"
                         android:hint="Enter The Vila description"
-                        android:inputType="textEmailAddress"
+                        android:inputType="text"
                         android:padding="10dp"
                         android:textSize="16sp"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -191,8 +190,8 @@
                         app:layout_constraintTop_toBottomOf="@+id/textView65" />
 
                     <EditText
-                        android:id="@+id/editTextTextEmailAddress2"
-                        android:layout_width="350dp"
+                        android:id="@+id/etAddVilaName"
+                        android:layout_width="190dp"
                         android:layout_height="40dp"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="16dp"
@@ -201,7 +200,7 @@
                         android:ems="10"
                         android:fontFamily="@font/montserrat"
                         android:hint="Villa Name"
-                        android:inputType="textPassword"
+                        android:inputType="text"
                         android:padding="10dp"
                         android:textSize="16sp"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -209,95 +208,49 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textView66" />
 
-                    <EditText
-                        android:id="@+id/editTextTextEmailAddress7"
+                    <Spinner
+                        android:id="@+id/spAddVilaDistrict"
                         android:layout_width="350dp"
                         android:layout_height="40dp"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="16dp"
                         android:layout_marginEnd="16dp"
                         android:background="@drawable/editfeld"
-                        android:ems="10"
-                        android:fontFamily="@font/montserrat"
-                        android:hint="Ex:- ultra deluxe"
-                        android:inputType="textPassword"
+                        android:entries="@array/districts"
                         android:padding="10dp"
-                        android:textSize="16sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textView98" />
 
-                    <EditText
-                        android:id="@+id/editTextTextEmailAddress3"
-                        android:layout_width="150dp"
+                    <Spinner
+                        android:id="@+id/spAddVilaProvince"
+                        android:layout_width="190dp"
                         android:layout_height="40dp"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="12dp"
                         android:background="@drawable/editfeld"
-                        android:ems="10"
-                        android:fontFamily="@font/montserrat"
-                        android:hint="Ibbagamuwa"
-                        android:inputType="number"
+                        android:entries="@array/provinces"
                         android:padding="10dp"
-                        android:textSize="16sp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textView68" />
 
-                    <EditText
-                        android:id="@+id/editTextTextEmailAddress9"
-                        android:layout_width="150dp"
-                        android:layout_height="40dp"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="16dp"
-                        android:background="@drawable/editfeld"
-                        android:ems="10"
-                        android:fontFamily="@font/montserrat"
-                        android:hint="Rs 20000.00"
-                        android:inputType="number"
-                        android:padding="10dp"
-                        android:textSize="16sp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView106" />
-
-                    <EditText
-                        android:id="@+id/editTextTextEmailAddress4"
+                    <Spinner
+                        android:id="@+id/spAddVilaType"
                         android:layout_width="150dp"
                         android:layout_height="40dp"
                         android:layout_marginTop="12dp"
                         android:layout_marginEnd="16dp"
                         android:background="@drawable/editfeld"
-                        android:ems="10"
-                        android:fontFamily="@font/montserrat"
-                        android:hint="Kurunegala"
-                        android:inputType="number"
+                        android:entries="@array/villaType"
                         android:padding="10dp"
-                        android:textSize="16sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.937"
-                        app:layout_constraintStart_toEndOf="@+id/editTextTextEmailAddress3"
+                        app:layout_constraintStart_toEndOf="@+id/spAddVilaProvince"
                         app:layout_constraintTop_toBottomOf="@+id/textView69" />
 
-                    <EditText
-                        android:id="@+id/editTextTextEmailAddress10"
-                        android:layout_width="150dp"
-                        android:layout_height="40dp"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginEnd="16dp"
-                        android:background="@drawable/editfeld"
-                        android:ems="10"
-                        android:fontFamily="@font/montserrat"
-                        android:hint="Kurunegala"
-                        android:inputType="number"
-                        android:padding="10dp"
-                        android:textSize="16sp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.937"
-                        app:layout_constraintStart_toEndOf="@+id/editTextTextEmailAddress3"
-                        app:layout_constraintTop_toBottomOf="@+id/textView109" />
-
                     <ImageView
-                        android:id="@+id/imageView42"
+                        android:id="@+id/imdAddVilaPic1"
                         android:layout_width="150dp"
                         android:layout_height="150dp"
                         android:layout_marginTop="16dp"
@@ -311,33 +264,33 @@
                         app:srcCompat="@drawable/vill_profile_handling" />
 
                     <ImageView
-                        android:id="@+id/imageView43"
+                        android:id="@+id/imgAddVilapic2"
                         android:layout_width="60dp"
                         android:layout_height="60dp"
                         android:layout_marginTop="16dp"
                         android:scaleType="fitCenter"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/imageView45"
-                        app:layout_constraintStart_toEndOf="@+id/imageView42"
+                        app:layout_constraintEnd_toStartOf="@+id/imgAddVilaPic3"
+                        app:layout_constraintStart_toEndOf="@+id/imdAddVilaPic1"
                         app:layout_constraintTop_toBottomOf="@+id/textView70"
                         app:layout_constraintVertical_bias="0.0"
                         app:srcCompat="@drawable/vill_profile_handling" />
 
                     <ImageView
-                        android:id="@+id/imageView45"
+                        android:id="@+id/imgAddVilaPic3"
                         android:layout_width="60dp"
                         android:layout_height="60dp"
                         android:layout_marginTop="16dp"
                         android:scaleType="fitCenter"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/imageView43"
+                        app:layout_constraintStart_toEndOf="@+id/imgAddVilapic2"
                         app:layout_constraintTop_toBottomOf="@+id/textView70"
                         app:layout_constraintVertical_bias="0.0"
                         app:srcCompat="@drawable/vill_profile_handling" />
 
                     <ImageView
-                        android:id="@+id/imageView44"
+                        android:id="@+id/imgAddVilaPic4"
                         android:layout_width="60dp"
                         android:layout_height="60dp"
                         android:layout_marginTop="13dp"
@@ -346,8 +299,8 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.48"
-                        app:layout_constraintStart_toEndOf="@+id/imageView42"
-                        app:layout_constraintTop_toBottomOf="@+id/imageView43"
+                        app:layout_constraintStart_toEndOf="@+id/imdAddVilaPic1"
+                        app:layout_constraintTop_toBottomOf="@+id/imgAddVilapic2"
                         app:layout_constraintVertical_bias="0.0"
                         app:srcCompat="@drawable/vill_profile_handling" />
 
@@ -411,7 +364,7 @@
                         android:backgroundTint="@color/btnSplash"
                         android:clickable="false"
                         android:fontFamily="@font/montserrat_semibold"
-                        android:text="5"
+                        android:text="Available"
                         android:textSize="20sp"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -445,6 +398,7 @@
         android:layout_marginTop="16dp"
         android:elevation="10dp"
         app:cardCornerRadius="10dp"
+        app:cardElevation="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -473,27 +427,15 @@
                 android:id="@+id/textView67"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="150dp"
+                android:layout_marginEnd="16dp"
                 android:fontFamily="@font/montserrat_semibold"
                 android:text="@string/app_name"
                 android:textColor="@color/btnSplash"
                 android:textSize="24sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/profile_image"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.5" />
-
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/profile_image"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginEnd="16dp"
-                android:src="@drawable/propic1"
-                app:civ_border_color="@android:color/transparent"
-                app:civ_border_width="2dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
@@ -517,7 +459,7 @@
             android:layout_height="match_parent">
 
             <Button
-                android:id="@+id/button8"
+                android:id="@+id/btnAddVilaCancel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="18dp"
@@ -530,12 +472,12 @@
                 android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/button21"
+                app:layout_constraintEnd_toStartOf="@+id/btnAddVilaSubmit"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <Button
-                android:id="@+id/button21"
+                android:id="@+id/btnAddVilaSubmit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"

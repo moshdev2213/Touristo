@@ -22,11 +22,12 @@
 
             <androidx.cardview.widget.CardView
                 android:layout_width="380dp"
-                android:layout_height="310dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="24dp"
+                app:cardBackgroundColor="#CCD6A9"
                 app:cardCornerRadius="10dp"
                 app:cardElevation="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -40,13 +41,39 @@
                     android:layout_height="match_parent">
 
                     <TextView
+                        android:id="@+id/textView16"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"
+                        android:alpha="0.7"
+                        android:fontFamily="@font/montserrat"
+                        android:text="Explore And Edit And Add Villas Lets Goo..."
+                        android:textColor="@color/btnSplash"
+                        android:textSize="16sp"
+                        app:layout_constraintEnd_toStartOf="@+id/imageView31"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView79" />
+
+                    <ImageView
+                        android:id="@+id/imageView8"
+                        android:layout_width="200dp"
+                        android:layout_height="200dp"
+                        android:layout_marginTop="-20dp"
+                        android:scaleType="centerInside"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/textView79"
+                        app:srcCompat="@drawable/villaadminhome" />
+
+                    <TextView
                         android:id="@+id/textView79"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
                         android:alpha="0.5"
                         android:fontFamily="@font/montserrat"
-                        android:text="As Per Bookings"
+                        android:text="Latest And Trust Worthy"
                         android:textColor="@color/btnSplash"
                         android:textSize="16sp"
                         app:layout_constraintEnd_toStartOf="@+id/imageView31"
@@ -55,97 +82,13 @@
                         app:layout_constraintTop_toBottomOf="@+id/textView88" />
 
                     <TextView
-                        android:id="@+id/adminHomeFragObj1SubName"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="12dp"
-                        android:alpha="0.5"
-                        android:fontFamily="@font/montserrat"
-                        android:text="Rome"
-                        android:textColor="@color/btnSplash"
-                        android:textSize="14sp"
-                        app:layout_constraintStart_toEndOf="@+id/admnHomeGragObj01Pic"
-                        app:layout_constraintTop_toBottomOf="@+id/adminHomeFragObj1Name" />
-
-                    <TextView
-                        android:id="@+id/adminHomeFragObj1Price"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="76dp"
-                        android:layout_marginTop="73dp"
-                        android:layout_marginEnd="16dp"
-                        android:alpha="0.5"
-                        android:fontFamily="@font/montserrat"
-                        android:text="Rs 18000"
-                        android:textColor="@color/btnSplash"
-                        android:textSize="14sp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/adminHomeFragObj1Name"
-                        app:layout_constraintTop_toBottomOf="@+id/imageView31" />
-
-                    <TextView
-                        android:id="@+id/adminHomeFragObj2Price"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="77dp"
-                        android:layout_marginTop="56dp"
-                        android:layout_marginEnd="16dp"
-                        android:alpha="0.5"
-                        android:fontFamily="@font/montserrat"
-                        android:text="Rs 18000"
-                        android:textColor="@color/btnSplash"
-                        android:textSize="14sp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/adminHomeFragObj2Name"
-                        app:layout_constraintTop_toBottomOf="@+id/adminHomeFragObj1Price" />
-
-                    <TextView
-                        android:id="@+id/adminHomeFragObj2SubName"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="12dp"
-                        android:alpha="0.5"
-                        android:fontFamily="@font/montserrat"
-                        android:text="Rome"
-                        android:textColor="@color/btnSplash"
-                        android:textSize="14sp"
-                        app:layout_constraintStart_toEndOf="@+id/adminHomeFragObj02Pic"
-                        app:layout_constraintTop_toBottomOf="@+id/adminHomeFragObj2Name" />
-
-                    <TextView
-                        android:id="@+id/adminHomeFragObj1Name"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="12dp"
-                        android:layout_marginTop="33dp"
-                        android:fontFamily="@font/montserrat"
-                        android:text="Vaticana Roomia"
-                        android:textColor="@color/btnSplash"
-                        android:textSize="16sp"
-                        app:layout_constraintStart_toEndOf="@+id/admnHomeGragObj01Pic"
-                        app:layout_constraintTop_toBottomOf="@+id/textView79" />
-
-                    <TextView
-                        android:id="@+id/adminHomeFragObj2Name"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="12dp"
-                        android:layout_marginTop="29dp"
-                        android:fontFamily="@font/montserrat"
-                        android:text="Vaticana Roomia"
-                        android:textColor="@color/btnSplash"
-                        android:textSize="16sp"
-                        app:layout_constraintStart_toEndOf="@+id/adminHomeFragObj02Pic"
-                        app:layout_constraintTop_toBottomOf="@+id/adminHomeFragObj1SubName" />
-
-                    <TextView
                         android:id="@+id/textView88"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="16dp"
                         android:fontFamily="@font/montserrat_semibold"
-                        android:text="Popular Bookings"
+                        android:text="Villas In One Click"
                         android:textColor="@color/btnSplash"
                         android:textSize="24sp"
                         app:layout_constraintEnd_toStartOf="@+id/imageView31"
@@ -164,46 +107,19 @@
                         app:layout_constraintTop_toTopOf="parent"
                         app:srcCompat="@drawable/outline_image_24" />
 
-                    <com.google.android.material.imageview.ShapeableImageView
-                        android:id="@+id/admnHomeGragObj01Pic"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="25dp"
-                        android:adjustViewBounds="true"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/propic1"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView79"
-                        app:shapeAppearanceOverlay="@style/roundedImageView" />
-
-                    <com.google.android.material.imageview.ShapeableImageView
-                        android:id="@+id/adminHomeFragObj02Pic"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="16dp"
-                        android:adjustViewBounds="true"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/propic1"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/admnHomeGragObj01Pic"
-                        app:shapeAppearanceOverlay="@style/roundedImageView" />
-
                     <Button
                         android:id="@+id/btnAdminHomeFragSeeBookings"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginBottom="4dp"
-                        android:backgroundTint="@color/adminbtn"
-                        android:fontFamily="@font/montserrat"
-                        android:text="View All Bookings"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.5"
+                        android:layout_marginStart="14dp"
+                        android:layout_marginTop="8dp"
+                        android:backgroundTint="#098C45"
+                        android:fontFamily="@font/montserrat_semibold"
+                        android:text="View Villas"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/adminHomeFragObj2SubName" />
+                        app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
