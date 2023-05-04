@@ -41,6 +41,32 @@
                     android:layout_height="match_parent">
 
                     <EditText
+                        android:id="@+id/etVillaRating"
+                        android:layout_width="130dp"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:background="@drawable/editfeld"
+                        android:hint="3.9"
+                        android:inputType="numberDecimal"
+                        android:padding="10dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView98" />
+
+                    <TextView
+                        android:id="@+id/textView18"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="60dp"
+                        android:fontFamily="@font/montserrat_semibold"
+                        android:text="Villa Rating"
+                        android:textColor="@color/btnSplash"
+                        android:textSize="14sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/etAddVilaName" />
+
+                    <EditText
                         android:id="@+id/etAddVilaPrice"
                         android:layout_width="150dp"
                         android:layout_height="40dp"
@@ -49,8 +75,8 @@
                         android:background="@drawable/editfeld"
                         android:ems="10"
                         android:fontFamily="@font/montserrat"
-                        android:hint="Rs 20000"
-                        android:inputType="number"
+                        android:hint="Rs 20000.00"
+                        android:inputType="numberDecimal"
                         android:padding="10dp"
                         android:textSize="16sp"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -181,8 +207,9 @@
                         android:fontFamily="@font/montserrat"
                         android:gravity="start"
                         android:hint="Enter The Vila description"
-                        android:inputType="text"
+                        android:inputType="textMultiLine"
                         android:padding="10dp"
+                        android:singleLine="false"
                         android:textSize="16sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
@@ -210,7 +237,7 @@
 
                     <Spinner
                         android:id="@+id/spAddVilaDistrict"
-                        android:layout_width="350dp"
+                        android:layout_width="200dp"
                         android:layout_height="40dp"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="16dp"

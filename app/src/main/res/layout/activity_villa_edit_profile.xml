@@ -23,7 +23,7 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardView13"
                 android:layout_width="380dp"
-                android:layout_height="800dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
@@ -39,6 +39,31 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
+
+                    <EditText
+                        android:id="@+id/etVillaEditRating"
+                        android:layout_width="120dp"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:background="@drawable/editfeld"
+                        android:hint="3.9"
+                        android:padding="10dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView98" />
+
+                    <TextView
+                        android:id="@+id/textView19"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="50dp"
+                        android:fontFamily="@font/montserrat_semibold"
+                        android:text="Villa Rating"
+                        android:textColor="@color/btnSplash"
+                        android:textSize="14sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/etEditVillaName" />
 
                     <TextView
                         android:id="@+id/textView72"
@@ -173,7 +198,7 @@
                     <EditText
                         android:id="@+id/etEditVillaDescription"
                         android:layout_width="350dp"
-                        android:layout_height="150dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="12dp"
                         android:layout_marginEnd="16dp"
@@ -182,7 +207,7 @@
                         android:fontFamily="@font/montserrat"
                         android:gravity="start"
                         android:hint="Enter The Vila description"
-                        android:inputType="text"
+                        android:inputType="textMultiLine"
                         android:padding="10dp"
                         android:textSize="16sp"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -211,7 +236,7 @@
 
                     <Spinner
                         android:id="@+id/spEditVillaDistrict"
-                        android:layout_width="350dp"
+                        android:layout_width="210dp"
                         android:layout_height="40dp"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="16dp"
@@ -250,7 +275,7 @@
                         app:layout_constraintStart_toEndOf="@+id/spEditVillaProvince"
                         app:layout_constraintTop_toBottomOf="@+id/textView69" />
 
-                    <ImageView
+                    <com.google.android.material.imageview.ShapeableImageView
                         android:id="@+id/imdEditVillaPic1"
                         android:layout_width="150dp"
                         android:layout_height="150dp"
@@ -262,12 +287,13 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textView70"
                         app:layout_constraintVertical_bias="0.0"
-                        app:srcCompat="@drawable/vill_profile_handling" />
+                        app:srcCompat="@drawable/vill_profile_handling"
+                        app:shapeAppearanceOverlay="@style/roundedImageView"/>
 
-                    <ImageView
+                    <com.google.android.material.imageview.ShapeableImageView
                         android:id="@+id/imgEditVillapic2"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
                         android:layout_marginTop="16dp"
                         android:scaleType="fitCenter"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -275,12 +301,13 @@
                         app:layout_constraintStart_toEndOf="@+id/imdEditVillaPic1"
                         app:layout_constraintTop_toBottomOf="@+id/textView70"
                         app:layout_constraintVertical_bias="0.0"
+                        app:shapeAppearanceOverlay="@style/roundedImageView"
                         app:srcCompat="@drawable/vill_profile_handling" />
 
-                    <ImageView
+                    <com.google.android.material.imageview.ShapeableImageView
                         android:id="@+id/imgEditVillaPic3"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
                         android:layout_marginTop="16dp"
                         android:scaleType="fitCenter"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -288,13 +315,14 @@
                         app:layout_constraintStart_toEndOf="@+id/imgEditVillapic2"
                         app:layout_constraintTop_toBottomOf="@+id/textView70"
                         app:layout_constraintVertical_bias="0.0"
+                        app:shapeAppearanceOverlay="@style/roundedImageView"
                         app:srcCompat="@drawable/vill_profile_handling" />
 
-                    <ImageView
+                    <com.google.android.material.imageview.ShapeableImageView
                         android:id="@+id/imgEditVillaPic4"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:layout_marginTop="13dp"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_marginTop="16dp"
                         android:layout_marginBottom="32dp"
                         android:scaleType="fitCenter"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -303,6 +331,7 @@
                         app:layout_constraintStart_toEndOf="@+id/imdEditVillaPic1"
                         app:layout_constraintTop_toBottomOf="@+id/imgEditVillapic2"
                         app:layout_constraintVertical_bias="0.0"
+                        app:shapeAppearanceOverlay="@style/roundedImageView"
                         app:srcCompat="@drawable/vill_profile_handling" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -461,7 +490,7 @@
             android:layout_height="match_parent">
 
             <Button
-                android:id="@+id/button8"
+                android:id="@+id/btnEditVillaCancel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="18dp"
@@ -474,12 +503,12 @@
                 android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/button21"
+                app:layout_constraintEnd_toStartOf="@+id/btnEditVillaSubmit"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <Button
-                android:id="@+id/button21"
+                android:id="@+id/btnEditVillaSubmit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"

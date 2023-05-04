@@ -61,7 +61,7 @@
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="16dp"
                         android:fontFamily="@font/montserrat_semibold"
-                        android:text="Last Bookings  🌏"
+                        android:text="More Villa Info  🌏"
                         android:textColor="@color/villaManagementBookingscolor"
                         android:textSize="24sp"
                         app:layout_constraintStart_toStartOf="parent"
@@ -75,8 +75,8 @@
                         android:layout_marginTop="4dp"
                         android:fontFamily="@font/montserrat"
                         android:gravity="start"
-                        android:text="Total Bookings"
-                        android:textColor="@color/villaManagementBookingsCArdcolor"
+                        android:text="Room Type"
+                        android:textColor="@color/white"
                         android:textSize="16sp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textView107" />
@@ -86,9 +86,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
-                        android:fontFamily="@font/montserrat"
-                        android:text="Last Booking : "
-                        android:textColor="@color/white"
+                        android:fontFamily="@font/montserrat_semibold"
+                        android:text="Added : "
+                        android:textColor="@color/villaManagementBookingscolor"
                         android:textSize="16sp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textView72" />
@@ -97,9 +97,9 @@
                         android:id="@+id/tvVillaLastBookedDate"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/montserrat"
+                        android:fontFamily="@font/montserrat_semibold"
                         android:text="2023.09.09"
-                        android:textColor="@color/white"
+                        android:textColor="@color/villaManagementBookingscolor"
                         android:textSize="16sp"
                         app:layout_constraintStart_toEndOf="@+id/textView102"
                         app:layout_constraintTop_toBottomOf="@+id/textView72" />
@@ -109,26 +109,26 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
-                        android:fontFamily="@font/montserrat"
-                        android:text="Email:"
-                        android:textColor="@color/white"
+                        android:fontFamily="@font/montserrat_semibold"
+                        android:text="District :"
+                        android:textColor="@color/villaManagementBookingscolor"
                         android:textSize="16sp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textView102" />
 
                     <TextView
-                        android:id="@+id/tvLastBookedEmail"
+                        android:id="@+id/tvVillaDistrict"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/montserrat"
+                        android:fontFamily="@font/montserrat_semibold"
                         android:text="Roma"
-                        android:textColor="@color/white"
+                        android:textColor="@color/villaManagementBookingscolor"
                         android:textSize="16sp"
                         app:layout_constraintStart_toEndOf="@+id/textView107"
                         app:layout_constraintTop_toBottomOf="@+id/textView102" />
 
                     <Button
-                        android:id="@+id/btnTotalBook"
+                        android:id="@+id/btnRoomType"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="6dp"
@@ -324,63 +324,20 @@
                         android:id="@+id/textView76"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="216dp"
-                        android:alpha="0.5"
-                        android:fontFamily="@font/montserrat"
-                        android:text="Date : "
-                        android:textColor="@color/btnSplash"
-                        android:textSize="16sp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView72" />
-
-                    <TextView
-                        android:id="@+id/textView100"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
                         android:layout_marginEnd="16dp"
                         android:alpha="0.5"
-                        android:fontFamily="@font/montserrat"
-                        android:text="New Update"
-                        android:textColor="@color/btnSplash"
-                        android:textSize="16sp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView72" />
-
-                    <TextView
-                        android:id="@+id/textView101"
-                        android:layout_width="89dp"
-                        android:layout_height="24dp"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="16dp"
                         android:fontFamily="@font/montserrat"
                         android:gravity="end"
-                        android:text="Card"
-                        android:textColor="@color/bookings"
+                        android:text="We Ensure A Quality \nPayment Friendly Service \nFor Our Users"
+                        android:textColor="@color/btnSplash"
                         android:textSize="16sp"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/textView102"
-                        app:layout_constraintTop_toBottomOf="@+id/textView100" />
-
-                    <TextView
-                        android:id="@+id/textView102"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="208dp"
-                        android:layout_marginTop="8dp"
-                        android:alpha="0.5"
-                        android:fontFamily="@font/montserrat"
-                        android:text="Mode : "
-                        android:textColor="@color/splashBackground"
-                        android:textSize="16sp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView76" />
+                        app:layout_constraintTop_toBottomOf="@+id/textView72" />
 
                     <Button
                         android:id="@+id/btnVillaTotalPays"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="1dp"
                         android:layout_marginBottom="16dp"
                         android:backgroundTint="@color/bookings"
                         android:clickable="false"
@@ -391,8 +348,7 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.916"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView101" />
+                        app:layout_constraintStart_toStartOf="parent" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -401,7 +357,7 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardView08"
                 android:layout_width="380dp"
-                android:layout_height="200dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
@@ -421,7 +377,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="5dp"
-                        android:layout_marginTop="16dp"
+                        android:layout_marginTop="8dp"
                         android:fontFamily="@font/montserrat_semibold"
                         android:text="Romania "
                         android:textColor="@color/btnSplash"
@@ -432,55 +388,25 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/tvVillaDistrict"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:alpha="0.5"
-                        android:fontFamily="@font/montserrat"
-                        android:text="Germany"
-                        android:textColor="@color/btnSplash"
-                        android:textSize="16sp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.042"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/tvVillaName" />
-
-                    <TextView
-                        android:id="@+id/textView100"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:alpha="0.5"
-                        android:fontFamily="@font/montserrat"
-                        android:text="Deluxe"
-                        android:textColor="@color/btnSplash"
-                        android:textSize="16sp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.043"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/tvVillaDistrict" />
-
-                    <TextView
                         android:id="@+id/textView101"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
-                        android:fontFamily="@font/montserrat"
+                        android:fontFamily="@font/montserrat_semibold"
                         android:text="Price"
                         android:textColor="@color/sales"
-                        android:textSize="16sp"
+                        android:textSize="20sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.042"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView100" />
+                        app:layout_constraintTop_toBottomOf="@+id/tvVillaName" />
 
                     <Button
                         android:id="@+id/btnVillaPrice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="12dp"
-                        android:layout_marginBottom="16dp"
+                        android:layout_marginBottom="8dp"
                         android:backgroundTint="@color/adminbtn"
                         android:clickable="false"
                         android:fontFamily="@font/montserrat_semibold"
@@ -488,14 +414,14 @@
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.024"
+                        app:layout_constraintHorizontal_bias="0.03"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textView101" />
 
                     <com.google.android.material.imageview.ShapeableImageView
                         android:id="@+id/simgVillaPhoto"
-                        android:layout_width="150dp"
-                        android:layout_height="150dp"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
                         android:layout_marginEnd="16dp"
                         android:adjustViewBounds="true"
                         android:scaleType="centerCrop"
