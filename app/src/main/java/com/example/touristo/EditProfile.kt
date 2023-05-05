@@ -3,6 +3,7 @@ package com.example.touristo
 import android.app.Dialog
 import android.content.Intent
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -69,6 +70,8 @@ class EditProfile : AppCompatActivity() {
                 WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
             )
         }
+        val bundle = intent.extras
+        user = bundle?.getSerializable("user") as User
 
         etEditProfileCountry=findViewById(R.id.etEditProfileCountry)
         etEditProfileEmail=findViewById(R.id.etEditProfileEmail)
@@ -86,7 +89,17 @@ class EditProfile : AppCompatActivity() {
         fbEditProfileBtnPencil = findViewById(R.id.fbEditProfileBtnPencil)
 
 
-
+        val fileName = user.propic
+        if (fileName != null) {
+            getImageFromFirebase(fileName) { bitmap ->
+                if (bitmap != null) {
+                    // do something with the bitmap
+                    imgShapeEditProfile.setImageBitmap(bitmap)
+                } else {
+                    // handle error
+                }
+            }
+        }
 
         fbEditProfileBtnPencil.setOnClickListener {
             ImagePickerLaunch()
@@ -108,33 +121,29 @@ class EditProfile : AppCompatActivity() {
         }
 
         btnEditProfileUpdate = findViewById(R.id.btnEditProfileUpdate)
-        val bundle = intent.extras
-        user = bundle?.getSerializable("user") as User
-        if (user != null) {
 
-            etEditProfileCountry.setText(user.country)
-            user.age?.let { etEditProfileAge.setText(it.toString()) }
+        etEditProfileCountry.setText(user.country)
+        user.age?.let { etEditProfileAge.setText(it.toString()) }
 
-            var position:Int =0
-            if(user.gender.toString() == "Male"){
-                position =0
-            }else if(user.gender.toString()=="Female"){
-                position=1
-            }
-            etEditProfileGender.setSelection(position)
-            etEditProfileTel.setText(user.tel)
-            etEditProfilePassword.setText(user.password)
+        var position:Int =0
+        if(user.gender.toString() == "Male"){
+            position =0
+        }else if(user.gender.toString()=="Female"){
+            position=1
+        }
+        etEditProfileGender.setSelection(position)
+        etEditProfileTel.setText(user.tel)
+        etEditProfilePassword.setText(user.password)
 
-            etEditProfileEmail.setText(user.uname)
+        etEditProfileEmail.setText(user.uname)
 
-            tvEditProfileEmail.text = user.uemail
-            tvEditProfileUName.text = user.uname
+        tvEditProfileEmail.text = user.uemail
+        tvEditProfileUName.text = user.uname
 
-            btnEditProfileUpdate.setOnClickListener {
+        btnEditProfileUpdate.setOnClickListener {
 
-                lifecycleScope.launch(Dispatchers.IO) {
-                    updateUserProfile(user.uemail)
-                }
+            lifecycleScope.launch(Dispatchers.IO) {
+                updateUserProfile(user.uemail)
             }
         }
     }
@@ -298,7 +307,7 @@ class EditProfile : AppCompatActivity() {
     private fun uploadImageToFireBase(fileName:String, uri:Uri){
         val progressBuilder = ProgressLoader(this@EditProfile,"Fetching Image","Please Wait......")
         progressBuilder.startProgressLoader()
-        val storageReference = FirebaseStorage.getInstance().getReference("images/$fileName")
+        val storageReference = FirebaseStorage.getInstance().getReference("UserImages/$fileName")
         storageReference.putFile(uri).addOnSuccessListener {
             progressBuilder.dismissProgressLoader()
         }.addOnFailureListener{
@@ -306,5 +315,23 @@ class EditProfile : AppCompatActivity() {
             Toast.makeText(this@EditProfile,"Error Upload",Toast.LENGTH_SHORT).show()
         }
     }
+
+    private fun getImageFromFirebase(fileName: String, callback: (Bitmap?) -> Unit) {
+        val progressBuilder = ProgressLoader(this@EditProfile,"Fetching Details","Please Wait......")
+        progressBuilder.startProgressLoader()
+
+        val storageRef = FirebaseStorage.getInstance().reference.child("UserImages/$fileName")
+        val localFile = File.createTempFile("tempImg", "jpg")
+        storageRef.getFile(localFile).addOnSuccessListener {
+            val bitmap = BitmapFactory.decodeFile(localFile.absolutePath)
+            callback(bitmap)
+            progressBuilder.dismissProgressLoader()
+        }.addOnFailureListener {
+            callback(null)
+            progressBuilder.dismissProgressLoader()
+            Toast.makeText(this@EditProfile,"Error Fetch",Toast.LENGTH_SHORT).show()
+        }
+    }
+
 
 }
