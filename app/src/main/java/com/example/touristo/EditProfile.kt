@@ -1,40 +1,40 @@
 package com.example.touristo
 
 import android.app.Dialog
-import android.content.Context
 import android.content.Intent
-import android.content.res.ColorStateList
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
+import android.graphics.Bitmap
+import android.net.Uri
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.MediaStore
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
+import android.util.Base64
 import android.view.Window
 import android.view.WindowManager
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.Spinner
-import android.widget.TextView
-import android.widget.Toast
-import androidx.core.content.ContextCompat
+import android.widget.*
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
-import com.example.touristo.dao.UserDao
 import com.example.touristo.dbCon.TouristoDB
 import com.example.touristo.dialogAlerts.ConfirmationDialog
+import com.example.touristo.dialogAlerts.ProgressLoader
 import com.example.touristo.formData.UserProfileValidation
 import com.example.touristo.modal.User
 import com.example.touristo.repository.UserRepository
+import com.example.touristo.typeConverters.TimestampConverter
 import com.example.touristo.validations.ValidationResult
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.firebase.storage.FirebaseStorage
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import kotlin.math.log
+import java.io.File
 
 class EditProfile : AppCompatActivity() {
+    private val PICK_IMAGE_REQUEST = 1
+    private var selectedImage: Bitmap? = null
+    private lateinit var imageUri: Uri
+    private lateinit var user: User
+
     private lateinit var btnEditProfileUpdate:Button
     private lateinit var etEditProfileCountry:EditText
     private lateinit var etEditProfileAge:EditText
@@ -59,6 +59,8 @@ class EditProfile : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_profile)
+
+
 // In Activity's onCreate() for instance this transparents the background
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             val w: Window = window
@@ -67,19 +69,29 @@ class EditProfile : AppCompatActivity() {
                 WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
             )
         }
-        //initialoiozing the views
+
         etEditProfileCountry=findViewById(R.id.etEditProfileCountry)
         etEditProfileEmail=findViewById(R.id.etEditProfileEmail)
         etEditProfilePassword=findViewById(R.id.etEditProfilePassword)
         etEditProfileTel=findViewById(R.id.etEditProfileTel)
         etEditProfileGender=findViewById(R.id.etEditProfileGender)
         etEditProfileAge=findViewById(R.id.etEditProfileAge)
+        imgShapeEditProfile = findViewById(R.id.imgShapeEditProfile)
 
         tvEditProfileEmail=findViewById(R.id.tvEditProfileEmail)
         tvEditProfileUName=findViewById(R.id.tvEditProfileUName)
 
         toggleButton = findViewById(R.id.imgEditProfileTogglePwd)
         fbEditProfileBtn = findViewById(R.id.fbEditProfileBtn)
+        fbEditProfileBtnPencil = findViewById(R.id.fbEditProfileBtnPencil)
+
+
+
+
+        fbEditProfileBtnPencil.setOnClickListener {
+            ImagePickerLaunch()
+        }
+
         fbEditProfileBtn.setOnClickListener {
             finish()
         }
@@ -97,7 +109,7 @@ class EditProfile : AppCompatActivity() {
 
         btnEditProfileUpdate = findViewById(R.id.btnEditProfileUpdate)
         val bundle = intent.extras
-        val user = bundle?.getSerializable("user") as? User
+        user = bundle?.getSerializable("user") as User
         if (user != null) {
 
             etEditProfileCountry.setText(user.country)
@@ -234,7 +246,7 @@ class EditProfile : AppCompatActivity() {
             val userDao = db.userDao()
             val userRepo = UserRepository(userDao, Dispatchers.IO)
 
-            val result : Int = userRepo.updateUserProfile(country,gender,age.toInt(),tel,"propic",password,uName,email)
+            val result : Int = userRepo.updateUserProfile(country,gender,age.toInt(),tel,"defaultpropic",password,uName,email)
             lifecycleScope.launch(Dispatchers.Main){
                 confirmationDialog = ConfirmationDialog(this@EditProfile)
                 if(result>0){
@@ -251,4 +263,48 @@ class EditProfile : AppCompatActivity() {
         }
         count=0
     }
+    private fun ImagePickerLaunch(){
+        val intent = Intent(Intent.ACTION_GET_CONTENT)
+        intent.type = "image/*"
+        startActivityForResult(intent, PICK_IMAGE_REQUEST)
+    }
+    override fun onActivityResult(requestCode:  Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if(resultCode== RESULT_OK && PICK_IMAGE_REQUEST==1){
+            imageUri = data?.data!!
+            val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, imageUri)
+            selectedImage = bitmap
+            println(imageUri)
+            imgShapeEditProfile.setImageURI(imageUri)
+
+            // This will give you the image name
+            val uri = Uri.parse(imageUri.toString())
+            val imageFile = File(uri.path!!)
+            val imageName = imageFile.name
+
+            uploadImageToFireBase(imageName,imageUri)
+            updateImage(user.uemail,imageName)
+        }
+    }
+
+    private fun updateImage(email: String,uri: String){
+        val db = TouristoDB.getInstance(application)
+        // Get the UserDao from the database
+        val userDao = db.userDao()
+        val userRepo = UserRepository(userDao, Dispatchers.IO)
+
+        userRepo.updateImage(uri,email)
+    }
+    private fun uploadImageToFireBase(fileName:String, uri:Uri){
+        val progressBuilder = ProgressLoader(this@EditProfile,"Fetching Image","Please Wait......")
+        progressBuilder.startProgressLoader()
+        val storageReference = FirebaseStorage.getInstance().getReference("images/$fileName")
+        storageReference.putFile(uri).addOnSuccessListener {
+            progressBuilder.dismissProgressLoader()
+        }.addOnFailureListener{
+            progressBuilder.dismissProgressLoader()
+            Toast.makeText(this@EditProfile,"Error Upload",Toast.LENGTH_SHORT).show()
+        }
+    }
+
 }

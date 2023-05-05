@@ -1,14 +1,25 @@
 package com.example.touristo
 
+import android.app.Activity
 import android.app.Dialog
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.net.Uri
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Environment
+import android.provider.Settings
 import android.view.Window
 import android.widget.Button
+import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.annotation.RequiresApi
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.example.touristo.dbCon.TouristoDB
@@ -22,7 +33,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import java.sql.Timestamp
-
+@RequiresApi(Build.VERSION_CODES.R)
 class MainActivity : AppCompatActivity() {
     private lateinit var btnMainGo:Button
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,6 +43,8 @@ class MainActivity : AppCompatActivity() {
 //        window.decorView.apply {
 //            systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_FULLSCREEN or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
 //        }
+
+
         btnMainGo=findViewById(R.id.btnMainLaunch)
 
         btnMainGo.setOnClickListener {
@@ -76,4 +89,5 @@ class MainActivity : AppCompatActivity() {
            finish()
         }
     }
+
 }

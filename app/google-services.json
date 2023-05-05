@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "778835822558",
+    "project_id": "touristo-edde2",
+    "storage_bucket": "touristo-edde2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:778835822558:android:e1657c43c4eb915c547f4f",
+        "android_client_info": {
+          "package_name": "com.example.touristo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "778835822558-0vdau68rn1rvf8qb3n6mimir6tv6bq49.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAG68BHBWRIkoSkRKU2MofRlomk4m52iG4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "778835822558-0vdau68rn1rvf8qb3n6mimir6tv6bq49.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
