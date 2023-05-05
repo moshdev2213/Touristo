@@ -1,6 +1,7 @@
 package com.example.touristo.repository
 
 import android.annotation.SuppressLint
+import android.graphics.Bitmap
 import com.example.touristo.dao.UserDao
 import com.example.touristo.modal.LogTime
 import com.example.touristo.modal.User
@@ -22,6 +23,12 @@ class UserRepository(private val dao: UserDao,private val ioDispatcher: Coroutin
     fun insertUser(user:User){
         userRepositoryScope.launch(Dispatchers.IO) {
             dao.insertUser(user)
+        }
+    }
+
+    fun updateImage(propic: String,uemail:String){
+        userRepositoryScope.launch(Dispatchers.IO) {
+            dao.updateImage(propic,uemail)
         }
     }
     fun updateUser(user:User){

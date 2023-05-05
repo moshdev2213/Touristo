@@ -1,6 +1,7 @@
 package com.example.touristo.dao
 
 import android.database.Cursor
+import android.graphics.Bitmap
 import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.example.touristo.modal.LogTime
@@ -35,6 +36,9 @@ interface UserDao {
 
     @Query("UPDATE user SET deleted=1 WHERE uemail=:uemail;")
     fun deleteUserAccount(uemail: String):Int
+
+    @Query("UPDATE user SET propic=:propic WHERE uemail=:uemail;")
+    fun updateImage(propic: String,uemail: String):Int
 
     @Query("UPDATE user SET country =:country, gender=:gender , age=:age , tel=:tel , propic=:propic , password=:password ,uname=:uname  WHERE uemail =:uemail;")
     fun updateUserProfile(
