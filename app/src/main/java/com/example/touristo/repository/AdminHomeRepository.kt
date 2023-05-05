@@ -25,7 +25,7 @@ class AdminHomeRepository(
         if (cursor?.moveToFirst() == true) {
             val fname = cursor.getString(cursor.getColumnIndex("fname"))
             val adminCount = cursor.getInt(cursor.getColumnIndex("adminCount"))
-            val lastPunch = cursor.getString(cursor.getColumnIndex("secondLastPunch"))
+            val lastPunch = cursor.getString(cursor.getColumnIndex("secondLastPunch")) ?: "2001-01-01 00:00:00"
             val inquiry = cursor.getString(cursor.getColumnIndex("inquiry"))
             val booking = cursor.getString(cursor.getColumnIndex("booking"))
             val user = cursor.getString(cursor.getColumnIndex("user"))
