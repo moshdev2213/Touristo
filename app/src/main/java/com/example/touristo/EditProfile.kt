@@ -255,7 +255,7 @@ class EditProfile : AppCompatActivity() {
             val userDao = db.userDao()
             val userRepo = UserRepository(userDao, Dispatchers.IO)
 
-            val result : Int = userRepo.updateUserProfile(country,gender,age.toInt(),tel,"defaultpropic",password,uName,email)
+            val result : Int = userRepo.updateUserProfile(country,gender,age.toInt(),tel,password,uName,email)
             lifecycleScope.launch(Dispatchers.Main){
                 confirmationDialog = ConfirmationDialog(this@EditProfile)
                 if(result>0){
