@@ -1,32 +1,42 @@
 package com.example.touristo
 
 import android.content.Intent
+import android.graphics.Bitmap
+import android.net.Uri
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.MediaStore
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.Spinner
+import android.widget.*
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import com.example.touristo.dbCon.TouristoDB
 import com.example.touristo.dialogAlerts.ConfirmationDialog
+import com.example.touristo.dialogAlerts.ProgressLoader
 import com.example.touristo.formData.TouristMRegisterValidation
 import com.example.touristo.formData.UserProfileValidation
 import com.example.touristo.modal.User
 import com.example.touristo.repository.UserRepository
 import com.example.touristo.validations.ValidationResult
+import com.google.firebase.storage.FirebaseStorage
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.io.File
 import java.sql.Timestamp
 
 class TouristManagementRegistration : AppCompatActivity() {
+    private lateinit var imageName:String
     private  var count=0
     private lateinit var btnTMregistrationCancel:Button
     private lateinit var btnTMRAddT:Button
 
+    private val PICK_IMAGE_REQUEST = 1
+    private lateinit var user: User
+    private lateinit var db: TouristoDB
+
+    private var selectedImage: Bitmap? = null
+    private lateinit var imageUri: Uri
     private lateinit var openerImg:ImageView
 
     private lateinit var btnTMRCurrentCount:Button
@@ -87,7 +97,6 @@ class TouristManagementRegistration : AppCompatActivity() {
         etTMRUserTel = findViewById(R.id.etTMRUserTel)
         etTMRUserCountry = findViewById(R.id.etTMRUserCountry)
         etTMRUserAge = findViewById(R.id.etTMRUserAge)
-        imgTMRAddImage = findViewById(R.id.imgTMRAddImage)
         spTMEUserGender = findViewById(R.id.spTMEUserGender)
 
         val username  = etTMRUSErName.text.toString()
@@ -252,4 +261,6 @@ class TouristManagementRegistration : AppCompatActivity() {
         }
         count=0
     }
+
+
 }

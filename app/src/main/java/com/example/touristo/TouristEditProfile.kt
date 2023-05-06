@@ -2,16 +2,15 @@ package com.example.touristo
 
 import android.app.Activity
 import android.content.Intent
+import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.net.Uri
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.MediaStore
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.Spinner
-import android.widget.TextView
+import android.widget.*
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
@@ -19,21 +18,29 @@ import com.example.touristo.Fragments.TouristManagement
 import com.example.touristo.adapter.AdminHomeTMAdapter
 import com.example.touristo.dbCon.TouristoDB
 import com.example.touristo.dialogAlerts.ConfirmationDialog
+import com.example.touristo.dialogAlerts.ProgressLoader
 import com.example.touristo.formData.UserProfileValidation
 import com.example.touristo.formData.UserRegisterForm
 import com.example.touristo.modal.User
 import com.example.touristo.modal.Villa
 import com.example.touristo.repository.UserRepository
 import com.example.touristo.validations.ValidationResult
+import com.google.firebase.storage.FirebaseStorage
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.io.File
 
 class TouristEditProfile : AppCompatActivity() {
     private var count = 0;
     private lateinit var confirmationDialog : ConfirmationDialog
     private lateinit var byteArray:ByteArray
+    private val PICK_IMAGE_REQUEST = 1
+    private lateinit var user: User
+    private lateinit var db: TouristoDB
 
+    private var selectedImage: Bitmap? = null
+    private lateinit var imageUri: Uri
 
     private lateinit var ImgTmEditProfileBack:ImageView
 
@@ -88,12 +95,15 @@ class TouristEditProfile : AppCompatActivity() {
         btnTMSave = findViewById(R.id.btnTMSave)
         etTMUserEmail.isEnabled=false
 
+        smimgTmEditProfilePic.setOnClickListener {
+            ImagePickerLaunch()
+        }
         btnTMDlt.setOnClickListener {
             finish()
         }
         val bundle = intent.extras
-        val user = bundle?.getSerializable("user") as? User
-        aemail = bundle?.getString("amail").toString()
+        user = (bundle?.getSerializable("user") as? User)!!
+        aemail = bundle.getString("amail").toString()
         byteArray = intent.extras?.getByteArray("image")!!
 
         if (user != null) {
@@ -268,7 +278,7 @@ class TouristEditProfile : AppCompatActivity() {
             if(count==5){
 
                 lifecycleScope.launch(Dispatchers.IO){
-                    val db = TouristoDB.getInstance(application)
+                    db = TouristoDB.getInstance(application)
                     // Get the UserDao from the database
                     val userDao = db.userDao()
                     val userRepo = UserRepository(userDao, Dispatchers.IO)
@@ -298,5 +308,50 @@ class TouristEditProfile : AppCompatActivity() {
             count=0
         }
 
+    }
+
+    private fun ImagePickerLaunch(){
+        val intent = Intent(Intent.ACTION_GET_CONTENT)
+        intent.type = "image/*"
+        startActivityForResult(intent, PICK_IMAGE_REQUEST)
+    }
+    override fun onActivityResult(requestCode:  Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if(resultCode== RESULT_OK && PICK_IMAGE_REQUEST==1){
+            imageUri = data?.data!!
+            val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, imageUri)
+            selectedImage = bitmap
+            smimgTmEditProfilePic.setImageURI(imageUri)
+
+            // This will give you the image name
+            val uri = Uri.parse(imageUri.toString())
+            val imageFile = File(uri.path!!)
+            val imageName = imageFile.name
+
+
+
+            uploadImageToFireBase(imageName,imageUri)
+            updateImage(user.uemail,imageName)
+        }
+    }
+
+    private fun updateImage(email: String,uri: String){
+        db = TouristoDB.getInstance(application)
+        // Get the UserDao from the database
+        val userDao = db.userDao()
+        val userRepo = UserRepository(userDao, Dispatchers.IO)
+
+        userRepo.updateImage(uri,email)
+    }
+    private fun uploadImageToFireBase(fileName:String, uri: Uri){
+        val progressBuilder = ProgressLoader(this@TouristEditProfile,"Fetching Image","Please Wait......")
+        progressBuilder.startProgressLoader()
+        val storageReference = FirebaseStorage.getInstance().getReference("UserImages/$fileName")
+        storageReference.putFile(uri).addOnSuccessListener {
+            progressBuilder.dismissProgressLoader()
+        }.addOnFailureListener{
+            progressBuilder.dismissProgressLoader()
+            Toast.makeText(this@TouristEditProfile,"Error Upload", Toast.LENGTH_SHORT).show()
+        }
     }
 }

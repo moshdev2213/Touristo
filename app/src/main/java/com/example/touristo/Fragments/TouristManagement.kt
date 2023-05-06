@@ -41,12 +41,7 @@ class TouristManagement : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-       lifecycleScope.launch(Dispatchers.Main){
-           val progressBuilder = ProgressLoader(requireContext(),"Fetching Details","Please Wait......")
-           progressBuilder.startProgressLoader()
-           delay(2000L)
-           progressBuilder.dismissProgressLoader()
-       }
+
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_tourist_management, container, false)
         val adminHomeActivity = requireActivity() as AdminHome
@@ -59,6 +54,13 @@ class TouristManagement : Fragment() {
             startActivity(intent)
         }
         initRecyclerView(view)
+
+        lifecycleScope.launch(Dispatchers.Main){
+            val progressBuilder = ProgressLoader(requireContext(),"Fetching Details","Please Wait......")
+            progressBuilder.startProgressLoader()
+            delay(2000L)
+            progressBuilder.dismissProgressLoader()
+        }
         return view
     }
 

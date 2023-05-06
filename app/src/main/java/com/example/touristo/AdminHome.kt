@@ -87,9 +87,10 @@ private lateinit var progressLoader: ProgressLoader
                        )
                        progressLoader.startProgressLoader()
                        val intent = Intent(this@AdminHome, MainActivity::class.java)
-                       startActivity(intent)
                        drawerLayout.closeDrawers()
                        delay(3000L)
+                       progressLoader.dismissProgressLoader()
+                       startActivity(intent)
                        finish()
                    }
                 }
