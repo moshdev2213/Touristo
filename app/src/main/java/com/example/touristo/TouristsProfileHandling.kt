@@ -1,6 +1,8 @@
 package com.example.touristo
 
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,6 +11,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
@@ -24,9 +27,11 @@ import com.example.touristo.dialogAlerts.ProgressLoader
 import com.example.touristo.modal.User
 import com.example.touristo.repository.UserRepository
 import com.google.android.material.navigation.NavigationView
+import com.google.firebase.storage.FirebaseStorage
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import java.io.File
 import java.sql.Timestamp
 import java.text.SimpleDateFormat
 import java.util.*
@@ -35,6 +40,7 @@ class TouristsProfileHandling : AppCompatActivity() {
     private lateinit var user:User
     private lateinit var aemail:String
     private lateinit var db:TouristoDB
+    private lateinit var byteArray:ByteArray
     private lateinit var progressLoader: ProgressLoader
     private lateinit var touristDetail: Array<String>
     val currentDateTime = Timestamp(System.currentTimeMillis())
@@ -84,16 +90,23 @@ class TouristsProfileHandling : AppCompatActivity() {
         val bundle = intent.extras
         user = bundle?.getSerializable("user") as User
         aemail = bundle.getString("amail").toString()
+        byteArray = intent.extras?.getByteArray("image")!!
 
         btnTPHUserEditAccount = findViewById(R.id.btnTPHUserEditAccount)
         openerImg = findViewById(R.id.openerImg)
         openerImg.setOnClickListener {
+//            val intent = Intent(this@TouristsProfileHandling, AdminHome::class.java).apply {
+//                putExtra("replaceFragment", "TouristManagement")
+//                putExtra("adminEmail", aemail)
+//            }
+//            startActivity(intent)
             finish()
         }
         btnTPHUserEditAccount.setOnClickListener {
             val bundle = Bundle().apply {
                 putSerializable("user", user)
                 putString("amail",aemail)
+                putByteArray("image", byteArray)
             }
             val intent = Intent(this@TouristsProfileHandling,TouristEditProfile::class.java)
             intent.putExtras( bundle)
@@ -119,6 +132,10 @@ class TouristsProfileHandling : AppCompatActivity() {
     private fun initializeTheViews(user: User) {
 
         lifecycleScope.launch(Dispatchers.Main) {
+            val bitmap = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.size ?: 0)
+
+            simTPHUserImg.setImageBitmap(bitmap)
+
             btnTPHUserJoined.text = dateFormatter(user.added)
             tvTPHUserTel.text = user.tel
             tvTPHUserCountry.text = user.country?.capitalize()

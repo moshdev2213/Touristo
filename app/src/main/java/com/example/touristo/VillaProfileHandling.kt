@@ -84,10 +84,7 @@ class VillaProfileHandling : AppCompatActivity() {
     }
 
     private suspend fun addNewVilla() {
-        imgAddVilaPic3= findViewById(R.id.imgAddVilaPic3)
-        imgAddVilapic2= findViewById(R.id.imgAddVilapic2)
         imdAddVilaPic1= findViewById(R.id.imdAddVilaPic1)
-        imgAddVilaPic4= findViewById(R.id.imgAddVilaPic4)
         spAddVilaProvince= findViewById(R.id.spAddVilaProvince)
         spAddVilaType= findViewById(R.id.spAddVilaType)
         spAddVilaDistrict= findViewById(R.id.spAddVilaDistrict)

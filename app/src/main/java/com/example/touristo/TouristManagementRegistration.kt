@@ -235,7 +235,7 @@ class TouristManagementRegistration : AppCompatActivity() {
                 }
             }else{
                 lifecycleScope.launch(Dispatchers.Main) {
-                    userRepo.insertUser(User(0,username,userEmail,userPass,null,userTEl,userAge.toInt(),userGender,userCountry,currentDateTime.toString(),"",0))
+                    userRepo.insertUser(User(0,username,userEmail,userPass,"image:40",userTEl,userAge.toInt(),userGender,userCountry,currentDateTime.toString(),"",0))
                     //initializing the dialogBox Class
                     confirmationDialog = ConfirmationDialog(this@TouristManagementRegistration)
                     confirmationDialog.dialogWithSuccess("You have successfully registered") {

@@ -284,50 +284,9 @@
                         android:scaleType="fitCenter"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.069"
+                        app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textView70"
-                        app:layout_constraintVertical_bias="0.0"
-                        app:srcCompat="@drawable/vill_profile_handling" />
-
-                    <ImageView
-                        android:id="@+id/imgAddVilapic2"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:layout_marginTop="16dp"
-                        android:scaleType="fitCenter"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/imgAddVilaPic3"
-                        app:layout_constraintStart_toEndOf="@+id/imdAddVilaPic1"
-                        app:layout_constraintTop_toBottomOf="@+id/textView70"
-                        app:layout_constraintVertical_bias="0.0"
-                        app:srcCompat="@drawable/vill_profile_handling" />
-
-                    <ImageView
-                        android:id="@+id/imgAddVilaPic3"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:layout_marginTop="16dp"
-                        android:scaleType="fitCenter"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/imgAddVilapic2"
-                        app:layout_constraintTop_toBottomOf="@+id/textView70"
-                        app:layout_constraintVertical_bias="0.0"
-                        app:srcCompat="@drawable/vill_profile_handling" />
-
-                    <ImageView
-                        android:id="@+id/imgAddVilaPic4"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:layout_marginTop="13dp"
-                        android:layout_marginBottom="32dp"
-                        android:scaleType="fitCenter"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.48"
-                        app:layout_constraintStart_toEndOf="@+id/imdAddVilaPic1"
-                        app:layout_constraintTop_toBottomOf="@+id/imgAddVilapic2"
                         app:layout_constraintVertical_bias="0.0"
                         app:srcCompat="@drawable/vill_profile_handling" />
 

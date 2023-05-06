@@ -170,19 +170,6 @@
                         app:layout_constraintTop_toBottomOf="@+id/spEditVillaDistrict" />
 
                     <TextView
-                        android:id="@+id/textView70"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="16dp"
-                        android:fontFamily="@font/montserrat_semibold"
-                        android:text="Upload Images"
-                        android:textColor="@color/btnSplash"
-                        android:textSize="14sp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/spEditVillaProvince" />
-
-                    <TextView
                         android:id="@+id/textView69"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -255,9 +242,11 @@
                         android:layout_height="40dp"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="12dp"
+                        android:layout_marginBottom="16dp"
                         android:background="@drawable/editfeld"
                         android:entries="@array/provinces"
                         android:padding="10dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textView68" />
 
@@ -267,72 +256,15 @@
                         android:layout_height="40dp"
                         android:layout_marginTop="12dp"
                         android:layout_marginEnd="16dp"
+                        android:layout_marginBottom="16dp"
                         android:background="@drawable/editfeld"
                         android:entries="@array/villaType"
                         android:padding="10dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.937"
                         app:layout_constraintStart_toEndOf="@+id/spEditVillaProvince"
                         app:layout_constraintTop_toBottomOf="@+id/textView69" />
-
-                    <com.google.android.material.imageview.ShapeableImageView
-                        android:id="@+id/imdEditVillaPic1"
-                        android:layout_width="150dp"
-                        android:layout_height="150dp"
-                        android:layout_marginTop="16dp"
-                        android:scaleType="fitCenter"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.069"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView70"
-                        app:layout_constraintVertical_bias="0.0"
-                        app:srcCompat="@drawable/vill_profile_handling"
-                        app:shapeAppearanceOverlay="@style/roundedImageView"/>
-
-                    <com.google.android.material.imageview.ShapeableImageView
-                        android:id="@+id/imgEditVillapic2"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:layout_marginTop="16dp"
-                        android:scaleType="fitCenter"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/imgEditVillaPic3"
-                        app:layout_constraintStart_toEndOf="@+id/imdEditVillaPic1"
-                        app:layout_constraintTop_toBottomOf="@+id/textView70"
-                        app:layout_constraintVertical_bias="0.0"
-                        app:shapeAppearanceOverlay="@style/roundedImageView"
-                        app:srcCompat="@drawable/vill_profile_handling" />
-
-                    <com.google.android.material.imageview.ShapeableImageView
-                        android:id="@+id/imgEditVillaPic3"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:layout_marginTop="16dp"
-                        android:scaleType="fitCenter"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/imgEditVillapic2"
-                        app:layout_constraintTop_toBottomOf="@+id/textView70"
-                        app:layout_constraintVertical_bias="0.0"
-                        app:shapeAppearanceOverlay="@style/roundedImageView"
-                        app:srcCompat="@drawable/vill_profile_handling" />
-
-                    <com.google.android.material.imageview.ShapeableImageView
-                        android:id="@+id/imgEditVillaPic4"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginBottom="32dp"
-                        android:scaleType="fitCenter"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.48"
-                        app:layout_constraintStart_toEndOf="@+id/imdEditVillaPic1"
-                        app:layout_constraintTop_toBottomOf="@+id/imgEditVillapic2"
-                        app:layout_constraintVertical_bias="0.0"
-                        app:shapeAppearanceOverlay="@style/roundedImageView"
-                        app:srcCompat="@drawable/vill_profile_handling" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>

@@ -2,6 +2,7 @@ package com.example.touristo
 
 import android.app.Activity
 import android.content.Intent
+import android.graphics.BitmapFactory
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -31,6 +32,7 @@ import kotlinx.coroutines.withContext
 class TouristEditProfile : AppCompatActivity() {
     private var count = 0;
     private lateinit var confirmationDialog : ConfirmationDialog
+    private lateinit var byteArray:ByteArray
 
 
     private lateinit var ImgTmEditProfileBack:ImageView
@@ -92,9 +94,13 @@ class TouristEditProfile : AppCompatActivity() {
         val bundle = intent.extras
         val user = bundle?.getSerializable("user") as? User
         aemail = bundle?.getString("amail").toString()
+        byteArray = intent.extras?.getByteArray("image")!!
 
         if (user != null) {
             //set ET values Accordingly
+            val bitmap = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.size ?: 0)
+
+            smimgTmEditProfilePic.setImageBitmap(bitmap)
             tvTmEditProfileName.text = user.uname
             if(user.deleted==0){
                 tvTmEditProfileStatus.setTextColor(ContextCompat.getColor(this, R.color.admincount))
@@ -266,7 +272,7 @@ class TouristEditProfile : AppCompatActivity() {
                     // Get the UserDao from the database
                     val userDao = db.userDao()
                     val userRepo = UserRepository(userDao, Dispatchers.IO)
-                    val result : Int = userRepo.updateUserProfileAsAdmin(dbCountry,dbGender,dbAge,dbTel,"propic",dbPassword,dbName,dbEmail,dbActStausInt)
+                    val result : Int = userRepo.updateUserProfileAsAdmin(dbCountry,dbGender,dbAge,dbTel,dbPassword,dbName,dbEmail,dbActStausInt)
                     lifecycleScope.launch(Dispatchers.Main){
                         confirmationDialog = ConfirmationDialog(this@TouristEditProfile)
                         if(result>0){

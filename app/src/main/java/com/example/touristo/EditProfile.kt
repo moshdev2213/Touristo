@@ -291,6 +291,8 @@ class EditProfile : AppCompatActivity() {
             val imageFile = File(uri.path!!)
             val imageName = imageFile.name
 
+
+
             uploadImageToFireBase(imageName,imageUri)
             updateImage(user.uemail,imageName)
         }

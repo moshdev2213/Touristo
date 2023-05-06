@@ -19,12 +19,14 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.example.touristo.Fragments.*
 import com.example.touristo.dbCon.TouristoDB
+import com.example.touristo.dialogAlerts.ProgressLoader
 import com.example.touristo.fragmentListeners.AdminHomeFragListners
 import com.example.touristo.modal.Admin
 import com.example.touristo.repository.AdminRepository
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class AdminHome : AppCompatActivity(), AdminHomeFragListners {
@@ -34,6 +36,8 @@ private lateinit var btnNav : BottomNavigationView
 private lateinit var globalMail : String
 private lateinit var admin : Admin
 private lateinit var admHomeProImg : ImageView
+private lateinit var progressLoader: ProgressLoader
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_admin_home)
@@ -76,8 +80,18 @@ private lateinit var admHomeProImg : ImageView
 
                 }
                 R.id.nav_logout->{
-                    Toast.makeText(this,"Implementation In Process \uD83D\uDE0E",Toast.LENGTH_SHORT).show()
-                    drawerLayout.closeDrawers()
+                   lifecycleScope.launch(Dispatchers.Main){
+                       progressLoader = ProgressLoader(
+                           this@AdminHome,"Logging Out",
+                           "Please Wait......"
+                       )
+                       progressLoader.startProgressLoader()
+                       val intent = Intent(this@AdminHome, MainActivity::class.java)
+                       startActivity(intent)
+                       drawerLayout.closeDrawers()
+                       delay(3000L)
+                       finish()
+                   }
                 }
             }
             true

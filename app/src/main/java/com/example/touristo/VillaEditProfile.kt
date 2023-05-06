@@ -42,9 +42,6 @@ class VillaEditProfile : AppCompatActivity() {
     private lateinit var btnEditVillaBPrice: Button
 
     private lateinit var imdEditVillaPic1: ImageView
-    private lateinit var imgEditVillapic2: ImageView
-    private lateinit var imgEditVillaPic3: ImageView
-    private lateinit var imgEditVillaPic4: ImageView
 
     private lateinit var spEditVillaProvince: Spinner
     private lateinit var spEditVillaDistrict: Spinner
@@ -67,10 +64,6 @@ class VillaEditProfile : AppCompatActivity() {
             window.decorView.systemUiVisibility = flags or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
         }
 
-        imgEditVillaPic3= findViewById(R.id.imgEditVillaPic3)
-        imgEditVillapic2= findViewById(R.id.imgEditVillapic2)
-        imdEditVillaPic1= findViewById(R.id.imdEditVillaPic1)
-        imgEditVillaPic4= findViewById(R.id.imgEditVillaPic4)
         spEditVillaProvince= findViewById(R.id.spEditVillaProvince)
         spEditVillaType= findViewById(R.id.spEditVillaType)
         spEditVillaDistrict= findViewById(R.id.spEditVillaDistrict)
@@ -111,9 +104,7 @@ class VillaEditProfile : AppCompatActivity() {
             spEditVillaProvince.setSelection(positionOfProvince)
 
             imdEditVillaPic1.setImageResource(R.drawable.interiordemo) // Set image resource
-            imgEditVillapic2.setImageResource(R.drawable.interiordemo) // Set image resource
-            imgEditVillaPic3.setImageResource(R.drawable.interiordemo) // Set image resource
-            imgEditVillaPic4.setImageResource(R.drawable.interiordemo) // Set image resource
+
 
             etVillaEditRating.setText(villa.rating.toString())
             etEditVillaDescription.setText(villa.description)
