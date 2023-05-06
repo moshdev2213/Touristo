@@ -65,11 +65,11 @@ class UserRepository(private val dao: UserDao,private val ioDispatcher: Coroutin
         return userObj
     }
 
-    suspend fun updateUserProfile(country:String?, gender:String?, age:Int?, tel:String, propic: String?, password: String,
+    suspend fun updateUserProfile(country:String?, gender:String?, age:Int?, tel:String, password: String,
         uname:String, email: String):Int{
         var result = 0
         withContext(ioDispatcher) {
-            result=dao.updateUserProfile(country,gender,age,tel,propic,password,uname,email)
+            result=dao.updateUserProfile(country,gender,age,tel,password,uname,email)
         }
         println(country+""+gender)
         return result
