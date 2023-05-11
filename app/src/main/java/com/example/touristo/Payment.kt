@@ -71,21 +71,30 @@ class Payment : AppCompatActivity() {
             tvPaymentToPay.text =  "Rs ${villa.price.toInt().toString()}"
 
             btnPaymentPayNow.setOnClickListener {
-                yesNoDialog = YesNoDialog(this@Payment)
-                yesNoDialog.yesNoConfirmDialog({
-                    //do anthing
-                },{
-                    val bundle = intent.extras
-                    val villa = bundle?.getSerializable("villa") as? Villa
-                    val user = bundle?.getSerializable("user") as? User
-                    if (villa != null) {
-                        lifecycleScope.launch(Dispatchers.IO){
-                            if (user != null) {
-                                userPaymentSubmission(villa,user)
+                if(etPaymentCVC.text.isNotEmpty() || etPaymentYear.text.isNotEmpty()|| etPaymentMonth.text.isNotEmpty()){
+                    yesNoDialog = YesNoDialog(this@Payment)
+                    yesNoDialog.yesNoConfirmDialog({
+                        //do anthing
+                    },{
+                        val bundle = intent.extras
+                        val villa = bundle?.getSerializable("villa") as? Villa
+                        val user = bundle?.getSerializable("user") as? User
+                        if (villa != null) {
+                            lifecycleScope.launch(Dispatchers.IO){
+                                if (user != null) {
+                                    userPaymentSubmission(villa,user)
+                                }
                             }
                         }
-                    }
-                })
+                    })
+                }else if(etPaymentCVC.text.isNotEmpty()){
+                    etPaymentCVC.error = "Enter CVC"
+                }else if(etPaymentYear.text.isNotEmpty()){
+                    etPaymentYear.error = "Enter CVC"
+                }else if(etPaymentMonth.text.isNotEmpty()){
+                    etPaymentMonth.error = "Enter CVC"
+                }
+
             }
         }
 
