@@ -20,11 +20,12 @@ interface InquiryDao {
     suspend fun updateInquiry(userInquery: UserInquery)
 
     @Delete
-    suspend fun deleteInquiry(userInquery: UserInquery)
+    suspend fun deleteInquiry(userInquery: UserInquery):Int
 
-    @Query("SELECT * FROM inquiryReply")
-    fun getAllUsers(): LiveData<List<UserInquery>>
+    @Query("SELECT * FROM userInquiry")
+    fun getAllInquiry():List<UserInquery>
 
-    //the InquiryReply starts here
+    @Query("SELECT COUNT(id) FROM userInquiry")
+    fun getAllInqueryCount():Int
 
 }

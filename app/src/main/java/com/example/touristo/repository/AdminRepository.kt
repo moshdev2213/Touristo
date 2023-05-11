@@ -71,7 +71,13 @@ class AdminRepository(private val dao: AdminDao, private val ioDispatcher: Corou
         cursor.close()
         return adminInfo
     }
-
+    suspend fun deleteAdminByEmail(email: String):Int{
+        var result: Int
+        withContext(ioDispatcher){
+            result =dao.deleteAdminByEmail(email)
+        }
+        return result
+    }
 
 
 }

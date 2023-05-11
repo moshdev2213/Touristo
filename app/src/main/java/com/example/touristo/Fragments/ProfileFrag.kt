@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.cardview.widget.CardView
 import androidx.lifecycle.lifecycleScope
+import com.example.touristo.AboutUsFAQ
 import com.example.touristo.EditProfile
 import com.example.touristo.MainActivity
 import com.example.touristo.R
@@ -50,7 +51,10 @@ class ProfileFrag : Fragment() {
                 fragmentListener?.deleteUserAccount()
             })
         }
-
+        cvAboutUs.setOnClickListener {
+            val intent = Intent(requireActivity(), AboutUsFAQ::class.java)
+            startActivity(intent)
+        }
         cvEditProfile.setOnClickListener {
             fragmentListener?.onFragmentPropicButtonClick()
         }

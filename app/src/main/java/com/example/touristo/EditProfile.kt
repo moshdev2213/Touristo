@@ -89,20 +89,10 @@ class EditProfile : AppCompatActivity() {
         fbEditProfileBtnPencil = findViewById(R.id.fbEditProfileBtnPencil)
 
 
-        val fileName = user.propic
-        if (fileName != null) {
-            getImageFromFirebase(fileName) { bitmap ->
-                if (bitmap != null) {
-                    // do something with the bitmap
-                    imgShapeEditProfile.setImageBitmap(bitmap)
-                } else {
-                    // handle error
-                }
-            }
-        }
+
 
         fbEditProfileBtnPencil.setOnClickListener {
-            ImagePickerLaunch()
+
         }
 
         fbEditProfileBtn.setOnClickListener {
@@ -271,66 +261,6 @@ class EditProfile : AppCompatActivity() {
             count=0
         }
         count=0
-    }
-    private fun ImagePickerLaunch(){
-        val intent = Intent(Intent.ACTION_GET_CONTENT)
-        intent.type = "image/*"
-        startActivityForResult(intent, PICK_IMAGE_REQUEST)
-    }
-    override fun onActivityResult(requestCode:  Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if(resultCode== RESULT_OK && PICK_IMAGE_REQUEST==1){
-            imageUri = data?.data!!
-            val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, imageUri)
-            selectedImage = bitmap
-            println(imageUri)
-            imgShapeEditProfile.setImageURI(imageUri)
-
-            // This will give you the image name
-            val uri = Uri.parse(imageUri.toString())
-            val imageFile = File(uri.path!!)
-            val imageName = imageFile.name
-
-            uploadImageToFireBase(imageName,imageUri)
-            updateImage(user.uemail,imageName)
-        }
-    }
-
-    private fun updateImage(email: String,uri: String){
-        val db = TouristoDB.getInstance(application)
-        // Get the UserDao from the database
-        val userDao = db.userDao()
-        val userRepo = UserRepository(userDao, Dispatchers.IO)
-
-        userRepo.updateImage(uri,email)
-    }
-    private fun uploadImageToFireBase(fileName:String, uri:Uri){
-        val progressBuilder = ProgressLoader(this@EditProfile,"Fetching Image","Please Wait......")
-        progressBuilder.startProgressLoader()
-        val storageReference = FirebaseStorage.getInstance().getReference("UserImages/$fileName")
-        storageReference.putFile(uri).addOnSuccessListener {
-            progressBuilder.dismissProgressLoader()
-        }.addOnFailureListener{
-            progressBuilder.dismissProgressLoader()
-            Toast.makeText(this@EditProfile,"Error Upload",Toast.LENGTH_SHORT).show()
-        }
-    }
-
-    private fun getImageFromFirebase(fileName: String, callback: (Bitmap?) -> Unit) {
-        val progressBuilder = ProgressLoader(this@EditProfile,"Fetching Details","Please Wait......")
-        progressBuilder.startProgressLoader()
-
-        val storageRef = FirebaseStorage.getInstance().reference.child("UserImages/$fileName")
-        val localFile = File.createTempFile("tempImg", "jpg")
-        storageRef.getFile(localFile).addOnSuccessListener {
-            val bitmap = BitmapFactory.decodeFile(localFile.absolutePath)
-            callback(bitmap)
-            progressBuilder.dismissProgressLoader()
-        }.addOnFailureListener {
-            callback(null)
-            progressBuilder.dismissProgressLoader()
-            Toast.makeText(this@EditProfile,"Error Fetch",Toast.LENGTH_SHORT).show()
-        }
     }
 
 

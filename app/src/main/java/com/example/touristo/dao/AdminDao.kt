@@ -59,5 +59,6 @@ interface AdminDao {
         fname:String, lname:String, password:String, age:Int, tel: String, propic: String,
         gender:String, designation: String,modified:String,email:String):Int
 
-
+    @Query("DELETE FROM admin WHERE aemail=:email")
+    fun deleteAdminByEmail(email:String):Int
 }

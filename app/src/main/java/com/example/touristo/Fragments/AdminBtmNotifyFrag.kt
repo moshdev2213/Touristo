@@ -5,56 +5,73 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.TextView
+import android.widget.Toast
+import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.touristo.R
+import com.example.touristo.adapter.AdminHomeINAdapter
+import com.example.touristo.adapter.UserHomeBLAdapter
+import com.example.touristo.dbCon.TouristoDB
+import com.example.touristo.dialogAlerts.AdminInqueryModal
+import com.example.touristo.modal.UserInquery
+import com.example.touristo.modalDTO.BookingDTO
+import com.example.touristo.repository.BookingRepository
+import com.example.touristo.repository.InquiryRepository
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [AdminBtmNotifyFrag.newInstance] factory method to
- * create an instance of this fragment.
- */
 class AdminBtmNotifyFrag : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
-
+    private lateinit var rvAdminNotifyFrag:RecyclerView
+    private lateinit var tvTotalCountOfNotifications:TextView
+    private lateinit var btnCountNotify:Button
+    private lateinit var adapter:AdminHomeINAdapter
+    private lateinit var db:TouristoDB
+    private lateinit var adminInqueryModal:AdminInqueryModal
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_admin_btm_notify, container, false)
+        val view =inflater.inflate(R.layout.fragment_admin_btm_notify, container, false)
+        btnCountNotify = view.findViewById(R.id.btnCountNotify)
+        tvTotalCountOfNotifications = view.findViewById(R.id.tvTotalCountOfNotifications)
+        rvAdminNotifyFrag = view.findViewById(R.id.rvAdminNotifyFrag)
+        initRecyclerView()
+        return view
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment AdminBtmNotifyFrag.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            AdminBtmNotifyFrag().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    fun initRecyclerView(){
+        lifecycleScope.launch(Dispatchers.IO) {
+            // Get an instance of the TouristoDB database
+            db = TouristoDB.getInstance(requireContext().applicationContext)
+            val inquiryDao = db.inquiryDao()
+            val inquiryRepo = InquiryRepository(inquiryDao, Dispatchers.IO)
+
+//            val count = inquiryRepo.getAllInqueryCount()
+
+
+            lifecycleScope.launch(Dispatchers.Main){
+                //herachical touch error then put inside the lifecyclescope
+
+                rvAdminNotifyFrag.layoutManager = LinearLayoutManager(context)
+                adapter = AdminHomeINAdapter(requireActivity()) {
+                    initiateCardClick(it)
                 }
+
+                rvAdminNotifyFrag.adapter = adapter
+                adapter.setList(inquiryRepo.getAllInquiry())
             }
+
+        }
+    }
+
+    private fun initiateCardClick(it: UserInquery) {
+        adminInqueryModal = AdminInqueryModal(requireActivity())
+        adminInqueryModal.showModal(it.uemail,it.description,it.added) {
+            //doanything
+        }
     }
 }

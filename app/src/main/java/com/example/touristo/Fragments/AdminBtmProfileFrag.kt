@@ -1,60 +1,86 @@
 package com.example.touristo.Fragments
 
+import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.annotation.RequiresApi
+import androidx.cardview.widget.CardView
+import androidx.lifecycle.lifecycleScope
+import com.example.touristo.AboutUsFAQ
+import com.example.touristo.MainActivity
 import com.example.touristo.R
+import com.example.touristo.dbCon.TouristoDB
+import com.example.touristo.dialogAlerts.ProgressLoader
+import com.example.touristo.dialogAlerts.YesNoDialog
+import com.example.touristo.fragmentListeners.AdminHomeFragListners
+import com.example.touristo.fragmentListeners.FragmentListenerUserIndex
+import com.example.touristo.modal.Admin
+import com.example.touristo.modal.User
+import com.example.touristo.repository.AdminRepository
+import com.example.touristo.repository.UserRepository
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [AdminBtmProfileFrag.newInstance] factory method to
- * create an instance of this fragment.
- */
 class AdminBtmProfileFrag : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
-
+    private lateinit var cvAdminDelete:CardView
+    private lateinit var cvAdminFAQ:CardView
+    private lateinit var cvLogoutAdmin:CardView
+    private lateinit var cvEditProfileAdmin:CardView
+    private lateinit var progressLoader: ProgressLoader
+    private lateinit var yesNoDialog: YesNoDialog
+    private var fragmentListener: AdminHomeFragListners? = null
+    private lateinit var adminEmail : String
+    private lateinit var db:TouristoDB
+    @RequiresApi(Build.VERSION_CODES.R)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_admin_btm_profile, container, false)
-    }
+        val view =  inflater.inflate(R.layout.fragment_admin_btm_profile, container, false)
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment AdminBtmProfileFrag.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            AdminBtmProfileFrag().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+        adminEmail = fragmentListener?.getTheAdminEmailBYInterface().toString()
+        cvEditProfileAdmin = view.findViewById(R.id.cvEditProfileAdmin)
+        cvAdminFAQ = view.findViewById(R.id.cvAdminFAQ)
+        cvAdminDelete = view.findViewById(R.id.cvAdminDelete)
+        cvLogoutAdmin = view.findViewById(R.id.cvLogoutAdmin)
+
+        cvEditProfileAdmin.setOnClickListener {
+            val intent = Intent(requireActivity(), AboutUsFAQ::class.java)
+            startActivity(intent)
+        }
+        cvAdminDelete.setOnClickListener {
+           Toast.makeText(requireActivity(),"Not Allowed",Toast.LENGTH_SHORT).show()
+        }
+        cvAdminFAQ.setOnClickListener {
+            val intent = Intent(requireActivity(), AboutUsFAQ::class.java)
+            startActivity(intent)
+        }
+        cvLogoutAdmin.setOnClickListener {
+            progressLoader = context?.let { it1 ->
+                ProgressLoader(
+                    it1,"Logging Out","Please Wait..."
+                )
+            }!!
+            progressLoader.startProgressLoader()
+
+
+            // start a coroutine to dismiss the dialog after 5 seconds
+            lifecycleScope.launch {
+                delay(3000L) // delay for 5 seconds
+                progressLoader.dismissProgressLoader() // dismiss the dialog
+                val intent = Intent(requireActivity(), MainActivity::class.java)
+                startActivity(intent)
+                requireActivity().finish()
             }
+        }
+
+        return view
     }
 }

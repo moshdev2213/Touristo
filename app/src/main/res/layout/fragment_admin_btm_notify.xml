@@ -11,13 +11,13 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/textView115"
+            android:id="@+id/tvTotalCountOfNotifications"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
             android:fontFamily="@font/montserrat_semibold"
-            android:text="You Have 89 Notifications "
+            android:text="Manage Notifications Easily"
             android:textColor="@color/btnSplash"
             android:textSize="16sp"
             app:layout_constraintEnd_toStartOf="@+id/imageView48"
@@ -85,7 +85,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/textView72" />
 
                 <Button
-                    android:id="@+id/button21"
+                    android:id="@+id/btnCountNotify"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="12dp"
@@ -94,7 +94,7 @@
                     android:backgroundTint="@color/btnSplash"
                     android:clickable="false"
                     android:fontFamily="@font/montserrat_semibold"
-                    android:text="0 "
+                    android:text="🔔"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -121,15 +121,16 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvAdminNotifyFrag"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView115"
+            app:layout_constraintTop_toBottomOf="@+id/tvTotalCountOfNotifications"
             app:layout_constraintVertical_bias="1.0"
-            tools:listitem="@layout/admin_notify_list">
+            tools:listitem="@layout/inquiry_list">
 
         </androidx.recyclerview.widget.RecyclerView>
 
