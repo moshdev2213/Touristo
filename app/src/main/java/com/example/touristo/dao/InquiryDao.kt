@@ -20,10 +20,12 @@ interface InquiryDao {
     suspend fun updateInquiry(userInquery: UserInquery)
 
     @Delete
-    suspend fun deleteInquiry(userInquery: UserInquery)
+    suspend fun deleteInquiry(userInquery: UserInquery):Int
 
-    @Query("SELECT * FROM inquiryReply")
-    fun getAllUsers(): LiveData<List<UserInquery>>
+    @Query("SELECT * FROM userInquiry")
+    fun getAllInquiry():List<UserInquery>
+//    @Query("DELETE FROM userInquiry WHERE inqueryId =:id")
+//    suspend fun deleteInquiryById(id: Int):Int
 
     //the InquiryReply starts here
 

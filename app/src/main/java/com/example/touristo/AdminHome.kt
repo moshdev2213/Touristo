@@ -123,8 +123,6 @@ private lateinit var admHomeProImg : ImageView
         }
 
     }
-
-
     //the below function is for the frag replacement in the sidenavigation bar
     fun replaceFrags(fragment: Fragment){
         val fragmentManager = supportFragmentManager
@@ -149,10 +147,10 @@ private lateinit var admHomeProImg : ImageView
         fragmentTransaction.commit()
     }
 
-    //listnersOverriders
     fun getTheAdminEmail(): String {
         return intent.getStringExtra("adminEmail").toString()
     }
+
     fun initSideNavViews(admin: Admin){
         val navigationView = findViewById<NavigationView>(R.id.navView)
         val headerView = navigationView.getHeaderView(0)
@@ -162,5 +160,9 @@ private lateinit var admHomeProImg : ImageView
 
         val emailTextView = headerView.findViewById<TextView>(R.id.sideNavEmail)
         emailTextView.text = admin.aemail.toLowerCase()
+    }
+    //listnersOverriders
+    override fun getTheAdminEmailBYInterface(): String {
+        return intent.getStringExtra("adminEmail").toString()
     }
 }

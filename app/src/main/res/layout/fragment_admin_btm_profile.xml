@@ -25,18 +25,18 @@
                 android:layout_height="match_parent">
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/cardView5"
+                    android:id="@+id/cvAdminDelete"
                     android:layout_width="380dp"
                     android:layout_height="80dp"
                     android:layout_marginTop="16dp"
                     app:cardCornerRadius="10dp"
-                    app:cardElevation="10dp"
+                    app:cardElevation="5dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/cardView2"
-                    app:layout_constraintVertical_bias="0.0" >
+                    app:layout_constraintTop_toBottomOf="@+id/cvLogoutAdmin"
+                    app:layout_constraintVertical_bias="0.0">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
@@ -60,17 +60,17 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/cardView2"
+                    android:id="@+id/cvLogoutAdmin"
                     android:layout_width="380dp"
                     android:layout_height="80dp"
                     android:layout_marginTop="16dp"
                     app:cardCornerRadius="10dp"
-                    app:cardElevation="10dp"
+                    app:cardElevation="5dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/cardView13"
+                    app:layout_constraintTop_toBottomOf="@+id/cvAdminFAQ"
                     app:layout_constraintVertical_bias="0.0">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
@@ -106,17 +106,17 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/cardView13"
+                    android:id="@+id/cvAdminFAQ"
                     android:layout_width="380dp"
                     android:layout_height="80dp"
                     android:layout_marginTop="16dp"
                     app:cardCornerRadius="10dp"
-                    app:cardElevation="10dp"
+                    app:cardElevation="5dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/cardView3"
+                    app:layout_constraintTop_toBottomOf="@+id/cvEditProfileAdmin"
                     app:layout_constraintVertical_bias="0.0">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
@@ -153,13 +153,13 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/cardView3"
+                    android:id="@+id/cvEditProfileAdmin"
                     android:layout_width="380dp"
                     android:layout_height="80dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginBottom="16dp"
                     app:cardCornerRadius="10dp"
-                    app:cardElevation="10dp"
+                    app:cardElevation="5dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
@@ -193,8 +193,10 @@
                             android:src="@drawable/admin_edits_profile_btn"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.0" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </androidx.cardview.widget.CardView>

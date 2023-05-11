@@ -33,7 +33,7 @@
             android:layout_marginBottom="10dp"
             android:adjustViewBounds="true"
             android:scaleType="centerCrop"
-            android:src="@drawable/propic1"
+            android:src="@drawable/villaplaceholder"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"

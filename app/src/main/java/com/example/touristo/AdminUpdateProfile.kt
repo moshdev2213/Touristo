@@ -45,8 +45,6 @@ class AdminUpdateProfile : AppCompatActivity() {
     private lateinit var etAdminEditProfileFname:EditText
     private lateinit var etAdminProfilePassword:EditText
     private lateinit var etAdminEditProfileEail:EditText
-    private lateinit var fbAdminEditProfilePencil:FloatingActionButton
-    private lateinit var simgAdminProfileUpdatePic:ImageView
     private lateinit var openerImg:ImageView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -71,8 +69,6 @@ class AdminUpdateProfile : AppCompatActivity() {
         etAdminEditProfileFname = findViewById(R.id.etAdminEditProfileFname)
         etAdminProfilePassword = findViewById(R.id.etAdminProfilePassword)
         etAdminEditProfileEail = findViewById(R.id.etAdminEditProfileEail)
-        fbAdminEditProfilePencil = findViewById(R.id.fbAdminEditProfilePencil)
-        simgAdminProfileUpdatePic = findViewById(R.id.simgAdminProfileUpdatePic)
         openerImg = findViewById(R.id.openerImg)
 
         etAdminEditProfileEail.isEnabled = false
