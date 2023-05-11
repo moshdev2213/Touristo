@@ -24,9 +24,8 @@ interface InquiryDao {
 
     @Query("SELECT * FROM userInquiry")
     fun getAllInquiry():List<UserInquery>
-//    @Query("DELETE FROM userInquiry WHERE inqueryId =:id")
-//    suspend fun deleteInquiryById(id: Int):Int
 
-    //the InquiryReply starts here
+    @Query("SELECT COUNT(id) FROM userInquiry")
+    fun getAllInqueryCount():Int
 
 }

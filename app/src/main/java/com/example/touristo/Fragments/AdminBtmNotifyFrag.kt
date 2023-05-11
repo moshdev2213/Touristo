@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
@@ -25,6 +26,7 @@ import kotlinx.coroutines.launch
 class AdminBtmNotifyFrag : Fragment() {
     private lateinit var rvAdminNotifyFrag:RecyclerView
     private lateinit var tvTotalCountOfNotifications:TextView
+    private lateinit var btnCountNotify:Button
     private lateinit var adapter:AdminHomeINAdapter
     private lateinit var db:TouristoDB
     private lateinit var adminInqueryModal:AdminInqueryModal
@@ -34,7 +36,7 @@ class AdminBtmNotifyFrag : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view =inflater.inflate(R.layout.fragment_admin_btm_notify, container, false)
-
+        btnCountNotify = view.findViewById(R.id.btnCountNotify)
         tvTotalCountOfNotifications = view.findViewById(R.id.tvTotalCountOfNotifications)
         rvAdminNotifyFrag = view.findViewById(R.id.rvAdminNotifyFrag)
         initRecyclerView()
@@ -47,6 +49,10 @@ class AdminBtmNotifyFrag : Fragment() {
             db = TouristoDB.getInstance(requireContext().applicationContext)
             val inquiryDao = db.inquiryDao()
             val inquiryRepo = InquiryRepository(inquiryDao, Dispatchers.IO)
+
+            val count = inquiryRepo.getAllInqueryCount()
+            btnCountNotify.text = count.toString()
+            tvTotalCountOfNotifications.text = "You Have "+count.toString()+" Notifications"
 
             rvAdminNotifyFrag.layoutManager = LinearLayoutManager(context)
             adapter = AdminHomeINAdapter(requireActivity()) {

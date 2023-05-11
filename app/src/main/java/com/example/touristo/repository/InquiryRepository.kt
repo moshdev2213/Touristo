@@ -32,5 +32,12 @@ class InquiryRepository(private val dao: InquiryDao, private val ioDispatcher: C
         }
         return userInquery
     }
+    suspend fun getAllInqueryCount():Int{
+        var userInquery:Int
+        withContext(ioDispatcher){
+            userInquery = dao.getAllInqueryCount()
+        }
+        return userInquery
+    }
 
 }
