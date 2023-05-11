@@ -50,17 +50,17 @@ class AdminBtmNotifyFrag : Fragment() {
             val inquiryDao = db.inquiryDao()
             val inquiryRepo = InquiryRepository(inquiryDao, Dispatchers.IO)
 
-            val count = inquiryRepo.getAllInqueryCount()
-            btnCountNotify.text = count.toString()
-            tvTotalCountOfNotifications.text = "You Have "+count.toString()+" Notifications"
+//            val count = inquiryRepo.getAllInqueryCount()
 
-            rvAdminNotifyFrag.layoutManager = LinearLayoutManager(context)
-            adapter = AdminHomeINAdapter(requireActivity()) {
-                initiateCardClick(it)
-            }
 
             lifecycleScope.launch(Dispatchers.Main){
                 //herachical touch error then put inside the lifecyclescope
+
+                rvAdminNotifyFrag.layoutManager = LinearLayoutManager(context)
+                adapter = AdminHomeINAdapter(requireActivity()) {
+                    initiateCardClick(it)
+                }
+
                 rvAdminNotifyFrag.adapter = adapter
                 adapter.setList(inquiryRepo.getAllInquiry())
             }

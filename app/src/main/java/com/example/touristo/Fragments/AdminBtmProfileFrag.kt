@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.cardview.widget.CardView
 import androidx.lifecycle.lifecycleScope
+import com.example.touristo.AboutUsFAQ
 import com.example.touristo.MainActivity
 import com.example.touristo.R
 import com.example.touristo.dbCon.TouristoDB
@@ -45,28 +46,21 @@ class AdminBtmProfileFrag : Fragment() {
         val view =  inflater.inflate(R.layout.fragment_admin_btm_profile, container, false)
 
         adminEmail = fragmentListener?.getTheAdminEmailBYInterface().toString()
-        println("pkoooooooooo email eka : "+adminEmail)
         cvEditProfileAdmin = view.findViewById(R.id.cvEditProfileAdmin)
         cvAdminFAQ = view.findViewById(R.id.cvAdminFAQ)
         cvAdminDelete = view.findViewById(R.id.cvAdminDelete)
         cvLogoutAdmin = view.findViewById(R.id.cvLogoutAdmin)
 
         cvEditProfileAdmin.setOnClickListener {
-
+            val intent = Intent(requireActivity(), AboutUsFAQ::class.java)
+            startActivity(intent)
         }
         cvAdminDelete.setOnClickListener {
-            yesNoDialog = YesNoDialog(requireContext())
-            yesNoDialog.yesNoConfirmDialog({
-                //do anything
-
-            },{
-                lifecycleScope.launch(Dispatchers.IO){
-                    deleteAdminUser(adminEmail)
-                }
-            })
+           Toast.makeText(requireActivity(),"Not Allowed",Toast.LENGTH_SHORT).show()
         }
         cvAdminFAQ.setOnClickListener {
-
+            val intent = Intent(requireActivity(), AboutUsFAQ::class.java)
+            startActivity(intent)
         }
         cvLogoutAdmin.setOnClickListener {
             progressLoader = context?.let { it1 ->
@@ -88,29 +82,5 @@ class AdminBtmProfileFrag : Fragment() {
         }
 
         return view
-    }
-
-    @RequiresApi(Build.VERSION_CODES.R)
-    private suspend fun deleteAdminUser(email:String){
-        // Get an instance of the TouristoDB database
-        db = TouristoDB.getInstance(requireActivity())
-        // Get the UserDao from the database
-        val adminDao = db.adminDao()
-        val adminRepo = AdminRepository(adminDao, Dispatchers.IO)
-        val result =adminRepo.deleteAdminByEmail(email)
-
-        lifecycleScope.launch(Dispatchers.Main){
-            progressLoader = ProgressLoader(requireActivity(),"Deleting","Please Wait.....")
-            if (result>0){
-                progressLoader.startProgressLoader()
-                delay(3000L)
-                progressLoader.dismissProgressLoader() // dismiss the dialog
-                val intent = Intent(requireActivity(), MainActivity::class.java)
-                startActivity(intent)
-                requireActivity().finish()
-            }else{
-                //do something
-            }
-        }
     }
 }

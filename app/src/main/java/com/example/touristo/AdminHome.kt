@@ -11,6 +11,7 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
@@ -19,12 +20,14 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.example.touristo.Fragments.*
 import com.example.touristo.dbCon.TouristoDB
+import com.example.touristo.dialogAlerts.ProgressLoader
 import com.example.touristo.fragmentListeners.AdminHomeFragListners
 import com.example.touristo.modal.Admin
 import com.example.touristo.repository.AdminRepository
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class AdminHome : AppCompatActivity(), AdminHomeFragListners {
@@ -34,6 +37,9 @@ private lateinit var btnNav : BottomNavigationView
 private lateinit var globalMail : String
 private lateinit var admin : Admin
 private lateinit var admHomeProImg : ImageView
+private lateinit var progressLoader: ProgressLoader
+
+    @RequiresApi(Build.VERSION_CODES.R)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_admin_home)
@@ -76,7 +82,20 @@ private lateinit var admHomeProImg : ImageView
 
                 }
                 R.id.nav_logout->{
-                    Toast.makeText(this,"Implementation In Process \uD83D\uDE0E",Toast.LENGTH_SHORT).show()
+                    progressLoader =  ProgressLoader(
+                        this@AdminHome,"Logging Out","Please Wait..."
+                    )
+                    progressLoader.startProgressLoader()
+
+
+                    // start a coroutine to dismiss the dialog after 5 seconds
+                    lifecycleScope.launch {
+                        delay(3000L) // delay for 5 seconds
+                        progressLoader.dismissProgressLoader() // dismiss the dialog
+                        val intent = Intent(this@AdminHome, MainActivity::class.java)
+                        startActivity(intent)
+                        finish()
+                    }
                     drawerLayout.closeDrawers()
                 }
             }
