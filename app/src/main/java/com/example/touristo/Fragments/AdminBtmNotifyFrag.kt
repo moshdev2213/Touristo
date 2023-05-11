@@ -14,6 +14,7 @@ import com.example.touristo.R
 import com.example.touristo.adapter.AdminHomeINAdapter
 import com.example.touristo.adapter.UserHomeBLAdapter
 import com.example.touristo.dbCon.TouristoDB
+import com.example.touristo.dialogAlerts.AdminInqueryModal
 import com.example.touristo.modal.UserInquery
 import com.example.touristo.modalDTO.BookingDTO
 import com.example.touristo.repository.BookingRepository
@@ -26,6 +27,7 @@ class AdminBtmNotifyFrag : Fragment() {
     private lateinit var tvTotalCountOfNotifications:TextView
     private lateinit var adapter:AdminHomeINAdapter
     private lateinit var db:TouristoDB
+    private lateinit var adminInqueryModal:AdminInqueryModal
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -61,6 +63,9 @@ class AdminBtmNotifyFrag : Fragment() {
     }
 
     private fun initiateCardClick(it: UserInquery) {
-        Toast.makeText(requireActivity(),"dsdadadsada",Toast.LENGTH_SHORT).show()
+        adminInqueryModal = AdminInqueryModal(requireActivity())
+        adminInqueryModal.showModal(it.uemail,it.description,it.added) {
+            //doanything
+        }
     }
 }

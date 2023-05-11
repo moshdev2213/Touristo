@@ -25,7 +25,7 @@
             android:fontFamily="@font/montserrat_semibold"
             android:text="Vaticana"
             android:textColor="@color/btnSplash"
-            android:textSize="20sp"
+            android:textSize="16sp"
             app:layout_constraintStart_toEndOf="@+id/shapeableImageView2"
             app:layout_constraintTop_toTopOf="parent" />
 

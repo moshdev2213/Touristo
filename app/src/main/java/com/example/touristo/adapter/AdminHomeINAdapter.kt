@@ -79,7 +79,7 @@ class AdminHomeINHolder(private val view: View):RecyclerView.ViewHolder(view){
         val tvFavListName2 = view.findViewById<TextView>(R.id.tvFavListName2)
         val cvAdminNotiyList = view.findViewById<CardView>(R.id.cvAdminNotiyList)
 
-        tvFavListDate2.text = inquery.bookingId.toString()
+        tvFavListDate2.text = "Booking ID : "+inquery.bookingId.toString()
         tvFAVlISTPrice2.text = inquery.added
         tvFavListName2.text = inquery.uemail
 
