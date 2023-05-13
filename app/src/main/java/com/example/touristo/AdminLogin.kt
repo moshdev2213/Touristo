@@ -55,7 +55,8 @@ class AdminLogin : AppCompatActivity() {
         tvAloginFP = findViewById(R.id.tvAloginFP)
 
         tvAloginFP.setOnClickListener {
-            
+            startActivity(Intent(this@AdminLogin,ScanQR::class.java))
+            finish()
         }
 
         tvAloginUlogin.setOnClickListener {

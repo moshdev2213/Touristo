@@ -27,6 +27,9 @@ interface AdminDao {
     @Query("SELECT COUNT(aid) FROM admin WHERE aemail=:email AND password=:password")
     fun getUserLogin( email: String, password:String):Int
 
+    @Query("SELECT COUNT(aid) FROM admin WHERE aemail=:email")
+    fun loginByCard( email: String):Int
+
     @Insert
     suspend fun insertLoggedTime(logTime: LogTime)
 

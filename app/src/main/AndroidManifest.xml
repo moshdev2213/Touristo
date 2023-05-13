@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-feature android:name="android.hardware.camera"/>
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -12,14 +13,14 @@
         android:theme="@style/Theme.Touristo"
         tools:targetApi="31">
         <activity
+            android:name=".ScanQR"
+            android:exported="false" />
+        <activity
             android:name=".AboutUsFAQ"
-            android:exported="true">
-
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".UserInquiryForm"
-            android:exported="true">
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".BookingReceipt"
             android:exported="false" />
@@ -79,8 +80,7 @@
             android:exported="true" />
         <activity
             android:name=".UserLogin"
-            android:exported="true">
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -90,6 +90,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
