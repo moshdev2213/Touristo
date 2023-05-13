@@ -52,7 +52,11 @@ class AdminLogin : AppCompatActivity() {
         etAloginPass = findViewById(R.id.etAloginPass)
         tvAloginUlogin = findViewById(R.id.tvAloginUlogin)
         btnAlogin = findViewById(R.id.btnAlogin)
+        tvAloginFP = findViewById(R.id.tvAloginFP)
 
+        tvAloginFP.setOnClickListener {
+            
+        }
 
         tvAloginUlogin.setOnClickListener {
             startActivity(Intent(this@AdminLogin,UserLogin::class.java))
