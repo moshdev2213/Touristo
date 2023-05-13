@@ -32,6 +32,15 @@ class AdminRepository(private val dao: AdminDao, private val ioDispatcher: Corou
 
         return userExists
     }
+
+    suspend fun loginByCard(email:String):Int{
+        var userExists = -1
+        withContext(ioDispatcher) {
+            userExists=dao.loginByCard(email)
+        }
+
+        return userExists
+    }
     suspend fun insertLoggedTime(logTime: LogTime){
         withContext(ioDispatcher) {
             dao.insertLoggedTime(logTime)

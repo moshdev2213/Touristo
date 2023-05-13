@@ -60,7 +60,7 @@ class MainActivity : AppCompatActivity() {
                 1,
                 "Mallika",
                 "Siriwardhane",
-                "mosh221@gmail.com",
+                "moshdev221@gmail.com",
                 "Amma12345",
                 "propic1",
                 "0675423441",
